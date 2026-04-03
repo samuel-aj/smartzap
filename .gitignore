@@ -125,3 +125,8 @@ PRD-campaigns-new.md
 # Docs (dev-only, kept locally) - /docs/ ignora apenas na raiz
 /docs/
 .env*.local
+
+# Audit reports e arquivos de teste local
+AUDIT_*.md
+BUG_INVESTIGATION_REPORT_*.md
+test-*.csv
