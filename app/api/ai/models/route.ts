@@ -88,23 +88,17 @@ async function fetchOpenAIModels(apiKey: string): Promise<AIModelInfo[]> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const all: AIModelInfo[] = (data.data ?? [])
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .filter((m: any) => m.id.startsWith('gpt-') && !isExcluded(m.id))
+    .filter((m: any) => m.id.startsWith('gpt-') && !isExcluded(m.id) && !/-\d{4}/.test(m.id))
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .map((m: any) => ({
       id: m.id as string,
       name: m.id as string,
       provider: 'openai' as const,
-      // Alias = sem número de 4 dígitos após hífen
-      // gpt-4o, gpt-4.1, gpt-4-turbo → alias
-      // gpt-4o-2024-11-20, gpt-4-0613, gpt-4-1106-preview → versão fixa
-      isAlias: !/-\d{4}/.test(m.id),
+      isAlias: true, // todos os modelos retornados são aliases (sem data = sempre atualizados)
     }))
+    .sort((a: AIModelInfo, b: AIModelInfo) => b.id.localeCompare(a.id))
 
-  // Aliases primeiro (sem data = sempre atualizado), depois versões fixas mais recente → mais antigo
-  const aliases = all.filter((m) => m.isAlias).sort((a, b) => b.id.localeCompare(a.id))
-  const pinned = all.filter((m) => !m.isAlias).sort((a, b) => b.id.localeCompare(a.id))
-
-  return [...aliases, ...pinned]
+  return all
 }
 
 /**
