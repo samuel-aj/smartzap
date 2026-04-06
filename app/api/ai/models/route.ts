@@ -10,6 +10,7 @@ export interface AIModelInfo {
 }
 
 const EXCLUDED_PATTERNS = [
+  // Gemini: modelos especializados (não são chat/texto)
   'tts',
   'image',
   'robotics',
@@ -19,6 +20,9 @@ const EXCLUDED_PATTERNS = [
   'gemma',
   'nano-banana',
   'embedding',
+  // OpenAI: modelos não adequados para agentes de atendimento
+  'gpt-3.5',  // muito antigo
+  'instruct', // completion API, não chat
 ]
 
 function isExcluded(id: string): boolean {
@@ -81,20 +85,26 @@ async function fetchOpenAIModels(apiKey: string): Promise<AIModelInfo[]> {
   if (!res.ok) throw new Error(`OpenAI API error: HTTP ${res.status}`)
 
   const data = await res.json()
-  return (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const all: AIModelInfo[] = (data.data ?? [])
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (data.data ?? [])
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .filter((m: any) => m.id.startsWith('gpt-') || /^o\d/.test(m.id))
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .map((m: any) => ({
-        id: m.id as string,
-        name: m.id as string,
-        provider: 'openai' as const,
-        isAlias: false,
-      }))
-      .sort((a: AIModelInfo, b: AIModelInfo) => b.id.localeCompare(a.id))
-  )
+    .filter((m: any) => m.id.startsWith('gpt-') && !isExcluded(m.id))
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((m: any) => ({
+      id: m.id as string,
+      name: m.id as string,
+      provider: 'openai' as const,
+      // Alias = sem número de 4 dígitos após hífen
+      // gpt-4o, gpt-4.1, gpt-4-turbo → alias
+      // gpt-4o-2024-11-20, gpt-4-0613, gpt-4-1106-preview → versão fixa
+      isAlias: !/-\d{4}/.test(m.id),
+    }))
+
+  // Aliases primeiro (sem data = sempre atualizado), depois versões fixas mais recente → mais antigo
+  const aliases = all.filter((m) => m.isAlias).sort((a, b) => b.id.localeCompare(a.id))
+  const pinned = all.filter((m) => !m.isAlias).sort((a, b) => b.id.localeCompare(a.id))
+
+  return [...aliases, ...pinned]
 }
 
 /**
