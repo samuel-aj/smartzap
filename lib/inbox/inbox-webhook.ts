@@ -45,7 +45,7 @@ const getQStashClient = () => {
     console.warn('[Inbox] QSTASH_TOKEN não configurado, AI processing não disponível')
     return null
   }
-  return new Client({ token })
+  return new Client({ token, baseUrl: 'https://qstash-us-east-1.upstash.io' })
 }
 
 // =============================================================================

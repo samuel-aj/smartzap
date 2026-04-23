@@ -1032,7 +1032,7 @@ export async function POST(request: NextRequest) {
       }
 
       // PROD: Use QStash for reliable async execution
-      const workflowClient = new Client({ token: process.env.QSTASH_TOKEN })
+      const workflowClient = new Client({ token: process.env.QSTASH_TOKEN, baseUrl: 'https://qstash-us-east-1.upstash.io' })
       try {
         // Headers para bypass de Vercel Deployment Protection
         const headers: Record<string, string> = {}

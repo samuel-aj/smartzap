@@ -26,7 +26,7 @@ export async function syncWorkflowSchedule(config: ScheduleConfig) {
     .eq("id", config.workflowId)
     .maybeSingle<{ schedule_qstash_message_id: string | null }>();
 
-  const qstash = new QStashClient({ token: process.env.QSTASH_TOKEN });
+  const qstash = new QStashClient({ token: process.env.QSTASH_TOKEN, baseUrl: 'https://qstash-us-east-1.upstash.io' });
 
   if (workflow?.schedule_qstash_message_id) {
     try {
@@ -81,7 +81,7 @@ export async function clearWorkflowSchedule(workflowId: string) {
 
   if (workflow?.schedule_qstash_message_id && process.env.QSTASH_TOKEN) {
     try {
-      const qstash = new QStashClient({ token: process.env.QSTASH_TOKEN });
+      const qstash = new QStashClient({ token: process.env.QSTASH_TOKEN, baseUrl: 'https://qstash-us-east-1.upstash.io' });
       await qstash.messages.delete(workflow.schedule_qstash_message_id);
     } catch {
       // ignore
