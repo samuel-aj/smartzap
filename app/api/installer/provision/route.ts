@@ -178,30 +178,21 @@ async function validateVercelToken(token: string): Promise<{ projectId: string; 
 }
 
 async function validateQStashToken(token: string): Promise<void> {
-  // Detecta região via JWT (mesmo padrão de /api/installer/qstash/validate)
-  let qstashBaseUrl = 'https://qstash.upstash.io';
-  try {
-    const payloadB64 = token.split('.')[1];
-    if (payloadB64) {
-      const payload = JSON.parse(Buffer.from(payloadB64, 'base64url').toString());
-      if (payload.iss && typeof payload.iss === 'string') {
-        qstashBaseUrl = payload.iss.replace(/\/$/, '');
-      }
-    }
-  } catch {
-    // JWT indecodificável: usa fallback genérico
-  }
-
-  const res = await fetchWithTimeout(`${qstashBaseUrl}/v2/schedules`, {
+  // Hardcode us-east-1 — mesmo endpoint de /api/installer/qstash/validate.
+  // O form de instalação exige QStash criado em us-east-1.
+  const res = await fetchWithTimeout('https://qstash-us-east-1.upstash.io/v2/schedules', {
     headers: { Authorization: `Bearer ${token}` },
   });
 
-  if (!res.ok) {
-    if (res.status === 401 || res.status === 403) {
-      throw new Error('Token QStash inválido. Copie o QSTASH_TOKEN do console Upstash → QStash → Details.');
-    }
-    throw new Error('Erro ao validar token QStash');
+  if (res.ok) return;
+
+  if (res.status === 401 || res.status === 403) {
+    throw new Error('Token QStash inválido. Copie o QSTASH_TOKEN do console Upstash → QStash → Details.');
   }
+
+  const bodySnippet = await res.text().catch(() => '');
+  const detail = bodySnippet ? ` — ${bodySnippet.slice(0, 200)}` : '';
+  throw new Error(`Erro ao validar token QStash (HTTP ${res.status} ${res.statusText})${detail}`);
 }
 
 async function validateRedisCredentials(url: string, token: string): Promise<void> {
