@@ -65,7 +65,7 @@ export async function POST(_request: Request, { params }: Params) {
     // Best-effort cancel in QStash
     if (messageId && process.env.QSTASH_TOKEN) {
       try {
-        const qstash = new QStashClient({ token: process.env.QSTASH_TOKEN })
+        const qstash = new QStashClient({ token: process.env.QSTASH_TOKEN, baseUrl: 'https://qstash-us-east-1.upstash.io' })
         await qstash.messages.delete(messageId)
       } catch (e) {
         // If already executed or not found, we still proceed to clear DB.

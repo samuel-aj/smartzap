@@ -228,7 +228,7 @@ export async function POST(request: Request) {
         const dedupeSafeIso = scheduledAtIso.replace(/:/g, '_')
 
         try {
-          const qstash = new QStashClient({ token: process.env.QSTASH_TOKEN })
+          const qstash = new QStashClient({ token: process.env.QSTASH_TOKEN, baseUrl: 'https://qstash-us-east-1.upstash.io' })
           const res = await qstash.publishJSON({
             url: `${baseUrl}/api/campaign/dispatch`,
             body: {

@@ -690,7 +690,7 @@ export async function POST(_request: Request, { params }: Params) {
         )
       }
 
-      const workflowClient = new Client({ token: process.env.QSTASH_TOKEN })
+      const workflowClient = new Client({ token: process.env.QSTASH_TOKEN, baseUrl: 'https://qstash-us-east-1.upstash.io' })
       await workflowClient.trigger({
         url: `${baseUrl}/api/campaign/workflow`,
         body: workflowPayload,

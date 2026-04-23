@@ -61,7 +61,7 @@ export async function enqueueWebhookStatusReconcileBestEffort(reason: string): P
   const secret = getReconcileSecret()
   if (!secret) return
 
-  const client = new Client({ token })
+  const client = new Client({ token, baseUrl: 'https://qstash-us-east-1.upstash.io' })
 
   // Dedupe to avoid flooding: one job per 5-min bucket.
   const bucket = Math.floor(Date.now() / (5 * 60 * 1000))
