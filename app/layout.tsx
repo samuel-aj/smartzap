@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import { ThemedToaster } from '@/components/ui/themed-toaster'
 
-const inter = Inter({
+const rubik = Rubik({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-rubik',
 })
 
 export const viewport: Viewport = {
@@ -54,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={inter.variable} suppressHydrationWarning>
+    <html lang="pt-BR" className={rubik.variable} suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Providers>
           <ThemedToaster />
