@@ -30,7 +30,7 @@ function CopyButton({ text, className }: { text: string; className?: string }) {
       )}
       title="Copiar"
     >
-      {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+      {copied ? <Check className="w-3.5 h-3.5 text-purple-400" /> : <Copy className="w-3.5 h-3.5" />}
     </button>
   )
 }
@@ -84,7 +84,7 @@ function SectionHeader({
   return (
     <div className="mb-8">
       <div className="flex items-center gap-3 mb-2">
-        <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+        <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
           <Icon className="w-5 h-5" />
         </div>
         <h2 className="text-heading-2 text-white">{title}</h2>
@@ -154,7 +154,7 @@ export default function DesignSystemPage() {
               className={cn(
                 'flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all',
                 activeTab === tab.id
-                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                  ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
                   : 'bg-zinc-800/50 text-zinc-400 border border-transparent hover:bg-zinc-800 hover:text-zinc-300'
               )}
             >
@@ -191,14 +191,14 @@ function ColorsSection() {
         <SectionHeader
           icon={Palette}
           title="Cores da Marca"
-          description="A paleta principal do SmartZap, inspirada no WhatsApp com tons de emerald."
+          description="A paleta principal do SmartZap, alinhada ao design system Anúncio Jurídico com tons de roxo."
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-          <ColorSwatch name="Primary" value="#10b981" cssVar="var(--ds-brand-primary)" />
-          <ColorSwatch name="Hover" value="#059669" cssVar="var(--ds-brand-primary-hover)" />
-          <ColorSwatch name="Active" value="#047857" cssVar="var(--ds-brand-primary-active)" />
-          <ColorSwatch name="Muted" value="rgba(16, 185, 129, 0.1)" cssVar="var(--ds-brand-primary-muted)" />
-          <ColorSwatch name="Text" value="#34d399" cssVar="var(--ds-text-brand)" />
+          <ColorSwatch name="Primary" value="#9333ea" cssVar="var(--ds-brand-primary)" />
+          <ColorSwatch name="Hover" value="#7e22ce" cssVar="var(--ds-brand-primary-hover)" />
+          <ColorSwatch name="Active" value="#6b21a8" cssVar="var(--ds-brand-primary-active)" />
+          <ColorSwatch name="Muted" value="rgba(147, 51, 234, 0.1)" cssVar="var(--ds-brand-primary-muted)" />
+          <ColorSwatch name="Text" value="#c084fc" cssVar="var(--ds-text-brand)" />
         </div>
       </section>
 
@@ -242,9 +242,9 @@ function ColorsSection() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-zinc-300">Success</h4>
-            <ColorSwatch name="Base" value="#10b981" cssVar="var(--ds-status-success)" />
-            <ColorSwatch name="Text" value="#34d399" cssVar="var(--ds-status-success-text)" />
-            <ColorSwatch name="Bg" value="rgba(16, 185, 129, 0.1)" cssVar="var(--ds-status-success-bg)" />
+            <ColorSwatch name="Base" value="#22c55e" cssVar="var(--ds-status-success)" />
+            <ColorSwatch name="Text" value="#4ade80" cssVar="var(--ds-status-success-text)" />
+            <ColorSwatch name="Bg" value="rgba(34, 197, 94, 0.1)" cssVar="var(--ds-status-success-bg)" />
           </div>
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-zinc-300">Error</h4>
@@ -276,16 +276,16 @@ function ColorsSection() {
         />
         <div className="grid grid-cols-5 sm:grid-cols-11 gap-2">
           {[
-            { name: '50', value: '#ecfdf5', dark: true },
-            { name: '100', value: '#d1fae5', dark: true },
-            { name: '200', value: '#a7f3d0', dark: true },
-            { name: '300', value: '#6ee7b7', dark: true },
-            { name: '400', value: '#34d399', dark: false },
-            { name: '500', value: '#10b981', dark: false },
-            { name: '600', value: '#059669', dark: false },
-            { name: '700', value: '#047857', dark: false },
-            { name: '800', value: '#065f46', dark: false },
-            { name: '900', value: '#064e3b', dark: false },
+            { name: '50', value: '#faf5ff', dark: true },
+            { name: '100', value: '#f3e8ff', dark: true },
+            { name: '200', value: '#e9d5ff', dark: true },
+            { name: '300', value: '#d8b4fe', dark: true },
+            { name: '400', value: '#c084fc', dark: false },
+            { name: '500', value: '#9333ea', dark: false },
+            { name: '600', value: '#7e22ce', dark: false },
+            { name: '700', value: '#6b21a8', dark: false },
+            { name: '800', value: '#581c87', dark: false },
+            { name: '900', value: '#3b0764', dark: false },
             { name: '950', value: '#022c22', dark: false },
           ].map((color) => (
             <div key={color.name} className="group">
@@ -321,7 +321,7 @@ function TypographySection() {
         />
         <div className="grid md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl bg-zinc-900 border border-white/10">
-            <p className="text-sm text-emerald-400 font-mono mb-2">--ds-font-display</p>
+            <p className="text-sm text-purple-400 font-mono mb-2">--ds-font-display</p>
             <p className="font-display text-3xl text-white mb-3">Satoshi</p>
             <p className="text-zinc-400 text-sm">Usada em headings e elementos de destaque. Geométrica e moderna.</p>
             <div className="mt-4 pt-4 border-t border-white/10">
@@ -332,7 +332,7 @@ function TypographySection() {
           </div>
 
           <div className="p-6 rounded-2xl bg-zinc-900 border border-white/10">
-            <p className="text-sm text-emerald-400 font-mono mb-2">--ds-font-body</p>
+            <p className="text-sm text-purple-400 font-mono mb-2">--ds-font-body</p>
             <p className="font-body text-3xl text-white mb-3">Inter</p>
             <p className="text-zinc-400 text-sm">Usada em texto corrido e UI. Excelente legibilidade em telas.</p>
             <div className="mt-4 pt-4 border-t border-white/10">
@@ -343,7 +343,7 @@ function TypographySection() {
           </div>
 
           <div className="p-6 rounded-2xl bg-zinc-900 border border-white/10">
-            <p className="text-sm text-emerald-400 font-mono mb-2">--ds-font-mono</p>
+            <p className="text-sm text-purple-400 font-mono mb-2">--ds-font-mono</p>
             <p className="font-mono text-3xl text-white mb-3">JetBrains Mono</p>
             <p className="text-zinc-400 text-sm">Usada em código e números. Monospace com ligatures.</p>
             <div className="mt-4 pt-4 border-t border-white/10">
@@ -377,7 +377,7 @@ function TypographySection() {
           ].map((style) => (
             <div key={style.class} className="flex items-center gap-6 p-4 rounded-xl bg-zinc-900/50 border border-white/5">
               <div className="w-32 shrink-0">
-                <code className="text-xs text-emerald-400 font-mono">.{style.class}</code>
+                <code className="text-xs text-purple-400 font-mono">.{style.class}</code>
               </div>
               <div className="flex-1">
                 <p className={cn(style.class, 'text-white')}>{style.example}</p>
@@ -452,10 +452,10 @@ function SpacingSection() {
           {spacingScale.map((space) => (
             <div key={space.name} className="flex items-center gap-4">
               <div className="w-16 text-right">
-                <code className="text-sm text-emerald-400 font-mono">{space.name}</code>
+                <code className="text-sm text-purple-400 font-mono">{space.name}</code>
               </div>
               <div
-                className="h-6 bg-emerald-500/30 border border-emerald-500/50 rounded"
+                className="h-6 bg-purple-500/30 border border-purple-500/50 rounded"
                 style={{ width: space.value }}
               />
               <div className="flex items-center gap-3 text-sm">
@@ -478,13 +478,13 @@ function SpacingSection() {
           {gapPresets.map((preset) => (
             <div key={preset.name} className="p-4 rounded-xl bg-zinc-900 border border-white/10">
               <div className="flex items-center gap-2 mb-3">
-                <code className="text-xs text-emerald-400 font-mono">{preset.name}</code>
+                <code className="text-xs text-purple-400 font-mono">{preset.name}</code>
                 <CopyButton text={`var(${preset.css})`} />
               </div>
               <div className="flex gap-1" style={{ gap: preset.value }}>
-                <div className="w-6 h-6 rounded bg-emerald-500/30 border border-emerald-500/50" />
-                <div className="w-6 h-6 rounded bg-emerald-500/30 border border-emerald-500/50" />
-                <div className="w-6 h-6 rounded bg-emerald-500/30 border border-emerald-500/50" />
+                <div className="w-6 h-6 rounded bg-purple-500/30 border border-purple-500/50" />
+                <div className="w-6 h-6 rounded bg-purple-500/30 border border-purple-500/50" />
+                <div className="w-6 h-6 rounded bg-purple-500/30 border border-purple-500/50" />
               </div>
               <p className="text-xs text-zinc-500 mt-2">{preset.value}</p>
             </div>
@@ -514,7 +514,7 @@ function SpacingSection() {
                 <p className="text-xs text-zinc-500">{item.desc}</p>
               </div>
               <div className="flex items-center gap-3">
-                <code className="text-xs text-emerald-400 font-mono">{item.value}</code>
+                <code className="text-xs text-purple-400 font-mono">{item.value}</code>
                 <CopyButton text={`var(${item.css})`} />
               </div>
             </div>
@@ -563,7 +563,7 @@ function ShadowsSection() {
               style={{ boxShadow: `var(${shadow.css})` }}
             >
               <div className="flex items-center justify-between mb-2">
-                <code className="text-sm text-emerald-400 font-mono">{shadow.name}</code>
+                <code className="text-sm text-purple-400 font-mono">{shadow.name}</code>
                 <CopyButton text={`var(${shadow.css})`} />
               </div>
               <p className="text-xs text-zinc-500">{shadow.desc}</p>
@@ -585,12 +585,12 @@ function ShadowsSection() {
               key={glow.name}
               className={cn(
                 'p-6 rounded-2xl border',
-                glow.color === 'emerald' ? 'bg-emerald-500/10 border-emerald-500/30' : 'bg-red-500/10 border-red-500/30'
+                glow.color === 'emerald' ? 'bg-purple-500/10 border-purple-500/30' : 'bg-red-500/10 border-red-500/30'
               )}
               style={{ boxShadow: `var(${glow.css})` }}
             >
               <div className="flex items-center justify-between mb-2">
-                <code className="text-sm text-emerald-400 font-mono">{glow.name}</code>
+                <code className="text-sm text-purple-400 font-mono">{glow.name}</code>
                 <CopyButton text={`var(${glow.css})`} />
               </div>
             </div>
@@ -620,7 +620,7 @@ function ShadowsSection() {
               style={{ boxShadow: `var(${shadow.css})` }}
             >
               <div className="flex items-center justify-between">
-                <code className="text-sm text-emerald-400 font-mono">{shadow.name}</code>
+                <code className="text-sm text-purple-400 font-mono">{shadow.name}</code>
                 <CopyButton text={`var(${shadow.css})`} />
               </div>
             </div>
@@ -661,10 +661,10 @@ function BordersSection() {
           {radiusScale.map((radius) => (
             <div key={radius.name} className="text-center">
               <div
-                className="w-16 h-16 mx-auto bg-emerald-500/20 border-2 border-emerald-500/50 mb-2"
+                className="w-16 h-16 mx-auto bg-purple-500/20 border-2 border-purple-500/50 mb-2"
                 style={{ borderRadius: radius.value }}
               />
-              <code className="text-xs text-emerald-400 font-mono block">{radius.name}</code>
+              <code className="text-xs text-purple-400 font-mono block">{radius.name}</code>
               <span className="text-[10px] text-zinc-500">{radius.value}</span>
             </div>
           ))}
@@ -690,7 +690,7 @@ function BordersSection() {
               style={{ border: `1px solid var(${border.css})` }}
             >
               <div className="flex items-center justify-between mb-2">
-                <code className="text-sm text-emerald-400 font-mono">{border.name}</code>
+                <code className="text-sm text-purple-400 font-mono">{border.name}</code>
                 <CopyButton text={`var(${border.css})`} />
               </div>
               <p className="text-xs text-zinc-500">rgba(255, 255, 255, {border.opacity})</p>
@@ -751,11 +751,11 @@ function MotionSection() {
           {durations.map((dur) => (
             <div key={dur.name} className="flex items-center gap-4 p-4 rounded-xl bg-zinc-900/50 border border-white/5">
               <div className="w-24">
-                <code className="text-sm text-emerald-400 font-mono">{dur.name}</code>
+                <code className="text-sm text-purple-400 font-mono">{dur.name}</code>
               </div>
               <div className="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-emerald-500 rounded-full animate-pulse"
+                  className="h-full bg-purple-500 rounded-full animate-pulse"
                   style={{ width: `${parseInt(dur.value) / 5}%` }}
                 />
               </div>
@@ -779,13 +779,13 @@ function MotionSection() {
           {easings.map((easing) => (
             <div key={easing.name} className="p-4 rounded-xl bg-zinc-900 border border-white/10">
               <div className="flex items-center justify-between mb-2">
-                <code className="text-xs text-emerald-400 font-mono">{easing.name}</code>
+                <code className="text-xs text-purple-400 font-mono">{easing.name}</code>
                 <CopyButton text={`var(${easing.css})`} />
               </div>
               <p className="text-xs text-zinc-500 mb-3">{easing.desc}</p>
               <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
                 <div
-                  className="w-1/2 h-full bg-emerald-500 rounded-full"
+                  className="w-1/2 h-full bg-purple-500 rounded-full"
                   style={{
                     animation: 'slideRight 2s infinite',
                     animationTimingFunction: `var(${easing.css})`,
@@ -809,15 +809,15 @@ function MotionSection() {
             <button
               key={anim.name}
               onClick={() => playAnimation(anim.name)}
-              className="p-6 rounded-xl bg-zinc-900 border border-white/10 hover:border-emerald-500/30 transition-colors"
+              className="p-6 rounded-xl bg-zinc-900 border border-white/10 hover:border-purple-500/30 transition-colors"
             >
               <div
                 className={cn(
-                  'w-12 h-12 mx-auto mb-3 rounded-xl bg-emerald-500/20 border border-emerald-500/50',
+                  'w-12 h-12 mx-auto mb-3 rounded-xl bg-purple-500/20 border border-purple-500/50',
                   playingAnimation === anim.name && anim.class
                 )}
               />
-              <code className="text-xs text-emerald-400 font-mono">.{anim.class}</code>
+              <code className="text-xs text-purple-400 font-mono">.{anim.class}</code>
             </button>
           ))}
         </div>
@@ -841,12 +841,12 @@ function MotionSection() {
               <div className="relative w-12 h-12 mx-auto mb-3">
                 <div
                   className={cn(
-                    'w-full h-full rounded-xl bg-emerald-500/20 border border-emerald-500/50',
+                    'w-full h-full rounded-xl bg-purple-500/20 border border-purple-500/50',
                     anim.class
                   )}
                 />
               </div>
-              <code className="text-xs text-emerald-400 font-mono">.{anim.class}</code>
+              <code className="text-xs text-purple-400 font-mono">.{anim.class}</code>
             </div>
           ))}
         </div>
@@ -872,7 +872,7 @@ function PatternsSection() {
         <div className="p-6 rounded-2xl bg-zinc-900 border border-white/10">
           <p className="text-zinc-300 mb-4">
             Os padrões definem <strong>como usar</strong> os tokens do Design System para criar interfaces consistentes.
-            Import os componentes de <code className="text-emerald-400">@/components/patterns</code>.
+            Import os componentes de <code className="text-purple-400">@/components/patterns</code>.
           </p>
           <pre className="bg-zinc-950/60 p-4 rounded-xl text-sm font-mono overflow-x-auto">
             <code className="text-zinc-300">{`import {
@@ -906,11 +906,11 @@ function PatternsSection() {
                 { order: '6', name: 'Pagination', desc: 'Navegação entre páginas' },
               ].map((item) => (
                 <div key={item.order} className="flex items-center gap-3 p-2 rounded-lg bg-zinc-800/50">
-                  <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-xs font-bold flex items-center justify-center">
                     {item.order}
                   </span>
                   <div>
-                    <code className="text-emerald-400 text-xs">{item.name}</code>
+                    <code className="text-purple-400 text-xs">{item.name}</code>
                     <p className="text-zinc-500 text-xs">{item.desc}</p>
                   </div>
                 </div>
@@ -986,7 +986,7 @@ function PatternsSection() {
               name: 'PrimaryAction',
               desc: 'Ação principal da página',
               example: '+ Novo Item',
-              style: 'bg-emerald-500 text-white',
+              style: 'bg-purple-500 text-white',
             },
             {
               name: 'SecondaryAction',
@@ -1008,7 +1008,7 @@ function PatternsSection() {
             },
           ].map((btn) => (
             <div key={btn.name} className="p-4 rounded-xl bg-zinc-900 border border-white/10">
-              <code className="text-xs text-emerald-400 font-mono block mb-2">{btn.name}</code>
+              <code className="text-xs text-purple-400 font-mono block mb-2">{btn.name}</code>
               <div className={cn('px-4 py-2 rounded-lg text-sm font-medium inline-flex items-center gap-2 mb-3', btn.style)}>
                 {btn.example}
               </div>
@@ -1038,17 +1038,17 @@ function PatternsSection() {
             >
               <div className={cn(
                 'p-3 rounded-xl',
-                stat.variant === 'success' && 'bg-emerald-500/10',
+                stat.variant === 'success' && 'bg-green-500/10',
                 stat.variant === 'error' && 'bg-red-500/10',
                 stat.variant === 'warning' && 'bg-amber-500/10',
-                stat.variant === 'default' && 'bg-emerald-500/10',
+                stat.variant === 'default' && 'bg-purple-500/10',
               )}>
                 <stat.icon className={cn(
                   'w-5 h-5',
-                  stat.variant === 'success' && 'text-emerald-400',
+                  stat.variant === 'success' && 'text-green-400',
                   stat.variant === 'error' && 'text-red-400',
                   stat.variant === 'warning' && 'text-amber-400',
-                  stat.variant === 'default' && 'text-emerald-400',
+                  stat.variant === 'default' && 'text-purple-400',
                 )} />
               </div>
               <div>
@@ -1098,7 +1098,7 @@ function PatternsSection() {
             </button>
           </div>
           <div className="mt-3 text-sm text-zinc-500">
-            Mostrando <span className="text-emerald-400 font-medium">10</span> de{' '}
+            Mostrando <span className="text-purple-400 font-medium">10</span> de{' '}
             <span className="text-white font-medium">1.234</span> itens
           </div>
         </div>
@@ -1112,17 +1112,17 @@ function PatternsSection() {
           description="Siga estas regras para manter a interface consistente."
         />
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
-            <h4 className="text-emerald-400 font-medium mb-4 flex items-center gap-2">
+          <div className="p-6 rounded-2xl bg-purple-500/5 border border-purple-500/20">
+            <h4 className="text-purple-400 font-medium mb-4 flex items-center gap-2">
               <Check className="w-5 h-5" /> FAÇA
             </h4>
             <ul className="space-y-2 text-sm text-zinc-300">
-              <li>✓ Use <code className="text-emerald-400">PrimaryAction</code> para a ação principal</li>
+              <li>✓ Use <code className="text-purple-400">PrimaryAction</code> para a ação principal</li>
               <li>✓ Posicione ações principais à <strong>direita</strong> do header</li>
-              <li>✓ Inclua <code className="text-emerald-400">StatsRow</code> em todas as listagens</li>
-              <li>✓ Use <code className="text-emerald-400">FilterBar</code> com Search + Dropdowns</li>
+              <li>✓ Inclua <code className="text-purple-400">StatsRow</code> em todas as listagens</li>
+              <li>✓ Use <code className="text-purple-400">FilterBar</code> com Search + Dropdowns</li>
               <li>✓ Mantenha a ordem: Header → Stats → Filters → Content</li>
-              <li>✓ Use <code className="text-emerald-400">Pagination</code> para listas longas</li>
+              <li>✓ Use <code className="text-purple-400">Pagination</code> para listas longas</li>
             </ul>
           </div>
           <div className="p-6 rounded-2xl bg-red-500/5 border border-red-500/20">
@@ -1154,7 +1154,7 @@ function PatternsSection() {
         <div className="p-6 rounded-2xl bg-zinc-900 border border-white/10">
           <p className="text-zinc-300 mb-4">
             Wizards são usados para formulários complexos divididos em passos.
-            Import os componentes de <code className="text-emerald-400">@/components/patterns</code>.
+            Import os componentes de <code className="text-purple-400">@/components/patterns</code>.
           </p>
           <pre className="bg-zinc-950/60 p-4 rounded-xl text-sm font-mono overflow-x-auto">
             <code className="text-zinc-300">{`import {
@@ -1193,11 +1193,11 @@ function PatternsSection() {
                 { order: '6', name: 'WizardActions', desc: 'Voltar | Próximo/Salvar' },
               ].map((item) => (
                 <div key={item.order} className="flex items-center gap-3 p-2 rounded-lg bg-zinc-800/50">
-                  <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-xs font-bold flex items-center justify-center">
                     {item.order}
                   </span>
                   <div>
-                    <code className="text-emerald-400 text-xs">{item.name}</code>
+                    <code className="text-purple-400 text-xs">{item.name}</code>
                     <p className="text-zinc-500 text-xs">{item.desc}</p>
                   </div>
                 </div>
@@ -1273,7 +1273,7 @@ function PatternsSection() {
                 <button
                   className={cn(
                     'flex items-center gap-3 px-4 py-3 rounded-xl transition-all border',
-                    step.active && 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400',
+                    step.active && 'bg-green-500/10 border-green-500/30 text-green-400',
                     step.completed && 'bg-zinc-800/50 border-white/10 text-zinc-300',
                     !step.active && !step.completed && 'bg-zinc-900/50 border-white/5 text-zinc-500'
                   )}
@@ -1281,8 +1281,8 @@ function PatternsSection() {
                   <div
                     className={cn(
                       'flex items-center justify-center w-8 h-8 rounded-full font-semibold text-sm',
-                      step.active && 'bg-emerald-500 text-white',
-                      step.completed && 'bg-emerald-500/20 text-emerald-400',
+                      step.active && 'bg-green-500 text-white',
+                      step.completed && 'bg-green-500/20 text-green-400',
                       !step.active && !step.completed && 'bg-zinc-800 text-zinc-500'
                     )}
                   >
@@ -1291,14 +1291,14 @@ function PatternsSection() {
                   <span className="font-medium uppercase tracking-wide text-sm">{step.label}</span>
                 </button>
                 {index < arr.length - 1 && (
-                  <div className={cn('flex-1 h-px max-w-8', step.completed ? 'bg-emerald-500/30' : 'bg-white/10')} />
+                  <div className={cn('flex-1 h-px max-w-8', step.completed ? 'bg-green-500/30' : 'bg-white/10')} />
                 )}
               </div>
             ))}
           </div>
           <p className="text-xs text-zinc-500">
-            <code className="text-emerald-400">Stepper</code> horizontal padrão |
-            Use <code className="text-emerald-400">VerticalStepper</code> para sidebars ou mobile
+            <code className="text-purple-400">Stepper</code> horizontal padrão |
+            Use <code className="text-purple-400">VerticalStepper</code> para sidebars ou mobile
           </p>
         </div>
       </section>
@@ -1334,7 +1334,7 @@ function PatternsSection() {
             </div>
           </div>
           <div className="mt-4 text-xs text-zinc-500">
-            Componentes: <code className="text-emerald-400">FormSection</code>, <code className="text-emerald-400">FormField</code>, <code className="text-emerald-400">FormRow</code>
+            Componentes: <code className="text-purple-400">FormSection</code>, <code className="text-purple-400">FormField</code>, <code className="text-purple-400">FormRow</code>
           </div>
         </div>
       </section>
@@ -1385,31 +1385,31 @@ function PatternsSection() {
             <h4 className="text-white font-medium mb-4">Componentes</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
-                <code className="text-emerald-400 text-xs shrink-0">SummaryPanel</code>
+                <code className="text-purple-400 text-xs shrink-0">SummaryPanel</code>
                 <span className="text-zinc-400">Container com título + badge</span>
               </li>
               <li className="flex items-start gap-3">
-                <code className="text-emerald-400 text-xs shrink-0">SummaryItem</code>
+                <code className="text-purple-400 text-xs shrink-0">SummaryItem</code>
                 <span className="text-zinc-400">Linha label: value</span>
               </li>
               <li className="flex items-start gap-3">
-                <code className="text-emerald-400 text-xs shrink-0">SummaryGroup</code>
+                <code className="text-purple-400 text-xs shrink-0">SummaryGroup</code>
                 <span className="text-zinc-400">Grupo com título</span>
               </li>
               <li className="flex items-start gap-3">
-                <code className="text-emerald-400 text-xs shrink-0">SummaryDivider</code>
+                <code className="text-purple-400 text-xs shrink-0">SummaryDivider</code>
                 <span className="text-zinc-400">Separador visual</span>
               </li>
               <li className="flex items-start gap-3">
-                <code className="text-emerald-400 text-xs shrink-0">SummaryPreview</code>
+                <code className="text-purple-400 text-xs shrink-0">SummaryPreview</code>
                 <span className="text-zinc-400">Container de preview</span>
               </li>
               <li className="flex items-start gap-3">
-                <code className="text-emerald-400 text-xs shrink-0">SummaryAlert</code>
+                <code className="text-purple-400 text-xs shrink-0">SummaryAlert</code>
                 <span className="text-zinc-400">Alerta/aviso</span>
               </li>
               <li className="flex items-start gap-3">
-                <code className="text-emerald-400 text-xs shrink-0">SummaryStats</code>
+                <code className="text-purple-400 text-xs shrink-0">SummaryStats</code>
                 <span className="text-zinc-400">Mini stats grid</span>
               </li>
             </ul>
@@ -1432,7 +1432,7 @@ function PatternsSection() {
               <button className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-950/60 border border-white/10 text-sm text-zinc-300">
                 <ArrowLeft className="w-4 h-4" /> Voltar
               </button>
-              <button className="px-4 py-2.5 rounded-lg bg-emerald-500 text-white text-sm font-medium">
+              <button className="px-4 py-2.5 rounded-lg bg-purple-500 text-white text-sm font-medium">
                 Próximo
               </button>
             </div>
@@ -1441,7 +1441,7 @@ function PatternsSection() {
           <div>
             <p className="text-xs text-zinc-500 mb-3">Primeiro passo (sem botão voltar):</p>
             <div className="flex items-center justify-end p-4 rounded-xl bg-zinc-800/50 border border-white/5">
-              <button className="px-4 py-2.5 rounded-lg bg-emerald-500 text-white text-sm font-medium">
+              <button className="px-4 py-2.5 rounded-lg bg-purple-500 text-white text-sm font-medium">
                 Próximo
               </button>
             </div>
@@ -1453,7 +1453,7 @@ function PatternsSection() {
               <button className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-950/60 border border-white/10 text-sm text-zinc-300">
                 <ArrowLeft className="w-4 h-4" /> Voltar
               </button>
-              <button className="px-4 py-2.5 rounded-lg bg-emerald-500 text-white text-sm font-medium">
+              <button className="px-4 py-2.5 rounded-lg bg-purple-500 text-white text-sm font-medium">
                 Salvar Campanha
               </button>
             </div>
@@ -1469,18 +1469,18 @@ function PatternsSection() {
           description="Siga estas regras para wizards consistentes."
         />
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
-            <h4 className="text-emerald-400 font-medium mb-4 flex items-center gap-2">
+          <div className="p-6 rounded-2xl bg-purple-500/5 border border-purple-500/20">
+            <h4 className="text-purple-400 font-medium mb-4 flex items-center gap-2">
               <Check className="w-5 h-5" /> FAÇA
             </h4>
             <ul className="space-y-2 text-sm text-zinc-300">
-              <li>✓ Use <code className="text-emerald-400">WizardPageLayout</code> para estrutura</li>
+              <li>✓ Use <code className="text-purple-400">WizardPageLayout</code> para estrutura</li>
               <li>✓ Inclua botão de voltar para a listagem</li>
-              <li>✓ Use <code className="text-emerald-400">Stepper</code> para 3+ passos</li>
+              <li>✓ Use <code className="text-purple-400">Stepper</code> para 3+ passos</li>
               <li>✓ Layout 2 colunas: Form (esquerda) + Summary (direita)</li>
-              <li>✓ Agrupe campos em <code className="text-emerald-400">FormSection</code></li>
-              <li>✓ Mostre progresso em tempo real no <code className="text-emerald-400">SummaryPanel</code></li>
-              <li>✓ Use <code className="text-emerald-400">WizardActions</code> no footer</li>
+              <li>✓ Agrupe campos em <code className="text-purple-400">FormSection</code></li>
+              <li>✓ Mostre progresso em tempo real no <code className="text-purple-400">SummaryPanel</code></li>
+              <li>✓ Use <code className="text-purple-400">WizardActions</code> no footer</li>
             </ul>
           </div>
           <div className="p-6 rounded-2xl bg-red-500/5 border border-red-500/20">

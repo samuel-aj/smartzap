@@ -99,10 +99,10 @@ export const TemplatePreviewRenderer: React.FC<TemplatePreviewRendererProps> = (
             case 'LOCATION':
                 return (
                     <div className="bg-[#202c33] rounded-lg rounded-tl-none shadow-sm mb-1 overflow-hidden">
-                        <div className="relative h-24 bg-gradient-to-br from-emerald-900/50 to-emerald-800/30">
+                        <div className="relative h-24 bg-gradient-to-br from-purple-900/50 to-purple-800/30">
                             {/* Grid pattern to simulate map */}
                             <div className="absolute inset-0 opacity-10" style={{
-                                backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)',
+                                backgroundImage: 'linear-gradient(#9333ea 1px, transparent 1px), linear-gradient(90deg, #9333ea 1px, transparent 1px)',
                                 backgroundSize: '20px 20px'
                             }} />
                             {/* Pin */}

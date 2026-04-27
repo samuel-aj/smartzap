@@ -360,7 +360,7 @@ export const useFlowBuilderController = (id: string) => {
           ? metaStatus
           : 'Rascunho'
   const statusClass = metaStatus === 'PUBLISHED'
-    ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-100'
+    ? 'border-purple-400/40 bg-purple-500/10 text-purple-100'
     : metaStatus === 'PENDING' || metaStatus === 'IN_REVIEW' || metaStatus === 'REJECTED' || metaStatus === 'ERROR' || hasMetaErrors
       ? 'border-amber-400/30 bg-amber-500/10 text-amber-200'
       : 'border-white/10 bg-zinc-950/40 text-gray-300'

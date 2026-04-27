@@ -24,24 +24,24 @@ const lightModeStyles = `
     --ds-text-primary: #18181b;
     --ds-text-secondary: #52525b;
     --ds-text-muted: #71717a;
-    --ds-text-brand: #059669;
+    --ds-text-brand: #7e22ce;
     --ds-text-disabled: #a1a1aa;
 
     /* Borders - Black alpha */
     --ds-border-subtle: rgba(0, 0, 0, 0.06);
     --ds-border-default: rgba(0, 0, 0, 0.10);
     --ds-border-strong: rgba(0, 0, 0, 0.15);
-    --ds-border-focus: #10b981;
+    --ds-border-focus: #9333ea;
 
     /* Brand (same) */
-    --ds-brand-primary: #10b981;
-    --ds-brand-primary-hover: #059669;
-    --ds-brand-primary-muted: rgba(16, 185, 129, 0.12);
+    --ds-brand-primary: #9333ea;
+    --ds-brand-primary-hover: #7e22ce;
+    --ds-brand-primary-muted: rgba(147, 51, 234, 0.12);
 
     /* Status Colors - Light Mode */
-    --ds-status-success: #10b981;
-    --ds-status-success-text: #047857;
-    --ds-status-success-bg: rgba(16, 185, 129, 0.12);
+    --ds-status-success: #22c55e;
+    --ds-status-success-text: #15803d;
+    --ds-status-success-bg: rgba(34, 197, 94, 0.12);
 
     --ds-status-error: #ef4444;
     --ds-status-error-text: #b91c1c;
@@ -67,14 +67,14 @@ const lightModeStyles = `
     --ds-shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
     --ds-shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.10), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
     --ds-shadow-button: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --ds-shadow-button-primary: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 0 0 1px rgba(16, 185, 129, 0.3);
+    --ds-shadow-button-primary: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 0 0 1px rgba(147, 51, 234, 0.3);
     --ds-shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
     --ds-shadow-dropdown: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
 
     /* Glow effects */
-    --ds-glow-brand-sm: 0 0 10px rgba(16, 185, 129, 0.15);
-    --ds-glow-brand-md: 0 0 20px rgba(16, 185, 129, 0.20);
-    --ds-glow-brand-ring: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    --ds-glow-brand-sm: 0 0 10px rgba(147, 51, 234, 0.15);
+    --ds-glow-brand-md: 0 0 20px rgba(147, 51, 234, 0.20);
+    --ds-glow-brand-ring: 0 0 0 3px rgba(147, 51, 234, 0.15);
     --ds-glow-error-ring: 0 0 0 3px rgba(239, 68, 68, 0.15);
 
     background-color: var(--ds-bg-base);
@@ -108,7 +108,7 @@ function CopyButton({ text, className }: { text: string; className?: string }) {
       )}
       title="Copiar"
     >
-      {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+      {copied ? <Check className="w-3.5 h-3.5 text-purple-600" /> : <Copy className="w-3.5 h-3.5" />}
     </button>
   )
 }
@@ -162,7 +162,7 @@ function SectionHeader({
   return (
     <div className="mb-8">
       <div className="flex items-center gap-3 mb-2">
-        <div className="p-2 rounded-lg bg-emerald-100 text-emerald-600">
+        <div className="p-2 rounded-lg bg-purple-100 text-purple-600">
           <Icon className="w-5 h-5" />
         </div>
         <h2 className="text-2xl font-semibold text-zinc-900">{title}</h2>
@@ -215,7 +215,7 @@ export default function DesignSystemLightPage() {
             <span className="px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-700 border border-amber-200">
               Preview
             </span>
-            <span className="px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-700 border border-emerald-200">
+            <span className="px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-700 border border-purple-200">
               Light Mode
             </span>
           </div>
@@ -237,7 +237,7 @@ export default function DesignSystemLightPage() {
                 className={cn(
                   'flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all',
                   activeTab === tab.id
-                    ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                    ? 'bg-purple-100 text-purple-700 border border-purple-200'
                     : 'bg-zinc-100 text-zinc-600 border border-transparent hover:bg-zinc-200 hover:text-zinc-700'
                 )}
               >
@@ -276,11 +276,11 @@ function ColorsSection() {
           description="A paleta principal mantém o Emerald, mas com ajustes para melhor contraste em fundo claro."
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-          <ColorSwatch name="Primary" value="#10b981" cssVar="var(--ds-brand-primary)" textLight />
-          <ColorSwatch name="Hover" value="#059669" cssVar="var(--ds-brand-primary-hover)" textLight />
-          <ColorSwatch name="Active" value="#047857" cssVar="var(--color-primary-700)" textLight />
-          <ColorSwatch name="Muted" value="rgba(16, 185, 129, 0.12)" cssVar="var(--ds-brand-primary-muted)" />
-          <ColorSwatch name="Text" value="#059669" cssVar="var(--ds-text-brand)" textLight />
+          <ColorSwatch name="Primary" value="#9333ea" cssVar="var(--ds-brand-primary)" textLight />
+          <ColorSwatch name="Hover" value="#7e22ce" cssVar="var(--ds-brand-primary-hover)" textLight />
+          <ColorSwatch name="Active" value="#6b21a8" cssVar="var(--color-primary-700)" textLight />
+          <ColorSwatch name="Muted" value="rgba(147, 51, 234, 0.12)" cssVar="var(--ds-brand-primary-muted)" />
+          <ColorSwatch name="Text" value="#7e22ce" cssVar="var(--ds-text-brand)" textLight />
         </div>
       </section>
 
@@ -336,9 +336,9 @@ function ColorsSection() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-zinc-700">Success</h4>
-            <ColorSwatch name="Base" value="#10b981" cssVar="var(--ds-status-success)" textLight />
-            <ColorSwatch name="Text" value="#047857" cssVar="var(--ds-status-success-text)" textLight />
-            <ColorSwatch name="Bg" value="rgba(16, 185, 129, 0.12)" cssVar="var(--ds-status-success-bg)" />
+            <ColorSwatch name="Base" value="#22c55e" cssVar="var(--ds-status-success)" textLight />
+            <ColorSwatch name="Text" value="#15803d" cssVar="var(--ds-status-success-text)" textLight />
+            <ColorSwatch name="Bg" value="rgba(34, 197, 94, 0.12)" cssVar="var(--ds-status-success-bg)" />
           </div>
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-zinc-700">Error</h4>
@@ -376,16 +376,16 @@ function ColorsSection() {
         />
         <div className="grid grid-cols-5 sm:grid-cols-11 gap-2">
           {[
-            { name: '50', value: '#ecfdf5', dark: false },
-            { name: '100', value: '#d1fae5', dark: false },
-            { name: '200', value: '#a7f3d0', dark: false },
-            { name: '300', value: '#6ee7b7', dark: false },
-            { name: '400', value: '#34d399', dark: false },
-            { name: '500', value: '#10b981', dark: true },
-            { name: '600', value: '#059669', dark: true },
-            { name: '700', value: '#047857', dark: true },
-            { name: '800', value: '#065f46', dark: true },
-            { name: '900', value: '#064e3b', dark: true },
+            { name: '50', value: '#faf5ff', dark: false },
+            { name: '100', value: '#f3e8ff', dark: false },
+            { name: '200', value: '#e9d5ff', dark: false },
+            { name: '300', value: '#d8b4fe', dark: false },
+            { name: '400', value: '#c084fc', dark: false },
+            { name: '500', value: '#9333ea', dark: true },
+            { name: '600', value: '#7e22ce', dark: true },
+            { name: '700', value: '#6b21a8', dark: true },
+            { name: '800', value: '#581c87', dark: true },
+            { name: '900', value: '#3b0764', dark: true },
             { name: '950', value: '#022c22', dark: true },
           ].map((color) => (
             <div key={color.name} className="group">
@@ -441,8 +441,8 @@ function ColorsSection() {
               </tr>
               <tr>
                 <td className="py-3 px-4 font-mono text-xs text-zinc-600">--ds-status-success-text</td>
-                <td className="py-3 px-4"><code className="bg-emerald-400 text-emerald-950 px-2 py-1 rounded text-xs">#34d399</code></td>
-                <td className="py-3 px-4"><code className="bg-emerald-700 text-white px-2 py-1 rounded text-xs">#047857</code></td>
+                <td className="py-3 px-4"><code className="bg-green-400 text-green-950 px-2 py-1 rounded text-xs">#4ade80</code></td>
+                <td className="py-3 px-4"><code className="bg-green-700 text-white px-2 py-1 rounded text-xs">#15803d</code></td>
               </tr>
             </tbody>
           </table>
@@ -468,7 +468,7 @@ function TypographySection() {
         />
         <div className="grid md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 shadow-sm">
-            <p className="text-sm text-emerald-600 font-mono mb-2">--ds-font-display</p>
+            <p className="text-sm text-purple-600 font-mono mb-2">--ds-font-display</p>
             <p className="font-display text-3xl text-zinc-900 mb-3">Satoshi</p>
             <p className="text-zinc-500 text-sm">Usada em headings e elementos de destaque.</p>
             <div className="mt-4 pt-4 border-t border-zinc-200">
@@ -479,7 +479,7 @@ function TypographySection() {
           </div>
 
           <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 shadow-sm">
-            <p className="text-sm text-emerald-600 font-mono mb-2">--ds-font-body</p>
+            <p className="text-sm text-purple-600 font-mono mb-2">--ds-font-body</p>
             <p className="font-body text-3xl text-zinc-900 mb-3">Inter</p>
             <p className="text-zinc-500 text-sm">Usada em texto corrido e UI.</p>
             <div className="mt-4 pt-4 border-t border-zinc-200">
@@ -490,7 +490,7 @@ function TypographySection() {
           </div>
 
           <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 shadow-sm">
-            <p className="text-sm text-emerald-600 font-mono mb-2">--ds-font-mono</p>
+            <p className="text-sm text-purple-600 font-mono mb-2">--ds-font-mono</p>
             <p className="font-mono text-3xl text-zinc-900 mb-3">JetBrains Mono</p>
             <p className="text-zinc-500 text-sm">Usada em código e números.</p>
             <div className="mt-4 pt-4 border-t border-zinc-200">
@@ -520,7 +520,7 @@ function TypographySection() {
           ].map((style) => (
             <div key={style.class} className="flex items-center gap-6 p-4 rounded-xl bg-zinc-50 border border-zinc-200">
               <div className="w-32 shrink-0">
-                <code className="text-xs text-emerald-600 font-mono">.{style.class}</code>
+                <code className="text-xs text-purple-600 font-mono">.{style.class}</code>
               </div>
               <div className="flex-1">
                 <p className={cn(style.class, 'text-zinc-900')}>{style.example}</p>
@@ -586,10 +586,10 @@ function SpacingSection() {
           {spacingScale.map((space) => (
             <div key={space.name} className="flex items-center gap-4">
               <div className="w-16 text-right">
-                <code className="text-sm text-emerald-600 font-mono">{space.name}</code>
+                <code className="text-sm text-purple-600 font-mono">{space.name}</code>
               </div>
               <div
-                className="h-6 bg-emerald-200 border border-emerald-300 rounded"
+                className="h-6 bg-purple-200 border border-purple-300 rounded"
                 style={{ width: space.value }}
               />
               <div className="flex items-center gap-3 text-sm">
@@ -644,7 +644,7 @@ function ShadowsSection() {
               style={{ boxShadow: shadowValues[shadow.css] }}
             >
               <div className="flex items-center justify-between mb-2">
-                <code className="text-sm text-emerald-600 font-mono">{shadow.name}</code>
+                <code className="text-sm text-purple-600 font-mono">{shadow.name}</code>
                 <CopyButton text={`var(${shadow.css})`} />
               </div>
               <p className="text-xs text-zinc-500">{shadow.desc}</p>
@@ -668,9 +668,9 @@ function ShadowsSection() {
         />
         <div className="grid md:grid-cols-4 gap-6">
           {[
-            { name: 'Brand SM', css: '--ds-glow-brand-sm', style: '0 0 10px rgba(16, 185, 129, 0.15)' },
-            { name: 'Brand MD', css: '--ds-glow-brand-md', style: '0 0 20px rgba(16, 185, 129, 0.20)' },
-            { name: 'Brand Ring', css: '--ds-glow-brand-ring', style: '0 0 0 3px rgba(16, 185, 129, 0.15)' },
+            { name: 'Brand SM', css: '--ds-glow-brand-sm', style: '0 0 10px rgba(147, 51, 234, 0.15)' },
+            { name: 'Brand MD', css: '--ds-glow-brand-md', style: '0 0 20px rgba(147, 51, 234, 0.20)' },
+            { name: 'Brand Ring', css: '--ds-glow-brand-ring', style: '0 0 0 3px rgba(147, 51, 234, 0.15)' },
             { name: 'Error Ring', css: '--ds-glow-error-ring', style: '0 0 0 3px rgba(239, 68, 68, 0.15)' },
           ].map((glow) => (
             <div
@@ -679,12 +679,12 @@ function ShadowsSection() {
                 'p-6 rounded-2xl border',
                 glow.name.includes('Error')
                   ? 'bg-red-50 border-red-200'
-                  : 'bg-emerald-50 border-emerald-200'
+                  : 'bg-purple-50 border-purple-200'
               )}
               style={{ boxShadow: glow.style }}
             >
               <div className="flex items-center justify-between mb-2">
-                <code className="text-sm text-emerald-600 font-mono">{glow.name}</code>
+                <code className="text-sm text-purple-600 font-mono">{glow.name}</code>
                 <CopyButton text={`var(${glow.css})`} />
               </div>
             </div>
@@ -723,10 +723,10 @@ function BordersSection() {
           {radiusScale.map((radius) => (
             <div key={radius.name} className="text-center">
               <div
-                className="w-16 h-16 mx-auto bg-emerald-100 border-2 border-emerald-300 mb-2"
+                className="w-16 h-16 mx-auto bg-purple-100 border-2 border-purple-300 mb-2"
                 style={{ borderRadius: radius.value }}
               />
-              <code className="text-xs text-emerald-600 font-mono block">{radius.name}</code>
+              <code className="text-xs text-purple-600 font-mono block">{radius.name}</code>
               <span className="text-[10px] text-zinc-500">{radius.value}</span>
             </div>
           ))}
@@ -752,7 +752,7 @@ function BordersSection() {
               style={{ border: `2px solid ${border.value}` }}
             >
               <div className="flex items-center justify-between mb-2">
-                <code className="text-sm text-emerald-600 font-mono">{border.name}</code>
+                <code className="text-sm text-purple-600 font-mono">{border.name}</code>
                 <CopyButton text={`var(${border.css})`} />
               </div>
               <p className="text-xs text-zinc-500">rgba(0, 0, 0, {border.opacity})</p>

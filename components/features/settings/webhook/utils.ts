@@ -119,10 +119,10 @@ export function getCardColorClasses(color: 'emerald' | 'amber' | 'blue' | 'zinc'
 } {
   const colorMap = {
     emerald: {
-      border: 'border-emerald-500/20',
-      bg: 'bg-emerald-500/5',
-      icon: 'bg-emerald-500/20 text-emerald-400',
-      text: 'text-emerald-400/80',
+      border: 'border-purple-500/20',
+      bg: 'bg-purple-500/5',
+      icon: 'bg-purple-500/20 text-purple-400',
+      text: 'text-purple-400/80',
     },
     amber: {
       border: 'border-amber-500/20',
@@ -158,10 +158,10 @@ export function getFunnelLevelColorClasses(color: 'emerald' | 'blue' | 'zinc'): 
 } {
   const colorMap = {
     emerald: {
-      active: 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400',
-      inactive: 'bg-emerald-500/5 border-emerald-500/10 text-emerald-400/50',
-      arrow: 'text-emerald-500/30',
-      ring: 'ring-emerald-500/30',
+      active: 'bg-green-500/20 border-green-500/40 text-green-400',
+      inactive: 'bg-green-500/5 border-green-500/10 text-green-400/50',
+      arrow: 'text-purple-500/30',
+      ring: 'ring-purple-500/30',
     },
     blue: {
       active: 'bg-blue-500/20 border-blue-500/40 text-blue-400',
