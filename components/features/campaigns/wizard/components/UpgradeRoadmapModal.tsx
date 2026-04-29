@@ -89,7 +89,7 @@ export const UpgradeRoadmapModal: React.FC<UpgradeRoadmapModalProps> = ({
                   >
                     <div className="flex items-start gap-3">
                       <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 \${isCompleted
-                        ? 'bg-primary-500 dark:text-white text-[var(--ds-text-primary)]'
+                        ? 'bg-primary-500 text-white'
                         : 'bg-zinc-700 text-gray-400'
                         }`}>
                         {isCompleted ? <Check size={14} /> : <Circle size={14} />}
@@ -142,7 +142,7 @@ export const UpgradeRoadmapModal: React.FC<UpgradeRoadmapModalProps> = ({
           </a>
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-primary-600 dark:text-white text-[var(--ds-text-primary)] font-bold rounded-xl hover:bg-primary-500 transition-colors"
+            className="px-6 py-2 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-500 transition-colors"
           >
             Entendi
           </button>

@@ -147,7 +147,7 @@ export function WebhookFunnelVisualization({
                             <button
                               onClick={handleActivate}
                               disabled={isBusy}
-                              className="h-8 px-2.5 text-[10px] font-medium bg-purple-600 hover:bg-purple-500 disabled:opacity-50 dark:text-white text-[var(--ds-text-primary)] rounded-lg transition-colors flex items-center gap-1"
+                              className="h-8 px-2.5 text-[10px] font-medium bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white rounded-lg transition-colors flex items-center gap-1"
                               title={`Ativar SmartZap no nível #${level.level}`}
                             >
                               {isBusy ? (
@@ -164,7 +164,7 @@ export function WebhookFunnelVisualization({
                             <button
                               onClick={handleActivate}
                               disabled={isBusy}
-                              className="h-8 px-2.5 text-[10px] font-medium bg-purple-600 hover:bg-purple-500 disabled:opacity-50 dark:text-white text-[var(--ds-text-primary)] rounded-lg transition-colors flex items-center gap-1"
+                              className="h-8 px-2.5 text-[10px] font-medium bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white rounded-lg transition-colors flex items-center gap-1"
                               title={`Substituir por SmartZap`}
                             >
                               {isBusy ? (

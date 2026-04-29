@@ -24,7 +24,7 @@ export function AudienceCardAll({
         isOverLimit
           ? 'bg-[var(--ds-bg-elevated)] border-red-500/30 text-[var(--ds-text-secondary)] opacity-60'
           : isSelected
-            ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] dark:bg-white dark:text-black border-primary-600 dark:border-white shadow-lg ring-2 ring-primary-500/50 dark:ring-white/70'
+            ? 'bg-primary-600 text-white dark:bg-white dark:text-black border-primary-600 dark:border-white shadow-lg ring-2 ring-primary-500/50 dark:ring-white/70'
             : 'bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] hover:bg-[var(--ds-bg-surface)] hover:border-[var(--ds-border-strong)] text-[var(--ds-text-secondary)]'
       }`}
     >
@@ -43,7 +43,7 @@ export function AudienceCardAll({
           isOverLimit
             ? 'bg-red-500/20 text-red-400'
             : isSelected
-              ? 'bg-white/20 dark:text-white text-[var(--ds-text-primary)] dark:bg-gray-200 dark:text-black'
+              ? 'bg-white/20 text-white dark:bg-gray-200 dark:text-black'
               : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)]'
         }`}
       >

@@ -205,7 +205,7 @@ export function RefineSheet({
         </Button>
         <Button
           type="button"
-          className="bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500"
+          className="bg-primary-600 text-white hover:bg-primary-500"
           onClick={handleApply}
         >
           Aplicar

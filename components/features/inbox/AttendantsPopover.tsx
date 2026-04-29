@@ -281,7 +281,7 @@ export function AttendantsPopover() {
         >
           <Users className="h-3.5 w-3.5" />
           {activeCount > 0 && (
-            <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-purple-500 text-[9px] dark:text-white text-[var(--ds-text-primary)] flex items-center justify-center">
+            <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-purple-500 text-[9px] text-white flex items-center justify-center">
               {activeCount}
             </span>
           )}

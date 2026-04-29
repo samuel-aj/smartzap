@@ -151,7 +151,7 @@ export function GuidedTour({ onComplete, onSkip }: GuidedTourProps) {
               {step.action && (
                 <Button
                   onClick={handleAction}
-                  className="flex-1 bg-purple-600 hover:bg-purple-500 dark:text-white text-[var(--ds-text-primary)]"
+                  className="flex-1 bg-purple-600 hover:bg-purple-500 text-white"
                 >
                   {step.action.label}
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -171,7 +171,7 @@ export function GuidedTour({ onComplete, onSkip }: GuidedTourProps) {
               {isLastStep && (
                 <Button
                   onClick={handleNext}
-                  className="flex-1 bg-purple-600 hover:bg-purple-500 dark:text-white text-[var(--ds-text-primary)]"
+                  className="flex-1 bg-purple-600 hover:bg-purple-500 text-white"
                 >
                   Concluir
                   <Sparkles className="w-4 h-4 ml-2" />

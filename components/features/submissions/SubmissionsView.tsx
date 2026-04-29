@@ -198,7 +198,7 @@ export function SubmissionsView({
             <a
               href={exportUrl}
               download
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 dark:text-white text-[var(--ds-text-primary)] text-sm font-medium transition-colors"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-colors"
             >
               <Download className="w-4 h-4" />
               Exportar CSV

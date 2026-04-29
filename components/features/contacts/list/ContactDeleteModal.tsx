@@ -49,7 +49,7 @@ export const ContactDeleteModal: React.FC<ContactDeleteModalProps> = ({
             <button
               onClick={onConfirm}
               disabled={isDeleting}
-              className="flex-1 bg-red-500 dark:text-white text-[var(--ds-text-primary)] font-bold py-3 rounded-xl hover:bg-red-400 transition-colors flex items-center justify-center gap-2"
+              className="flex-1 bg-red-500 text-white font-bold py-3 rounded-xl hover:bg-red-400 transition-colors flex items-center justify-center gap-2"
             >
               {isDeleting ? (
                 <>

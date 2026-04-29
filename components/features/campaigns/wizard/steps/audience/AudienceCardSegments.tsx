@@ -20,7 +20,7 @@ export function AudienceCardSegments({
       onClick={onSelect}
       className={`relative p-6 rounded-2xl border transition-all duration-200 flex flex-col items-center justify-center gap-4 h-full min-h-47.5 ${
         isSelected
-          ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] dark:bg-white dark:text-black border-primary-500 dark:border-white shadow-[0_0_20px_rgba(var(--primary-rgb),0.10)] dark:shadow-[0_0_20px_rgba(255,255,255,0.10)] ring-2 ring-primary-500/70 dark:ring-white/70'
+          ? 'bg-primary-600 text-white dark:bg-white dark:text-black border-primary-500 dark:border-white shadow-[0_0_20px_rgba(var(--primary-rgb),0.10)] dark:shadow-[0_0_20px_rgba(255,255,255,0.10)] ring-2 ring-primary-500/70 dark:ring-white/70'
           : 'bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] hover:bg-[var(--ds-bg-surface)] hover:border-[var(--ds-border-strong)] text-[var(--ds-text-secondary)]'
       }`}
     >

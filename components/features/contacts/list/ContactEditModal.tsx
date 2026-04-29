@@ -133,7 +133,7 @@ export const ContactEditModal: React.FC<ContactEditModalProps> = ({
             </button>
             <button
               onClick={() => onSubmit(form)}
-              className="flex-1 bg-primary-500 dark:text-white text-[var(--ds-text-primary)] font-bold py-3 rounded-xl hover:bg-primary-400 transition-colors"
+              className="flex-1 bg-primary-500 text-white font-bold py-3 rounded-xl hover:bg-primary-400 transition-colors"
             >
               Salvar Alterações
             </button>

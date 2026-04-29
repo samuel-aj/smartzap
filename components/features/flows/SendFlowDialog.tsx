@@ -275,7 +275,7 @@ export function SendFlowDialog(props: {
           <Button
             onClick={handleSend}
             disabled={isSending || !canSend}
-            className="w-full h-11 bg-purple-600 hover:bg-purple-500 dark:text-white text-[var(--ds-text-primary)] font-medium"
+            className="w-full h-11 bg-purple-600 hover:bg-purple-500 text-white font-medium"
           >
             {isSending ? (
               <span className="flex items-center gap-2">

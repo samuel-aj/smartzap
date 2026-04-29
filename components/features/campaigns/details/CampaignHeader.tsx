@@ -89,7 +89,7 @@ export const CampaignHeader: React.FC<CampaignHeaderProps> = ({
           <button
             onClick={onStart}
             disabled={isStarting}
-            className="px-4 py-2 bg-primary-600 hover:bg-primary-500 border border-primary-500/20 rounded-lg dark:text-white text-[var(--ds-text-primary)] transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
+            className="px-4 py-2 bg-primary-600 hover:bg-primary-500 border border-primary-500/20 rounded-lg text-white transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
           >
             {isStarting ? <Loader2 size={16} className="animate-spin" /> : <Play size={16} />}
             {isStarting ? 'Iniciando...' : 'Iniciar Agora'}
@@ -114,7 +114,7 @@ export const CampaignHeader: React.FC<CampaignHeaderProps> = ({
           <button
             onClick={onCancelSend}
             disabled={isCancelingSend}
-            className="px-4 py-2 bg-red-600 hover:bg-red-500 border border-red-500/20 rounded-lg dark:text-white text-[var(--ds-text-primary)] transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
+            className="px-4 py-2 bg-red-600 hover:bg-red-500 border border-red-500/20 rounded-lg text-white transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
             title="Interrompe o envio e marca a campanha como Cancelada"
           >
             {isCancelingSend ? <Loader2 size={16} className="animate-spin" /> : <Ban size={16} />}
@@ -127,7 +127,7 @@ export const CampaignHeader: React.FC<CampaignHeaderProps> = ({
           <button
             onClick={onPause}
             disabled={isPausing}
-            className="px-4 py-2 bg-amber-600 hover:bg-amber-500 border border-amber-500/20 rounded-lg dark:text-white text-[var(--ds-text-primary)] transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
+            className="px-4 py-2 bg-amber-600 hover:bg-amber-500 border border-amber-500/20 rounded-lg text-white transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
           >
             {isPausing ? <Loader2 size={16} className="animate-spin" /> : <Pause size={16} />}
             {isPausing ? 'Pausando...' : 'Pausar'}
@@ -139,7 +139,7 @@ export const CampaignHeader: React.FC<CampaignHeaderProps> = ({
           <button
             onClick={onResume}
             disabled={isResuming}
-            className="px-4 py-2 bg-primary-600 hover:bg-primary-500 border border-primary-500/20 rounded-lg dark:text-white text-[var(--ds-text-primary)] transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
+            className="px-4 py-2 bg-primary-600 hover:bg-primary-500 border border-primary-500/20 rounded-lg text-white transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
           >
             {isResuming ? <Loader2 size={16} className="animate-spin" /> : <Play size={16} />}
             {isResuming ? 'Retomando...' : 'Retomar'}
@@ -163,7 +163,7 @@ export const CampaignHeader: React.FC<CampaignHeaderProps> = ({
           <button
             onClick={onResendSkipped}
             disabled={!onResendSkipped || !!isResendingSkipped}
-            className="px-4 py-2 bg-amber-600 hover:bg-amber-500 border border-amber-500/20 rounded-lg dark:text-white text-[var(--ds-text-primary)] transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
+            className="px-4 py-2 bg-amber-600 hover:bg-amber-500 border border-amber-500/20 rounded-lg text-white transition-colors flex items-center gap-2 text-sm font-medium disabled:opacity-50"
             title="Revalida contatos ignorados e reenfileira apenas os validos"
           >
             {isResendingSkipped ? <Loader2 size={16} className="animate-spin" /> : <Ban size={16} />}

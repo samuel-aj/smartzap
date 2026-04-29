@@ -82,7 +82,7 @@ export function CreateAppStep({ onNext, onBack, stepNumber, totalSteps }: Create
         href={META_DEVELOPERS_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 w-full p-3 rounded-xl bg-blue-600 hover:bg-blue-700 dark:text-white text-[var(--ds-text-primary)] font-medium transition-colors"
+        className="flex items-center justify-center gap-2 w-full p-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
       >
         <ExternalLink className="w-4 h-4" />
         Abrir Meta for Developers

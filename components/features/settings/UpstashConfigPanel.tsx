@@ -180,7 +180,7 @@ export function UpstashConfigPanel({
             <button
               onClick={handleSave}
               disabled={isSaving || !email.trim() || !apiKey.trim()}
-              className="h-10 px-4 bg-primary-600 hover:bg-primary-500 dark:text-white text-[var(--ds-text-primary)] font-medium rounded-lg transition-colors flex items-center gap-2 disabled:opacity-50"
+              className="h-10 px-4 bg-primary-600 hover:bg-primary-500 text-white font-medium rounded-lg transition-colors flex items-center gap-2 disabled:opacity-50"
             >
               <BarChart3 size={16} />
               {isSaving ? 'Validando...' : 'Salvar Credenciais'}

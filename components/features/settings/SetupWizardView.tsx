@@ -118,11 +118,11 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
               {/* Step number badge */}
               <div className={`absolute top-4 left-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
                 isConfigured
-                  ? 'bg-purple-500 dark:text-white text-[var(--ds-text-primary)]'
+                  ? 'bg-purple-500 text-white'
                   : isError
-                    ? 'bg-red-500 dark:text-white text-[var(--ds-text-primary)]'
+                    ? 'bg-red-500 text-white'
                     : isNextStep
-                      ? 'bg-primary-500 dark:text-white text-[var(--ds-text-primary)]'
+                      ? 'bg-primary-500 text-white'
                       : 'bg-zinc-700 text-gray-400'
               }`}>
                 {isConfigured ? <Check size={16} /> : index + 1}
@@ -172,7 +172,7 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
                       rel="noopener noreferrer"
                       className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all ${
                         isNextStep
-                          ? 'bg-primary-500 hover:bg-primary-400 dark:text-white text-[var(--ds-text-primary)]'
+                          ? 'bg-primary-500 hover:bg-primary-400 text-white'
                           : 'bg-zinc-700 text-gray-400 cursor-not-allowed'
                       }`}
                       onClick={(e) => {

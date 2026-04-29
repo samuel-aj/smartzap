@@ -468,7 +468,7 @@ export function ContactMemoriesSheet({
             <AlertDialogAction
               onClick={handleDeleteAll}
               disabled={deleting}
-              className="bg-red-600 hover:bg-red-700 dark:text-white text-[var(--ds-text-primary)]"
+              className="bg-red-600 hover:bg-red-700 text-white"
             >
               {deleting ? (
                 <>

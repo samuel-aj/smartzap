@@ -487,7 +487,7 @@ export function ConversationHeader({
                   onDelete?.()
                   setShowDeleteDialog(false)
                 }}
-                className="bg-red-600 hover:bg-red-700 dark:text-white text-[var(--ds-text-primary)]"
+                className="bg-red-600 hover:bg-red-700 text-white"
               >
                 Excluir
               </AlertDialogAction>

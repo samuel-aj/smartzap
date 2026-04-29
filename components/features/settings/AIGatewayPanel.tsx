@@ -353,7 +353,7 @@ export function AIGatewayPanel() {
                       type="button"
                       disabled={ps.keyStatus === 'saving' || !ps.keyDraft.trim()}
                       onClick={() => void handleSaveKey(id)}
-                      className="flex items-center gap-1.5 rounded-lg bg-purple-600 px-3 py-1.5 text-xs font-medium dark:text-white text-[var(--ds-text-primary)] transition hover:bg-purple-500 disabled:opacity-50"
+                      className="flex items-center gap-1.5 rounded-lg bg-purple-600 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-purple-500 disabled:opacity-50"
                     >
                       {ps.keyStatus === 'saving' ? (
                         <Loader2 size={12} className="animate-spin" />

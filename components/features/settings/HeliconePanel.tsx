@@ -288,7 +288,7 @@ export function HeliconePanel() {
                 type="button"
                 onClick={handleSaveApiKey}
                 disabled={saving || !apiKeyDraft.trim()}
-                className="rounded-lg bg-cyan-600 px-4 py-2 text-xs font-semibold dark:text-white text-[var(--ds-text-primary)] transition hover:bg-cyan-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="rounded-lg bg-cyan-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-cyan-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {saving ? 'Salvando...' : 'Salvar'}
               </button>

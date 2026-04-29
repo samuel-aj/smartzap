@@ -174,7 +174,7 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
           </button>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 dark:text-white text-[var(--ds-text-primary)] rounded-lg font-semibold transition-colors text-sm"
+            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors text-sm"
           >
             OK
           </button>

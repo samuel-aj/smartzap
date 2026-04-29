@@ -80,7 +80,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ stats, recentCampa
         <PageActions>
           <PrefetchLink
             href="/campaigns/new"
-            className="bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500 dark:bg-white dark:text-black dark:hover:bg-white/90 px-4 py-2 rounded-lg font-semibold text-sm transition-colors shadow-lg shadow-primary-500/20 dark:shadow-white/15 ring-1 ring-primary-500/30 dark:ring-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500 dark:focus-visible:outline-white focus-visible:outline-offset-2"
+            className="bg-primary-600 text-white hover:bg-primary-500 dark:bg-white dark:text-black dark:hover:bg-white/90 px-4 py-2 rounded-lg font-semibold text-sm transition-colors shadow-lg shadow-primary-500/20 dark:shadow-white/15 ring-1 ring-primary-500/30 dark:ring-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500 dark:focus-visible:outline-white focus-visible:outline-offset-2"
             aria-label="Criar nova campanha rápida"
           >
             Campanha Rápida

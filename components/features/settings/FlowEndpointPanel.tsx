@@ -97,7 +97,7 @@ export function FlowEndpointPanel({ devBaseUrl }: FlowEndpointPanelProps) {
           <button
             onClick={handleGenerate}
             disabled={generating}
-            className="h-10 px-6 bg-purple-500 hover:bg-purple-400 dark:text-white text-[var(--ds-text-primary)] font-medium rounded-lg transition-colors inline-flex items-center gap-2 disabled:opacity-50"
+            className="h-10 px-6 bg-purple-500 hover:bg-purple-400 text-white font-medium rounded-lg transition-colors inline-flex items-center gap-2 disabled:opacity-50"
           >
             {generating ? <RefreshCw size={16} className="animate-spin" /> : <Key size={16} />}
             {generating ? 'Gerando...' : 'Gerar Chaves'}

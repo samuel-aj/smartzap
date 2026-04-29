@@ -95,7 +95,7 @@ export const ConversationItem = memo(function ConversationItem({
           </span>
           <div className="flex items-center gap-1.5 shrink-0">
             {unread_count > 0 && (
-              <span className="min-w-[18px] h-[18px] rounded-full bg-purple-500 text-[10px] font-medium dark:text-white text-[var(--ds-text-primary)] flex items-center justify-center px-1">
+              <span className="min-w-[18px] h-[18px] rounded-full bg-purple-500 text-[10px] font-medium text-white flex items-center justify-center px-1">
                 {unread_count > 99 ? '99' : unread_count}
               </span>
             )}
