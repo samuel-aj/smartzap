@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Users, Smartphone, ShieldAlert, Sparkles } from 'lucide-react';
@@ -36,12 +36,12 @@ export function LegacyAudienceMode({
           isOverLimit
             ? 'bg-[var(--ds-bg-elevated)] border-red-500/30 text-[var(--ds-text-secondary)] opacity-60'
             : recipientSource === 'all'
-              ? 'bg-primary-600 text-white dark:bg-white dark:text-black border-primary-500 dark:border-white shadow-[0_0_20px_rgba(var(--primary-rgb),0.10)] dark:shadow-[0_0_20px_rgba(255,255,255,0.10)] ring-2 ring-primary-500/70 dark:ring-white/70'
+              ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] dark:bg-white dark:text-black border-primary-500 dark:border-white shadow-[0_0_20px_rgba(var(--primary-rgb),0.10)] dark:shadow-[0_0_20px_rgba(255,255,255,0.10)] ring-2 ring-primary-500/70 dark:ring-white/70'
               : 'bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] hover:bg-[var(--ds-bg-surface)] hover:border-[var(--ds-border-strong)] text-[var(--ds-text-secondary)]'
         }`}
       >
         {recipientSource === 'all' && !isOverLimit && (
-          <div className="absolute top-3 right-3 text-white dark:text-black">
+          <div className="absolute top-3 right-3 dark:text-white text-[var(--ds-text-primary)] dark:text-black">
             <CheckCircleFilled size={20} />
           </div>
         )}
@@ -55,7 +55,7 @@ export function LegacyAudienceMode({
             isOverLimit
               ? 'bg-red-500/20 text-red-400'
               : recipientSource === 'all'
-                ? 'bg-white/20 text-white dark:bg-gray-200 dark:text-black'
+                ? 'bg-white/20 dark:text-white text-[var(--ds-text-primary)] dark:bg-gray-200 dark:text-black'
                 : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)]'
           }`}
         >
@@ -68,7 +68,7 @@ export function LegacyAudienceMode({
               isOverLimit
                 ? 'text-red-400'
                 : recipientSource === 'all'
-                  ? 'text-white/70 dark:text-gray-600'
+                  ? 'dark:text-white text-[var(--ds-text-primary)]/70 dark:text-gray-600'
                   : 'text-[var(--ds-text-muted)]'
             }`}
           >
@@ -98,14 +98,14 @@ export function LegacyAudienceMode({
         onClick={() => setRecipientSource('specific')}
         className={`relative p-6 rounded-2xl border transition-all duration-200 flex flex-col items-center justify-center gap-4 h-full min-h-47.5 ${
           recipientSource === 'specific'
-            ? 'bg-primary-600 text-white dark:bg-white dark:text-black border-primary-500 dark:border-white shadow-[0_0_20px_rgba(var(--primary-rgb),0.10)] dark:shadow-[0_0_20px_rgba(255,255,255,0.10)] ring-2 ring-primary-500/70 dark:ring-white/70'
+            ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] dark:bg-white dark:text-black border-primary-500 dark:border-white shadow-[0_0_20px_rgba(var(--primary-rgb),0.10)] dark:shadow-[0_0_20px_rgba(255,255,255,0.10)] ring-2 ring-primary-500/70 dark:ring-white/70'
             : isOverLimit && recipientSource === 'all'
               ? 'bg-primary-500/10 border-primary-500/50 text-primary-300 hover:bg-primary-500/20 ring-2 ring-primary-500/30'
               : 'bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] hover:bg-[var(--ds-bg-surface)] hover:border-[var(--ds-border-strong)] text-[var(--ds-text-secondary)]'
         }`}
       >
         {recipientSource === 'specific' && (
-          <div className="absolute top-3 right-3 text-white dark:text-black">
+          <div className="absolute top-3 right-3 dark:text-white text-[var(--ds-text-primary)] dark:text-black">
             <CheckCircleFilled size={20} />
           </div>
         )}
@@ -117,7 +117,7 @@ export function LegacyAudienceMode({
         <div
           className={`p-4 rounded-full ${
             recipientSource === 'specific'
-              ? 'bg-white/20 text-white dark:bg-gray-200 dark:text-black'
+              ? 'bg-white/20 dark:text-white text-[var(--ds-text-primary)] dark:bg-gray-200 dark:text-black'
               : isOverLimit
                 ? 'bg-primary-500/20 text-primary-400'
                 : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)]'
@@ -132,7 +132,7 @@ export function LegacyAudienceMode({
               isOverLimit && recipientSource !== 'specific'
                 ? 'text-primary-400 font-medium'
                 : recipientSource === 'specific'
-                  ? 'text-white/70 dark:text-gray-600'
+                  ? 'dark:text-white text-[var(--ds-text-primary)]/70 dark:text-gray-600'
                   : 'text-[var(--ds-text-muted)]'
             }`}
           >

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useCallback } from 'react'
 import { Loader2, CheckCircle2 } from 'lucide-react'
@@ -147,7 +147,7 @@ export function CredentialsModal({
           <button
             type="button"
             onClick={onHelpClick}
-            className="flex items-center gap-2 text-sm text-zinc-400 hover:text-purple-400 transition-colors w-full justify-center py-2"
+            className="flex items-center gap-2 text-sm text-[var(--ds-text-muted)] hover:text-purple-400 transition-colors w-full justify-center py-2"
           >
             Não sabe onde encontrar? Ver tutorial passo-a-passo
           </button>

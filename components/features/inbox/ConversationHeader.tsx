@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 /**
  * ConversationHeader - Compact Inline Header
@@ -269,7 +269,7 @@ export function ConversationHeader({
                 isBotMode
                   ? aiGlobalEnabled
                     ? 'bg-purple-500/15 text-purple-400 hover:bg-purple-500/25'
-                    : 'bg-zinc-500/15 text-zinc-400 hover:bg-zinc-500/25'
+                    : 'bg-zinc-500/15 text-[var(--ds-text-muted)] hover:bg-zinc-500/25'
                   : 'bg-amber-500/15 text-amber-400 hover:bg-amber-500/25'
               )}
             >
@@ -487,7 +487,7 @@ export function ConversationHeader({
                   onDelete?.()
                   setShowDeleteDialog(false)
                 }}
-                className="bg-red-600 hover:bg-red-700 text-white"
+                className="bg-red-600 hover:bg-red-700 dark:text-white text-[var(--ds-text-primary)]"
               >
                 Excluir
               </AlertDialogAction>

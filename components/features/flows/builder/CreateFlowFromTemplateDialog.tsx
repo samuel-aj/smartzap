@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useMemo, useState } from 'react'
 import { Plus, LayoutTemplate, Loader2 } from 'lucide-react'
@@ -60,7 +60,7 @@ export function CreateFlowFromTemplateDialog(props: {
             <Label>Template</Label>
 
             {templatesQuery.isLoading ? (
-              <div className="flex items-center gap-2 text-sm text-gray-300">
+              <div className="flex items-center gap-2 text-sm text-[var(--ds-text-secondary)]">
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Carregando templates…
               </div>
@@ -77,10 +77,10 @@ export function CreateFlowFromTemplateDialog(props: {
                       'text-left rounded-lg border px-3 py-2 transition ' +
                       (templateKey === t.key
                         ? 'border-primary-500 bg-white/5'
-                        : 'border-white/10 bg-zinc-900 hover:bg-white/5')
+                        : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]')
                     }
                   >
-                    <div className="text-sm text-gray-200 font-medium">{t.name}</div>
+                    <div className="text-sm text-[var(--ds-text-secondary)] font-medium">{t.name}</div>
                     <div className="text-xs text-gray-500">{t.description}</div>
                     <div className="text-[11px] text-gray-600 mt-1 font-mono">{t.key}</div>
                   </button>
@@ -100,7 +100,7 @@ export function CreateFlowFromTemplateDialog(props: {
           <Button
             type="button"
             variant="outline"
-            className="border-white/10 bg-zinc-900 hover:bg-white/5"
+            className="border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]"
             onClick={() => setOpen(false)}
           >
             Cancelar

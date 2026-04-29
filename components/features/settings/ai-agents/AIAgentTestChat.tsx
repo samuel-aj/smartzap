@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 /**
  * T063: AIAgentTestChat
@@ -133,7 +133,7 @@ export function AIAgentTestChat({ agent, onClose }: AIAgentTestChatProps) {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex items-center justify-center h-64">
-          <p className="text-sm text-zinc-500">Nenhum agente selecionado</p>
+          <p className="text-sm text-[var(--ds-text-muted)]">Nenhum agente selecionado</p>
         </CardContent>
       </Card>
     )
@@ -165,10 +165,10 @@ export function AIAgentTestChat({ agent, onClose }: AIAgentTestChatProps) {
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center py-8">
             <Bot className="h-12 w-12 text-zinc-600 mb-3" />
-            <p className="text-sm text-zinc-400 mb-1">
+            <p className="text-sm text-[var(--ds-text-muted)] mb-1">
               Envie uma mensagem para testar o agente
             </p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-[var(--ds-text-muted)]">
               O agente responderá usando o prompt e configurações definidas
             </p>
           </div>
@@ -198,7 +198,7 @@ export function AIAgentTestChat({ agent, onClose }: AIAgentTestChatProps) {
                   ) : message.error ? (
                     <AlertCircle className="h-4 w-4 text-red-400" />
                   ) : (
-                    <Bot className="h-4 w-4 text-zinc-400" />
+                    <Bot className="h-4 w-4 text-[var(--ds-text-muted)]" />
                   )}
                 </div>
 
@@ -213,10 +213,10 @@ export function AIAgentTestChat({ agent, onClose }: AIAgentTestChatProps) {
                     className={cn(
                       'px-4 py-2 rounded-2xl text-sm',
                       message.role === 'user'
-                        ? 'bg-primary-500 text-white rounded-tr-sm'
+                        ? 'bg-primary-500 dark:text-white text-[var(--ds-text-primary)] rounded-tr-sm'
                         : message.error
                         ? 'bg-red-500/10 text-red-300 border border-red-500/30 rounded-tl-sm'
-                        : 'bg-zinc-800 text-zinc-200 rounded-tl-sm'
+                        : 'dark:bg-zinc-800 bg-[var(--ds-bg-surface)] dark:text-zinc-200 text-[var(--ds-text-secondary)] rounded-tl-sm'
                     )}
                   >
                     <p className="whitespace-pre-wrap">{message.content}</p>
@@ -224,7 +224,7 @@ export function AIAgentTestChat({ agent, onClose }: AIAgentTestChatProps) {
 
                   {/* Metadata */}
                   <div className="flex items-center gap-2 mt-1 px-1">
-                    <span className="text-xs text-zinc-500">
+                    <span className="text-xs text-[var(--ds-text-muted)]">
                       {message.timestamp.toLocaleTimeString('pt-BR', {
                         hour: '2-digit',
                         minute: '2-digit',
@@ -244,9 +244,9 @@ export function AIAgentTestChat({ agent, onClose }: AIAgentTestChatProps) {
             {isLoading && (
               <div className="flex gap-3">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-zinc-700 flex items-center justify-center">
-                  <Loader2 className="h-4 w-4 text-zinc-400 animate-spin" />
+                  <Loader2 className="h-4 w-4 text-[var(--ds-text-muted)] animate-spin" />
                 </div>
-                <div className="bg-zinc-800 text-zinc-400 px-4 py-2 rounded-2xl rounded-tl-sm text-sm">
+                <div className="bg-zinc-800 text-[var(--ds-text-muted)] px-4 py-2 rounded-2xl rounded-tl-sm text-sm">
                   Pensando...
                 </div>
               </div>
@@ -258,7 +258,7 @@ export function AIAgentTestChat({ agent, onClose }: AIAgentTestChatProps) {
       </CardContent>
 
       {/* Input area */}
-      <div className="p-4 border-t border-zinc-800">
+      <div className="p-4 border-t border-[var(--ds-border-default)]">
         <div className="flex gap-2">
           <Textarea
             ref={textareaRef}
@@ -281,7 +281,7 @@ export function AIAgentTestChat({ agent, onClose }: AIAgentTestChatProps) {
             )}
           </Button>
         </div>
-        <p className="text-xs text-zinc-500 mt-2">
+        <p className="text-xs text-[var(--ds-text-muted)] mt-2">
           Pressione Enter para enviar, Shift+Enter para nova linha
         </p>
       </div>

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 /**
  * T058: AIAgentForm - Create/Edit form for AI agents
@@ -399,7 +399,7 @@ export function AIAgentForm({
 
                       return (
                         <SelectGroup key={provider.id}>
-                          <SelectLabel className="flex items-center gap-2 text-xs font-semibold text-zinc-400">
+                          <SelectLabel className="flex items-center gap-2 text-xs font-semibold text-[var(--ds-text-muted)]">
                             <span>{provider.icon}</span>
                             <span>{provider.name}</span>
                           </SelectLabel>

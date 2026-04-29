@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { CheckCircle2, XCircle, Loader2, RefreshCw, Info } from 'lucide-react';
@@ -71,9 +71,9 @@ export function WebhookStatusIndicator({
 }: WebhookStatusIndicatorProps) {
   if (isLoading) {
     return (
-      <div className="flex items-center gap-2 px-3 py-2 bg-zinc-800/50 rounded-lg">
-        <Loader2 size={16} className="animate-spin text-zinc-400" />
-        <span className="text-sm text-zinc-400">Verificando webhook...</span>
+      <div className="flex items-center gap-2 px-3 py-2 bg-[var(--ds-bg-surface)] rounded-lg">
+        <Loader2 size={16} className="animate-spin text-[var(--ds-text-muted)]" />
+        <span className="text-sm text-[var(--ds-text-muted)]">Verificando webhook...</span>
       </div>
     );
   }
@@ -173,13 +173,13 @@ export function WebhookStatusIndicator({
       <div className="space-y-1.5 text-xs">
         {active.url && (
           <div className="break-all">
-            <span className="text-zinc-500">URL atual: </span>
+            <span className="text-[var(--ds-text-muted)]">URL atual: </span>
             <code className="text-red-400">{active.url}</code>
           </div>
         )}
         {expectedUrl && (
           <div className="break-all">
-            <span className="text-zinc-500">URL esperada: </span>
+            <span className="text-[var(--ds-text-muted)]">URL esperada: </span>
             <code className="text-purple-400">{expectedUrl}</code>
           </div>
         )}

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Check, RefreshCw } from 'lucide-react';
@@ -101,7 +101,7 @@ export function WizardStepCalendarSelection({
               type="button"
               onClick={handleSaveCalendarSelection}
               disabled={!calendarSelectionId || calendarSelectionSaving}
-              className="h-10 px-5 rounded-lg bg-primary-600 text-white hover:bg-primary-500 dark:bg-white dark:text-black dark:hover:bg-neutral-100 text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed"
+              className="h-10 px-5 rounded-lg bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500 dark:bg-white dark:text-black dark:hover:bg-neutral-100 text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {calendarSelectionSaving ? 'Salvando...' : 'Salvar'}
             </button>

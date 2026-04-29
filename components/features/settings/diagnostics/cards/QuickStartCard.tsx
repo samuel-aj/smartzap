@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import * as React from 'react'
 import { ListChecks, Wand2 } from 'lucide-react'
@@ -32,12 +32,12 @@ export function QuickStartCard(props: QuickStartCardProps) {
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="text-xs text-gray-500">O que fazer agora</div>
-            <div className="mt-2 text-sm text-white font-medium">Tudo certo por aqui</div>
-            <div className="mt-2 text-sm text-gray-300">
+            <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">Tudo certo por aqui</div>
+            <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">
               Nao encontramos falhas/alertas no diagnostico. Se ainda assim "nao envia", use o Support Packet e envie pro suporte.
             </div>
           </div>
-          <div className="text-gray-300">
+          <div className="text-[var(--ds-text-secondary)]">
             <ListChecks size={18} />
           </div>
         </div>
@@ -50,12 +50,12 @@ export function QuickStartCard(props: QuickStartCardProps) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="text-xs text-gray-500">O que fazer agora</div>
-          <div className="mt-2 text-sm text-white font-medium">Siga estes passos (ordem recomendada)</div>
-          <div className="mt-2 text-sm text-gray-300">
+          <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">Siga estes passos (ordem recomendada)</div>
+          <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">
             Pegamos os itens que mais destravam alunos (falhas/atencoes) e colocamos em ordem.
           </div>
         </div>
-        <div className="text-gray-300">
+        <div className="text-[var(--ds-text-secondary)]">
           <ListChecks size={18} />
         </div>
       </div>
@@ -66,18 +66,18 @@ export function QuickStartCard(props: QuickStartCardProps) {
           const steps = firstNextSteps(c.details as Record<string, unknown> | undefined)
           const friendly = props.simpleMode ? getFriendlyCopy(c) : { title: c.title, message: c.message }
           return (
-            <div key={c.id} className="bg-zinc-900/40 border border-white/10 rounded-xl p-4">
+            <div key={c.id} className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
                     <div className="text-xs text-gray-500">Passo {idx + 1}</div>
                     <StatusBadge status={c.status} />
                   </div>
-                  <div className="mt-2 text-sm text-white font-semibold truncate">{friendly.title}</div>
-                  <div className="mt-1 text-sm text-gray-300">{friendly.message}</div>
+                  <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-semibold truncate">{friendly.title}</div>
+                  <div className="mt-1 text-sm text-[var(--ds-text-secondary)]">{friendly.message}</div>
 
                   {steps.length > 0 && (
-                    <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-gray-200">
+                    <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-[var(--ds-text-secondary)]">
                       {steps.map((s, i) => (
                         <li key={i}>{s}</li>
                       ))}
@@ -100,7 +100,7 @@ export function QuickStartCard(props: QuickStartCardProps) {
                   <button
                     type="button"
                     onClick={() => scrollToCheck(c.id)}
-                    className="px-3 py-2 rounded-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium"
+                    className="px-3 py-2 rounded-lg bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium"
                   >
                     Ver detalhes
                   </button>

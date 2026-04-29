@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import Image from 'next/image'
@@ -89,11 +89,11 @@ export function TemplatePreview({ spec, headerMediaPreview }: TemplatePreviewPro
         <div className="rounded-2xl border border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] p-3">
           <div className="rounded-2xl overflow-hidden border border-[var(--ds-border-default)] bg-[#efeae2]">
             {/* header da conversa */}
-            <div className="h-11 px-3 flex items-center gap-2 bg-[#075e54] text-white">
+            <div className="h-11 px-3 flex items-center gap-2 bg-[#075e54] dark:text-white text-[var(--ds-text-primary)]">
               <div className="h-7 w-7 rounded-full bg-white/20" />
               <div className="min-w-0">
                 <div className="text-[12px] font-semibold leading-none truncate">Business</div>
-                <div className="text-[10px] text-white/80 leading-none mt-0.5 truncate">template</div>
+                <div className="text-[10px] dark:text-white text-[var(--ds-text-primary)]/80 leading-none mt-0.5 truncate">template</div>
               </div>
             </div>
 
@@ -150,7 +150,7 @@ export function TemplatePreview({ spec, headerMediaPreview }: TemplatePreviewPro
                           <div className="text-[12px] font-medium truncate">
                             {resolvedHeaderMediaPreview.name || 'documento.pdf'}
                           </div>
-                          <div className="text-[10px] text-zinc-500">Documento</div>
+                          <div className="text-[10px] text-[var(--ds-text-muted)]">Documento</div>
                         </div>
                       </div>
                     )}
@@ -165,17 +165,17 @@ export function TemplatePreview({ spec, headerMediaPreview }: TemplatePreviewPro
                   {bodyText ? (
                     <WhatsAppInlineText text={bodyText} />
                   ) : (
-                    <span className="text-zinc-400">Digite o corpo para ver a previa.</span>
+                    <span className="text-[var(--ds-text-muted)]">Digite o corpo para ver a previa.</span>
                   )}
                 </div>
 
                 {footerText ? (
-                  <div className="mt-1 text-[11px] text-zinc-500 whitespace-pre-wrap">
+                  <div className="mt-1 text-[11px] text-[var(--ds-text-muted)] whitespace-pre-wrap">
                     <WhatsAppInlineText text={footerText} />
                   </div>
                 ) : null}
 
-                <div className="mt-1 flex items-center justify-end text-[10px] text-zinc-400">
+                <div className="mt-1 flex items-center justify-end text-[10px] text-[var(--ds-text-muted)]">
                   16:34
                 </div>
                 </div>

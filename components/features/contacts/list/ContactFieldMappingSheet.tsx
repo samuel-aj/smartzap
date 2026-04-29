@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import {
@@ -51,10 +51,10 @@ export const ContactFieldMappingSheet: React.FC<ContactFieldMappingSheetProps> =
 
   return (
     <Sheet open={isOpen} onOpenChange={handleOpenChange}>
-      <SheetContent className="w-100 sm:w-135 border-l border-white/10 bg-zinc-950 p-0 flex flex-col z-60">
-        <SheetHeader className="p-6 border-b border-white/10">
+      <SheetContent className="w-100 sm:w-135 border-l border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] p-0 flex flex-col z-60">
+        <SheetHeader className="p-6 border-b border-[var(--ds-border-default)]">
           <div className="flex items-center justify-between">
-            <SheetTitle className="text-white flex items-center gap-2">
+            <SheetTitle className="dark:text-white text-[var(--ds-text-primary)] flex items-center gap-2">
               <Settings2 className="text-primary-500" size={20} />
               {view === 'map' ? 'Mapear Campos' : 'Gerenciar Campos'}
             </SheetTitle>
@@ -70,7 +70,7 @@ export const ContactFieldMappingSheet: React.FC<ContactFieldMappingSheetProps> =
             ) : (
               <button
                 onClick={() => setView('map')}
-                className="text-xs flex items-center gap-1.5 text-white font-semibold bg-zinc-800 hover:bg-zinc-700 border border-white/10 px-4 py-2 rounded-lg transition-all hover:scale-105 shadow-lg shadow-black/20"
+                className="text-xs flex items-center gap-1.5 dark:text-white text-[var(--ds-text-primary)] font-semibold bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] px-4 py-2 rounded-lg transition-all hover:scale-105 shadow-lg shadow-black/20"
               >
                 <ChevronLeft size={14} />
                 Voltar
@@ -102,25 +102,25 @@ export const ContactFieldMappingSheet: React.FC<ContactFieldMappingSheetProps> =
                         key={field.id}
                         className={`p-4 rounded-xl border transition-all ${isMapped
                           ? 'bg-primary-500/5 border-primary-500/20'
-                          : 'bg-zinc-900/50 border-white/5'
+                          : 'bg-[var(--ds-bg-elevated)] border-[var(--ds-border-subtle)]'
                           }`}
                       >
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
-                            <label className={`text-sm font-medium ${isMapped ? 'text-primary-400' : 'text-white'}`}>
+                            <label className={`text-sm font-medium ${isMapped ? 'text-primary-400' : 'dark:text-white text-[var(--ds-text-primary)]'}`}>
                               {field.label}
                             </label>
                             {isMapped && <Check size={14} className="text-primary-500" />}
                           </div>
-                          <span className="text-[10px] font-mono text-gray-500 bg-zinc-900 px-2 py-1 rounded">
+                          <span className="text-[10px] font-mono text-[var(--ds-text-muted)] bg-[var(--ds-bg-surface)] px-2 py-1 rounded">
                             {`{{${field.key}}}`}
                           </span>
                         </div>
 
                         <select
-                          className={`w-full bg-zinc-950 border rounded-lg px-3 py-2 text-white text-sm outline-none transition-colors ${isMapped
+                          className={`w-full bg-[var(--ds-bg-elevated)] border rounded-lg px-3 py-2 dark:text-white text-[var(--ds-text-primary)] text-sm outline-none transition-colors ${isMapped
                             ? 'border-primary-500/30 focus:border-primary-500'
-                            : 'border-white/10 focus:border-primary-500'
+                            : 'border-[var(--ds-border-default)] focus:border-primary-500'
                             }`}
                           value={columnMapping.custom_fields?.[field.key] || ''}
                           onChange={(e) => updateCustomFieldMapping(field.key, e.target.value)}
@@ -152,7 +152,7 @@ export const ContactFieldMappingSheet: React.FC<ContactFieldMappingSheetProps> =
               )}
             </div>
 
-            <div className="p-6 border-t border-white/10 bg-zinc-900/50">
+            <div className="p-6 border-t border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)]">
               <button
                 onClick={() => onOpenChange(false)}
                 className="w-full py-3 bg-primary-500 hover:bg-primary-600 text-black font-bold rounded-xl transition-colors flex items-center justify-center gap-2"

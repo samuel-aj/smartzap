@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { BatchSubmission, GeneratedTemplateWithStatus } from '../../../types';
 import { Container } from '@/components/ui/container';
 import {
@@ -59,21 +59,21 @@ export function SubmissionDetailView({
                     <div className="flex items-center gap-4">
                         <button
                             onClick={onBack}
-                            className="p-2 -ml-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors border border-white/10 bg-zinc-950/40"
+                            className="p-2 -ml-2 text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] rounded-lg transition-colors border border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)]"
                         >
                             <ArrowLeft className="w-5 h-5" />
                         </button>
                         <div>
-                            <h1 className="text-xl font-bold text-white flex items-center gap-2">
+                            <h1 className="text-xl font-bold text-[var(--ds-text-primary)] flex items-center gap-2">
                                 {submission.name}
                                 <span className={`px-2 py-0.5 text-xs rounded-full border ${submission.status === 'processing'
-                                    ? 'bg-purple-500/10 text-purple-200 border-purple-500/20'
-                                    : 'bg-zinc-950/40 text-gray-400 border-white/10'
+                                    ? 'bg-purple-500/10 text-purple-700 dark:text-purple-200 border-purple-500/20'
+                                    : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-muted)] border-[var(--ds-border-default)]'
                                     }`}>
                                     {submission.status === 'processing' ? 'Processando' : 'Concluído'}
                                 </span>
                             </h1>
-                            <p className="text-xs text-zinc-400 mt-1">
+                            <p className="text-xs text-[var(--ds-text-muted)] mt-1">
                                 Criado em {new Date(submission.createdAt).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', hour: '2-digit', minute: '2-digit' })}
                             </p>
                         </div>
@@ -83,7 +83,7 @@ export function SubmissionDetailView({
                         <button
                             onClick={onRefresh}
                             disabled={isLoading}
-                            className="px-3 py-2 bg-zinc-950/40 border border-white/10 text-gray-200 rounded-lg hover:bg-white/5 hover:text-white transition-colors flex items-center gap-2 disabled:opacity-50"
+                            className="px-3 py-2 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] text-[var(--ds-text-secondary)] rounded-lg hover:bg-[var(--ds-bg-hover)] hover:text-[var(--ds-text-primary)] transition-colors flex items-center gap-2 disabled:opacity-50"
                         >
                             <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
                             Atualizar Status
@@ -134,19 +134,19 @@ export function SubmissionDetailView({
                         const isExpanded = expandedSection === 'ALL' || expandedSection === section.id;
 
                         return (
-                            <div key={section.id} className="border-b border-white/10 last:border-0">
+                            <div key={section.id} className="border-b border-[var(--ds-border-default)] last:border-0">
                                 <button
                                     onClick={() => setExpandedSection(isExpanded && expandedSection !== 'ALL' ? 'ALL' : section.id)}
-                                    className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors"
+                                    className="w-full flex items-center justify-between p-4 hover:bg-[var(--ds-bg-hover)] transition-colors"
                                 >
                                     <div className="flex items-center gap-3">
                                         <section.icon className={`w-5 h-5 ${sectionIconTone[section.color]}`} />
-                                        <span className="font-medium text-white">{section.label}</span>
-                                        <span className="px-2 py-0.5 rounded-full bg-zinc-950/40 text-xs text-gray-400 border border-white/10">
+                                        <span className="font-medium text-[var(--ds-text-primary)]">{section.label}</span>
+                                        <span className="px-2 py-0.5 rounded-full bg-[var(--ds-bg-surface)] text-xs text-[var(--ds-text-muted)] border border-[var(--ds-border-default)]">
                                             {section.count}
                                         </span>
                                     </div>
-                                    <ChevronDown className={`w-4 h-4 text-zinc-500 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                                    <ChevronDown className={`w-4 h-4 text-[var(--ds-text-muted)] transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                                 </button>
 
                                 {isExpanded && (
@@ -157,24 +157,24 @@ export function SubmissionDetailView({
                                                 onClick={() => setSelectedTemplate(template)}
                                                 className={`p-3 rounded-lg border transition-all cursor-pointer ${selectedTemplate?.id === template.id
                                                     ? 'bg-purple-500/10 border-purple-500/30 ring-1 ring-purple-500/40'
-                                                    : 'bg-zinc-950/40 border-white/10 hover:border-white/20 hover:bg-white/5'
+                                                    : 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] hover:bg-[var(--ds-bg-hover)]'
                                                     }`}
                                             >
                                                 <div className="flex justify-between items-start mb-2">
-                                                    <span className="text-sm font-medium text-white flex items-center gap-2">
+                                                    <span className="text-sm font-medium text-[var(--ds-text-primary)] flex items-center gap-2">
                                                         {template.name}
                                                         {template.category !== template.originalCategory && (
-                                                            <span className="text-[10px] text-amber-300 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">
+                                                            <span className="text-[10px] text-amber-700 dark:text-amber-300 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">
                                                                 Mudou de Categoria
                                                             </span>
                                                         )}
                                                     </span>
-                                                    <span className="text-xs text-zinc-500 flex items-center gap-1">
+                                                    <span className="text-xs text-[var(--ds-text-muted)] flex items-center gap-1">
                                                         <Copy className="w-3 h-3" />
                                                         {template.language}
                                                     </span>
                                                 </div>
-                                                <p className="text-xs text-zinc-400 line-clamp-2">
+                                                <p className="text-xs text-[var(--ds-text-secondary)] line-clamp-2">
                                                     {template.content}
                                                 </p>
                                                 {template.rejectionReason && (
@@ -193,10 +193,10 @@ export function SubmissionDetailView({
             </div>
 
             {/* --- RIGHT SIDE: PREVIEW --- */}
-            <div className="w-[380px] shrink-0 border-l border-white/10 pl-6 flex flex-col justify-center">
+            <div className="w-[380px] shrink-0 border-l border-[var(--ds-border-default)] pl-6 flex flex-col justify-center">
                 {selectedTemplate ? (
                     <div className="sticky top-6">
-                        <h3 className="text-sm font-medium text-zinc-400 mb-4 text-center">
+                        <h3 className="text-sm font-medium text-[var(--ds-text-muted)] mb-4 text-center">
                             Pré-visualização
                         </h3>
                         <WhatsAppPhonePreview
@@ -211,8 +211,8 @@ export function SubmissionDetailView({
                             size="md"
                         />
                         <Container variant="default" padding="md" className="mt-6">
-                            <h4 className="text-sm font-medium text-white mb-2">Detalhes Técnicos</h4>
-                            <div className="space-y-2 text-xs text-zinc-400">
+                            <h4 className="text-sm font-medium text-[var(--ds-text-primary)] mb-2">Detalhes Técnicos</h4>
+                            <div className="space-y-2 text-xs text-[var(--ds-text-muted)]">
                                 <div className="flex justify-between">
                                     <span>Categoria:</span>
                                     <span className={selectedTemplate.category === 'UTILITY' ? 'text-purple-300' : 'text-amber-300'}>
@@ -231,7 +231,7 @@ export function SubmissionDetailView({
                         </Container>
                     </div>
                 ) : (
-                    <Container variant="default" padding="none" className="h-full flex flex-col items-center justify-center text-zinc-500 border-dashed">
+                    <Container variant="default" padding="none" className="h-full flex flex-col items-center justify-center text-[var(--ds-text-muted)] border-dashed">
                         <Eye className="w-12 h-12 mb-4 opacity-50" />
                         <p className="text-sm">Selecione um template para visualizar</p>
                     </Container>
@@ -261,7 +261,7 @@ function StatCard({ label, count, total, color, icon: Icon }: StatCardProps) {
         emerald: 'text-green-300 bg-green-500/10 border-green-500/20',
         yellow: 'text-amber-300 bg-amber-500/10 border-amber-500/20',
         red: 'text-amber-200 bg-amber-500/10 border-amber-500/20',
-        zinc: 'text-gray-400 bg-zinc-500/10 border-white/10',
+        zinc: 'text-gray-400 bg-zinc-500/10 border-[var(--ds-border-default)]',
     };
 
     return (

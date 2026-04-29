@@ -1,4 +1,4 @@
-import { CampaignStatus } from '@/types';
+﻿import { CampaignStatus } from '@/types';
 
 export const formatDurationMs = (ms: number | null | undefined): string => {
   if (!ms || ms <= 0) return '—';
@@ -28,7 +28,7 @@ export const getCampaignStatusClass = (status: CampaignStatus): string => {
     case CampaignStatus.SENDING:
       return 'bg-blue-500/10 border-blue-500/20 text-blue-400';
     case CampaignStatus.CANCELLED:
-      return 'bg-zinc-800 border-zinc-700/70 text-gray-300';
+      return 'bg-zinc-800 border-[var(--ds-border-strong)]/70 text-[var(--ds-text-secondary)]';
     case CampaignStatus.PAUSED:
       return 'bg-amber-500/10 border-amber-500/20 text-amber-400';
     case CampaignStatus.SCHEDULED:
@@ -36,7 +36,7 @@ export const getCampaignStatusClass = (status: CampaignStatus): string => {
     case CampaignStatus.FAILED:
       return 'bg-red-500/10 border-red-500/20 text-red-400';
     default:
-      return 'bg-zinc-800 border-zinc-700 text-gray-400';
+      return 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] text-[var(--ds-text-muted)]';
   }
 };
 
@@ -63,8 +63,8 @@ export const computePerfSourceLabel = (source: string | undefined): { label: str
   const s = String(source || '').trim();
   if (s === 'run_metrics') return { label: 'Dados: avancados', tone: 'text-purple-300 bg-purple-500/10 border-purple-500/20' };
   if (s === 'campaigns_fallback') return { label: 'Dados: basicos', tone: 'text-amber-200 bg-amber-500/10 border-amber-500/20' };
-  if (!s) return { label: 'Dados: —', tone: 'text-gray-500 bg-zinc-900/60 border-white/10' };
-  return { label: `Dados: ${s}`, tone: 'text-gray-500 bg-zinc-900/60 border-white/10' };
+  if (!s) return { label: 'Dados: —', tone: 'text-gray-500 bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)]' };
+  return { label: `Dados: ${s}`, tone: 'text-gray-500 bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)]' };
 };
 
 export const computeLimiterInfo = (

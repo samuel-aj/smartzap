@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { X } from 'lucide-react';
@@ -321,7 +321,7 @@ export function SegmentsSheet({
                   }
                   className={
                     segmentCustomFieldModeDraft === 'exists'
-                      ? 'bg-primary-600 text-white hover:bg-primary-500'
+                      ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500'
                       : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]'
                   }
                   onClick={() => setSegmentCustomFieldModeDraft('exists')}
@@ -338,7 +338,7 @@ export function SegmentsSheet({
                   }
                   className={
                     segmentCustomFieldModeDraft === 'equals'
-                      ? 'bg-primary-600 text-white hover:bg-primary-500'
+                      ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500'
                       : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]'
                   }
                   onClick={() => setSegmentCustomFieldModeDraft('equals')}
@@ -360,7 +360,7 @@ export function SegmentsSheet({
 
               <Button
                 type="button"
-                className="bg-primary-600 text-white hover:bg-primary-500"
+                className="bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500"
                 disabled={
                   isDisabled ||
                   !segmentCustomFieldKeyDraft ||

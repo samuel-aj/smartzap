@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Brain, Eye, EyeOff, Info, Loader2, Check, ExternalLink, Trash2 } from 'lucide-react';
@@ -287,7 +287,7 @@ export function Mem0Panel() {
                 type="button"
                 onClick={handleSaveApiKey}
                 disabled={saving || !apiKeyDraft.trim()}
-                className="rounded-lg bg-violet-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="rounded-lg bg-violet-600 px-4 py-2 text-xs font-semibold dark:text-white text-[var(--ds-text-primary)] transition hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {saving ? 'Salvando...' : 'Salvar'}
               </button>

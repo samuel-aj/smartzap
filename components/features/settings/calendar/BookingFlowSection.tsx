@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Workflow, Check, AlertCircle, Loader2 } from 'lucide-react';
@@ -137,7 +137,7 @@ export function BookingFlowSection() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="h-9 px-4 rounded-lg bg-purple-500 hover:bg-purple-400 text-white text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
+                className="h-9 px-4 rounded-lg bg-purple-500 hover:bg-purple-400 dark:text-white text-[var(--ds-text-primary)] text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
               >
                 {saving ? (
                   <Loader2 size={14} className="animate-spin" />

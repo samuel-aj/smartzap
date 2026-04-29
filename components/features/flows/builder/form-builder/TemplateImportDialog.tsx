@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useState, useEffect } from 'react'
 import { toast } from 'sonner'
@@ -60,10 +60,10 @@ export function TemplateImportDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-zinc-950 border-white/10 text-white sm:max-w-2xl">
+      <DialogContent className="bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)] sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle>Importar modelo pronto</DialogTitle>
-          <DialogDescription className="text-zinc-400">
+          <DialogDescription className="text-[var(--ds-text-muted)]">
             Isso substitui o formulário atual. Você pode editar depois.
           </DialogDescription>
         </DialogHeader>
@@ -77,7 +77,7 @@ export function TemplateImportDialog({
                   ? tpl.isDynamic
                     ? 'border-purple-400/40 bg-purple-500/10'
                     : 'border-purple-400/40 bg-purple-500/10'
-                  : 'border-white/10 bg-zinc-900/60 hover:bg-white/5'
+                  : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]'
               }`}
             >
               <input
@@ -89,11 +89,11 @@ export function TemplateImportDialog({
               />
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-white">{tpl.name}</span>
+                  <span className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)]">{tpl.name}</span>
                   <span
                     className={
                       'px-1.5 py-0.5 text-[10px] rounded ' +
-                      (tpl.isDynamic ? 'bg-purple-500/20 text-purple-300' : 'bg-white/10 text-gray-300')
+                      (tpl.isDynamic ? 'bg-purple-500/20 text-purple-300' : 'bg-white/10 text-[var(--ds-text-secondary)]')
                     }
                   >
                     {tpl.isDynamic ? 'Dinâmico' : 'Simples'}
@@ -109,7 +109,7 @@ export function TemplateImportDialog({
           <Button
             type="button"
             variant="outline"
-            className="border-white/10 bg-zinc-900 hover:bg-white/5"
+            className="border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]"
             onClick={() => onOpenChange(false)}
           >
             Cancelar

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronUp, ChevronDown } from 'lucide-react';
@@ -147,14 +147,14 @@ export function TurboPlannerSection({
   };
 
   return (
-    <div className="mt-4 bg-zinc-900/30 border border-white/10 rounded-2xl">
+    <div className="mt-4 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-2xl">
       <button
         type="button"
         onClick={() => setIsPlannerOpen((v) => !v)}
         className="w-full px-5 py-4 flex items-center justify-between gap-3"
       >
         <div className="text-left">
-          <div className="text-sm font-medium text-white">Planejador de disparo</div>
+          <div className="text-sm font-medium dark:text-white text-[var(--ds-text-primary)]">Planejador de disparo</div>
           <div className="text-xs text-gray-400">Diga "quantas mensagens" e "em quanto tempo" e eu sugiro a config.</div>
         </div>
         <div className="text-gray-400">
@@ -171,7 +171,7 @@ export function TurboPlannerSection({
                 type="number"
                 value={plannerMessages}
                 onChange={(e) => setPlannerMessages(Number(e.target.value))}
-                className="w-full px-3 py-2 bg-zinc-900/50 border border-white/10 rounded-lg text-sm text-white font-mono"
+                className="w-full px-3 py-2 bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-lg text-sm dark:text-white text-[var(--ds-text-primary)] font-mono"
                 min={1}
                 max={100000}
               />
@@ -182,7 +182,7 @@ export function TurboPlannerSection({
                 type="number"
                 value={plannerSeconds}
                 onChange={(e) => setPlannerSeconds(Number(e.target.value))}
-                className="w-full px-3 py-2 bg-zinc-900/50 border border-white/10 rounded-lg text-sm text-white font-mono"
+                className="w-full px-3 py-2 bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-lg text-sm dark:text-white text-[var(--ds-text-primary)] font-mono"
                 min={1}
                 max={3600}
               />
@@ -196,7 +196,7 @@ export function TurboPlannerSection({
                   setPlannerLatencyTouched(true);
                   setPlannerLatencyMs(Number(e.target.value));
                 }}
-                className="w-full px-3 py-2 bg-zinc-900/50 border border-white/10 rounded-lg text-sm text-white font-mono"
+                className="w-full px-3 py-2 bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-lg text-sm dark:text-white text-[var(--ds-text-primary)] font-mono"
                 min={50}
                 max={5000}
               />
@@ -214,7 +214,7 @@ export function TurboPlannerSection({
                 type="number"
                 value={plannerHeadroom}
                 onChange={(e) => setPlannerHeadroom(Number(e.target.value))}
-                className="w-full px-3 py-2 bg-zinc-900/50 border border-white/10 rounded-lg text-sm text-white font-mono"
+                className="w-full px-3 py-2 bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-lg text-sm dark:text-white text-[var(--ds-text-primary)] font-mono"
                 min={1.0}
                 max={2.5}
                 step={0.05}
@@ -224,26 +224,26 @@ export function TurboPlannerSection({
           </div>
 
           <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="bg-zinc-900/40 border border-white/10 rounded-xl p-4">
+            <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
               <div className="text-xs text-gray-500">Meta</div>
-              <div className="mt-2 text-sm text-white">
+              <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)]">
                 {turboPlan.msgs} msgs em {turboPlan.secs}s
               </div>
               <div className="mt-1 text-xs text-gray-400">
-                Precisa de <span className="font-mono text-white">{turboPlan.desiredMps.toFixed(2)}</span> mps
+                Precisa de <span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{turboPlan.desiredMps.toFixed(2)}</span> mps
               </div>
               <div className="mt-2 text-[11px] text-gray-500">
                 Regra pratica: throughput = concurrency / latencia
               </div>
             </div>
 
-            <div className="bg-zinc-900/40 border border-white/10 rounded-xl p-4">
+            <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
               <div className="text-xs text-gray-500">Sugestao de config</div>
-              <div className="mt-2 text-xs text-gray-300 space-y-1">
-                <div className="flex justify-between gap-3"><span className="text-gray-400">sendConcurrency</span><span className="font-mono text-white">{turboPlan.recommended.sendConcurrency}</span></div>
-                <div className="flex justify-between gap-3"><span className="text-gray-400">batchSize</span><span className="font-mono text-white">{turboPlan.recommended.batchSize}</span></div>
-                <div className="flex justify-between gap-3"><span className="text-gray-400">startMps</span><span className="font-mono text-white">{turboPlan.recommended.startMps}</span></div>
-                <div className="flex justify-between gap-3"><span className="text-gray-400">maxMps</span><span className="font-mono text-white">{turboPlan.recommended.maxMps}</span></div>
+              <div className="mt-2 text-xs text-[var(--ds-text-secondary)] space-y-1">
+                <div className="flex justify-between gap-3"><span className="text-gray-400">sendConcurrency</span><span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{turboPlan.recommended.sendConcurrency}</span></div>
+                <div className="flex justify-between gap-3"><span className="text-gray-400">batchSize</span><span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{turboPlan.recommended.batchSize}</span></div>
+                <div className="flex justify-between gap-3"><span className="text-gray-400">startMps</span><span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{turboPlan.recommended.startMps}</span></div>
+                <div className="flex justify-between gap-3"><span className="text-gray-400">maxMps</span><span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{turboPlan.recommended.maxMps}</span></div>
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 <button
@@ -257,27 +257,27 @@ export function TurboPlannerSection({
                 <button
                   type="button"
                   onClick={handleLoadExample}
-                  className="h-10 px-3 bg-zinc-800 hover:bg-zinc-700 border border-white/10 rounded-lg transition-colors text-sm text-white"
+                  className="h-10 px-3 bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] rounded-lg transition-colors text-sm dark:text-white text-[var(--ds-text-primary)]"
                 >
                   Exemplo 174/10s
                 </button>
               </div>
             </div>
 
-            <div className="bg-zinc-900/40 border border-white/10 rounded-xl p-4">
+            <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
               <div className="text-xs text-gray-500">Estimativa</div>
-              <div className="mt-2 text-xs text-gray-300 space-y-1">
+              <div className="mt-2 text-xs text-[var(--ds-text-secondary)] space-y-1">
                 <div className="flex justify-between gap-3">
                   <span className="text-gray-400">teto por concorrencia</span>
-                  <span className="font-mono text-white">{turboPlan.estimate.concCeilingMps != null ? turboPlan.estimate.concCeilingMps.toFixed(2) : '-'} mps</span>
+                  <span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{turboPlan.estimate.concCeilingMps != null ? turboPlan.estimate.concCeilingMps.toFixed(2) : '-'} mps</span>
                 </div>
                 <div className="flex justify-between gap-3">
                   <span className="text-gray-400">mps inicial (com startMps)</span>
-                  <span className="font-mono text-white">{turboPlan.estimate.estimatedMpsInitial.toFixed(2)} mps</span>
+                  <span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{turboPlan.estimate.estimatedMpsInitial.toFixed(2)} mps</span>
                 </div>
                 <div className="flex justify-between gap-3">
                   <span className="text-gray-400">tempo estimado</span>
-                  <span className="font-mono text-white">{turboPlan.estimate.estimatedSeconds != null ? `${Math.ceil(turboPlan.estimate.estimatedSeconds)}s` : '-'}</span>
+                  <span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{turboPlan.estimate.estimatedSeconds != null ? `${Math.ceil(turboPlan.estimate.estimatedSeconds)}s` : '-'}</span>
                 </div>
               </div>
 

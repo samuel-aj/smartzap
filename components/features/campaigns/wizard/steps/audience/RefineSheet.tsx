@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { X } from 'lucide-react';
@@ -74,7 +74,7 @@ export function RefineSheet({
               variant={audienceDraft.status === 'OPT_IN' ? 'default' : 'outline'}
               className={
                 audienceDraft.status === 'OPT_IN'
-                  ? 'bg-primary-600 text-white hover:bg-primary-500'
+                  ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500'
                   : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]'
               }
               onClick={() =>
@@ -88,7 +88,7 @@ export function RefineSheet({
               variant={audienceDraft.status === 'ALL' ? 'default' : 'outline'}
               className={
                 audienceDraft.status === 'ALL'
-                  ? 'bg-primary-600 text-white hover:bg-primary-500'
+                  ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500'
                   : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]'
               }
               onClick={() =>
@@ -153,7 +153,7 @@ export function RefineSheet({
               variant={audienceDraft.createdWithinDays === 7 ? 'default' : 'outline'}
               className={
                 audienceDraft.createdWithinDays === 7
-                  ? 'bg-primary-600 text-white hover:bg-primary-500'
+                  ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500'
                   : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]'
               }
               onClick={() =>
@@ -167,7 +167,7 @@ export function RefineSheet({
               variant={audienceDraft.createdWithinDays === 30 ? 'default' : 'outline'}
               className={
                 audienceDraft.createdWithinDays === 30
-                  ? 'bg-primary-600 text-white hover:bg-primary-500'
+                  ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500'
                   : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]'
               }
               onClick={() =>
@@ -181,7 +181,7 @@ export function RefineSheet({
               variant={!audienceDraft.createdWithinDays ? 'default' : 'outline'}
               className={
                 !audienceDraft.createdWithinDays
-                  ? 'bg-primary-600 text-white hover:bg-primary-500'
+                  ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500'
                   : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]'
               }
               onClick={() =>
@@ -205,7 +205,7 @@ export function RefineSheet({
         </Button>
         <Button
           type="button"
-          className="bg-primary-600 text-white hover:bg-primary-500"
+          className="bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500"
           onClick={handleApply}
         >
           Aplicar

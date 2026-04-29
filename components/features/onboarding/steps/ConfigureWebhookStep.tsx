@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import {
@@ -86,7 +86,7 @@ export function ConfigureWebhookStep({
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Loader2 className="w-8 h-8 animate-spin text-zinc-400" />
+        <Loader2 className="w-8 h-8 animate-spin text-[var(--ds-text-muted)]" />
       </div>
     );
   }
@@ -107,9 +107,9 @@ export function ConfigureWebhookStep({
         {/* Explicação do objetivo */}
         <div className="text-center space-y-1">
           <p className="text-zinc-300">
-            Para saber quando suas mensagens foram <strong className="text-white">entregues</strong> e <strong className="text-white">lidas</strong>,
+            Para saber quando suas mensagens foram <strong className="dark:text-white text-[var(--ds-text-primary)]">entregues</strong> e <strong className="dark:text-white text-[var(--ds-text-primary)]">lidas</strong>,
           </p>
-          <p className="text-zinc-400 text-sm">
+          <p className="text-[var(--ds-text-muted)] text-sm">
             o SmartZap precisa receber notificações do WhatsApp.
           </p>
         </div>
@@ -123,9 +123,9 @@ export function ConfigureWebhookStep({
 
           {/* URL */}
           <div className="space-y-1">
-            <label className="text-xs text-zinc-400 uppercase tracking-wide">URL do Callback</label>
+            <label className="text-xs text-[var(--ds-text-muted)] uppercase tracking-wide">URL do Callback</label>
             <div className="flex items-center gap-2">
-              <code className="flex-1 px-3 py-2 bg-zinc-800 rounded-lg font-mono text-sm text-white truncate">
+              <code className="flex-1 px-3 py-2 bg-zinc-800 rounded-lg font-mono text-sm dark:text-white text-[var(--ds-text-primary)] truncate">
                 {webhookInfo?.webhookUrl}
               </code>
               <Button
@@ -145,9 +145,9 @@ export function ConfigureWebhookStep({
 
           {/* Token */}
           <div className="space-y-1">
-            <label className="text-xs text-zinc-400 uppercase tracking-wide">Token de Verificação</label>
+            <label className="text-xs text-[var(--ds-text-muted)] uppercase tracking-wide">Token de Verificação</label>
             <div className="flex items-center gap-2">
-              <code className="flex-1 px-3 py-2 bg-zinc-800 rounded-lg font-mono text-sm text-white truncate">
+              <code className="flex-1 px-3 py-2 bg-zinc-800 rounded-lg font-mono text-sm dark:text-white text-[var(--ds-text-primary)] truncate">
                 {webhookInfo?.webhookToken}
               </code>
               <Button
@@ -170,22 +170,22 @@ export function ConfigureWebhookStep({
         <div className="space-y-3">
           <h4 className="text-sm font-medium text-zinc-300">No Meta for Developers:</h4>
 
-          <ol className="space-y-2 text-sm text-zinc-400">
+          <ol className="space-y-2 text-sm text-[var(--ds-text-muted)]">
             <li className="flex items-start gap-2">
               <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</span>
-              <span>Vá em <strong className="text-white">WhatsApp → Configuração</strong></span>
+              <span>Vá em <strong className="dark:text-white text-[var(--ds-text-primary)]">WhatsApp → Configuração</strong></span>
             </li>
             <li className="flex items-start gap-2">
               <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</span>
-              <span>Na seção <strong className="text-white">Webhook</strong>, clique em <strong className="text-white">Editar</strong></span>
+              <span>Na seção <strong className="dark:text-white text-[var(--ds-text-primary)]">Webhook</strong>, clique em <strong className="dark:text-white text-[var(--ds-text-primary)]">Editar</strong></span>
             </li>
             <li className="flex items-start gap-2">
               <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</span>
-              <span>Cole a <strong className="text-white">URL</strong> e o <strong className="text-white">Token</strong> copiados acima</span>
+              <span>Cole a <strong className="dark:text-white text-[var(--ds-text-primary)]">URL</strong> e o <strong className="dark:text-white text-[var(--ds-text-primary)]">Token</strong> copiados acima</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">4</span>
-              <span>Clique em <strong className="text-white">Verificar e salvar</strong></span>
+              <span>Clique em <strong className="dark:text-white text-[var(--ds-text-primary)]">Verificar e salvar</strong></span>
             </li>
           </ol>
         </div>
@@ -195,19 +195,19 @@ export function ConfigureWebhookStep({
           href={META_APP_SETTINGS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full p-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
+          className="flex items-center justify-center gap-2 w-full p-3 rounded-xl bg-blue-600 hover:bg-blue-700 dark:text-white text-[var(--ds-text-primary)] font-medium transition-colors"
         >
           <ExternalLink className="w-4 h-4" />
           Abrir Meta for Developers
         </a>
 
         {/* Info */}
-        <p className="text-xs text-zinc-500 text-center">
+        <p className="text-xs text-[var(--ds-text-muted)] text-center">
           Deixe esta janela aberta para copiar os dados enquanto configura no Meta
         </p>
 
         {/* Confirmação */}
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
           <Checkbox
             id="confirm-webhook"
             checked={confirmed}
@@ -218,7 +218,7 @@ export function ConfigureWebhookStep({
             htmlFor="confirm-webhook"
             className="text-sm text-zinc-300 cursor-pointer select-none leading-relaxed"
           >
-            Confirmo que cliquei em <strong className="text-white">"Verificar e salvar"</strong> no Meta e vi a mensagem de sucesso
+            Confirmo que cliquei em <strong className="dark:text-white text-[var(--ds-text-primary)]">"Verificar e salvar"</strong> no Meta e vi a mensagem de sucesso
           </label>
         </div>
 
@@ -280,26 +280,26 @@ export function ConfigureWebhookStep({
             </div>
           </div>
 
-          <ol className="space-y-2 text-sm text-zinc-400">
+          <ol className="space-y-2 text-sm text-[var(--ds-text-muted)]">
             <li className="flex items-start gap-2">
               <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</span>
-              <span>Na seção <strong className="text-white">Webhook</strong>, clique em <strong className="text-white">Gerenciar</strong></span>
+              <span>Na seção <strong className="dark:text-white text-[var(--ds-text-primary)]">Webhook</strong>, clique em <strong className="dark:text-white text-[var(--ds-text-primary)]">Gerenciar</strong></span>
             </li>
             <li className="flex items-start gap-2">
               <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</span>
-              <span>Encontre <strong className="text-white">messages</strong> na lista</span>
+              <span>Encontre <strong className="dark:text-white text-[var(--ds-text-primary)]">messages</strong> na lista</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</span>
-              <span>Marque o checkbox para <strong className="text-white">ativar</strong></span>
+              <span>Marque o checkbox para <strong className="dark:text-white text-[var(--ds-text-primary)]">ativar</strong></span>
             </li>
           </ol>
         </div>
       </div>
 
       {/* Explicação do que isso faz */}
-      <div className="p-4 rounded-xl bg-zinc-800/50 border border-zinc-700">
-        <p className="text-sm text-zinc-400">
+      <div className="p-4 rounded-xl bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
+        <p className="text-sm text-[var(--ds-text-muted)]">
           <strong className="text-zinc-300">Por que isso é importante?</strong>
           <br />
           Ao ativar "messages", você receberá confirmações de entrega, leitura e respostas dos seus contatos.
@@ -307,7 +307,7 @@ export function ConfigureWebhookStep({
       </div>
 
       {/* Confirmação */}
-      <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
+      <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
         <Checkbox
           id="confirm-messages"
           checked={messagesConfirmed}
@@ -318,7 +318,7 @@ export function ConfigureWebhookStep({
           htmlFor="confirm-messages"
           className="text-sm text-zinc-300 cursor-pointer select-none leading-relaxed"
         >
-          Confirmo que marquei o campo <strong className="text-white">"messages"</strong> no Meta
+          Confirmo que marquei o campo <strong className="dark:text-white text-[var(--ds-text-primary)]">"messages"</strong> no Meta
         </label>
       </div>
 

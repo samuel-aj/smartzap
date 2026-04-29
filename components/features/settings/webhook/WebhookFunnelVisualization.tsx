@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ArrowDown, CheckCircle2, Circle, Lock, Zap, Trash2, Loader2 } from 'lucide-react';
@@ -28,7 +28,7 @@ export function WebhookFunnelVisualization({
 }: WebhookFunnelVisualizationProps) {
   return (
     <div className="px-4 pb-4 animate-in slide-in-from-top-2 duration-200">
-      <div className="bg-zinc-900/50 rounded-xl p-4 border border-white/5">
+      <div className="bg-[var(--ds-bg-elevated)] rounded-xl p-4 border border-[var(--ds-border-subtle)]">
         <div className="text-xs text-gray-500 mb-3 flex items-center gap-2">
           <ArrowDown size={12} />
           Fluxo de eventos (primeiro que existir, captura)
@@ -147,7 +147,7 @@ export function WebhookFunnelVisualization({
                             <button
                               onClick={handleActivate}
                               disabled={isBusy}
-                              className="h-8 px-2.5 text-[10px] font-medium bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white rounded-lg transition-colors flex items-center gap-1"
+                              className="h-8 px-2.5 text-[10px] font-medium bg-purple-600 hover:bg-purple-500 disabled:opacity-50 dark:text-white text-[var(--ds-text-primary)] rounded-lg transition-colors flex items-center gap-1"
                               title={`Ativar SmartZap no nível #${level.level}`}
                             >
                               {isBusy ? (
@@ -164,7 +164,7 @@ export function WebhookFunnelVisualization({
                             <button
                               onClick={handleActivate}
                               disabled={isBusy}
-                              className="h-8 px-2.5 text-[10px] font-medium bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white rounded-lg transition-colors flex items-center gap-1"
+                              className="h-8 px-2.5 text-[10px] font-medium bg-purple-600 hover:bg-purple-500 disabled:opacity-50 dark:text-white text-[var(--ds-text-primary)] rounded-lg transition-colors flex items-center gap-1"
                               title={`Substituir por SmartZap`}
                             >
                               {isBusy ? (
@@ -207,7 +207,7 @@ export function WebhookFunnelVisualization({
           })}
         </div>
 
-        <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] text-gray-500">
+        <div className="mt-4 pt-3 border-t border-[var(--ds-border-subtle)] flex items-center justify-between text-[10px] text-gray-500">
           <span>A Meta verifica de cima para baixo</span>
           <span className="flex items-center gap-1">
             <CheckCircle2 size={10} />

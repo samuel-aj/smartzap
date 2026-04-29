@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import type { MetaDiagnosticsResponse } from '@/services/metaDiagnosticsService'
@@ -89,8 +89,8 @@ export function TokenValidityCard({ data, checks }: TokenValidityCardProps) {
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="text-xs text-gray-500">Token</div>
-          <div className="mt-2 text-sm text-white font-medium">{title}</div>
-          <div className="mt-2 text-sm text-gray-300">{subtitle}</div>
+          <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">{title}</div>
+          <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">{subtitle}</div>
           {dbgEnabled ? (
             <div className="mt-2 text-xs text-gray-500">
               Fonte: <span className="font-mono">/debug_token</span> (quando disponivel) + <span className="font-mono">/me</span>
@@ -107,9 +107,9 @@ export function TokenValidityCard({ data, checks }: TokenValidityCardProps) {
       </div>
 
       {nextSteps.length > 0 && (
-        <div className="mt-4 bg-zinc-900/40 border border-white/10 rounded-xl p-4">
-          <div className="text-sm text-white font-semibold">O que fazer</div>
-          <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-gray-200">
+        <div className="mt-4 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
+          <div className="text-sm dark:text-white text-[var(--ds-text-primary)] font-semibold">O que fazer</div>
+          <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-[var(--ds-text-secondary)]">
             {nextSteps.map((s, i) => (
               <li key={i}>{s}</li>
             ))}
@@ -124,10 +124,10 @@ export function TokenValidityCard({ data, checks }: TokenValidityCardProps) {
 
       {(dbgCheck?.details || meCheck?.details) && (
         <details className="mt-4">
-          <summary className="cursor-pointer text-xs text-gray-400 hover:text-white transition-colors">
+          <summary className="cursor-pointer text-xs text-gray-400 hover:text-[var(--ds-text-primary)] transition-colors">
             Ver detalhes tecnicos
           </summary>
-          <pre className="mt-3 text-xs bg-zinc-950/50 border border-white/10 rounded-xl p-4 overflow-auto text-gray-200">
+          <pre className="mt-3 text-xs bg-zinc-950/50 border border-[var(--ds-border-default)] rounded-xl p-4 overflow-auto text-[var(--ds-text-secondary)]">
             {formatJsonMaybe({
               debug_token: dbgCheck?.details || null,
               me: meCheck?.details || null,

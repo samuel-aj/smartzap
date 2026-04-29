@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { FileText, X, Loader2 } from 'lucide-react';
@@ -34,14 +34,14 @@ export const TemplatePreviewModal: React.FC<TemplatePreviewModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-in zoom-in-95 fade-in duration-200">
+      <div className="relative bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-in zoom-in-95 fade-in duration-200">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-white/10">
+        <div className="flex items-center justify-between p-4 border-b border-[var(--ds-border-default)]">
           <div className="flex items-center gap-2">
             <FileText size={18} className="text-primary-400" />
-            <h3 className="text-lg font-bold text-white">{templateName}</h3>
+            <h3 className="text-lg font-bold dark:text-white text-[var(--ds-text-primary)]">{templateName}</h3>
           </div>
-          <button onClick={onClose} className="p-1 hover:bg-white/10 rounded-lg transition-colors">
+          <button onClick={onClose} className="p-1 hover:bg-[var(--ds-bg-hover)] rounded-lg transition-colors">
             <X size={18} className="text-gray-400" />
           </button>
         </div>

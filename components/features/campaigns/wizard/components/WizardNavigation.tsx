@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Calendar, ChevronLeft, ChevronRight, Zap } from 'lucide-react';
 import type { ScheduleMode } from '../types';
 
@@ -49,12 +49,12 @@ export const WizardNavigation: React.FC<WizardNavigationProps> = ({
     : 'px-4 py-2 rounded-xl text-[var(--ds-text-secondary)] font-medium hover:text-[var(--ds-text-primary)] transition-colors flex items-center gap-2 hover:bg-[var(--ds-bg-hover)]';
 
   const continueButtonClasses = isMobile
-    ? `group relative bg-primary-600 text-white dark:bg-white dark:text-black font-bold hover:bg-primary-500 dark:hover:bg-neutral-100 transition-all flex items-center gap-2 shadow-lg overflow-hidden ${step === 1 ? 'px-14 py-4 rounded-2xl text-lg min-w-65 justify-center' : 'px-8 py-3 rounded-xl'}`
-    : `group relative bg-primary-600 text-white dark:bg-white dark:text-black font-bold hover:bg-primary-500 dark:hover:bg-neutral-100 transition-all flex items-center gap-2 shadow-lg overflow-hidden ${step === 1 ? 'px-10 py-4 rounded-2xl text-base min-w-60 justify-center' : 'px-6 py-2.5 rounded-xl'}`;
+    ? `group relative bg-primary-600 dark:text-white text-[var(--ds-text-primary)] dark:bg-white dark:text-black font-bold hover:bg-primary-500 dark:hover:bg-neutral-100 transition-all flex items-center gap-2 shadow-lg overflow-hidden ${step === 1 ? 'px-14 py-4 rounded-2xl text-lg min-w-65 justify-center' : 'px-8 py-3 rounded-xl'}`
+    : `group relative bg-primary-600 dark:text-white text-[var(--ds-text-primary)] dark:bg-white dark:text-black font-bold hover:bg-primary-500 dark:hover:bg-neutral-100 transition-all flex items-center gap-2 shadow-lg overflow-hidden ${step === 1 ? 'px-10 py-4 rounded-2xl text-base min-w-60 justify-center' : 'px-6 py-2.5 rounded-xl'}`;
 
   const sendButtonClasses = isMobile
-    ? `group relative px-10 py-3 rounded-xl ${scheduleMode === 'scheduled' ? 'bg-purple-600 hover:bg-purple-500 shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)]' : 'bg-primary-600 hover:bg-primary-500 shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)]'} text-white font-bold transition-all flex items-center gap-2 hover:scale-105 ${isCreating || isScheduleDisabled ? 'opacity-70 cursor-not-allowed' : ''}`
-    : `group relative px-7 py-2.5 rounded-xl ${scheduleMode === 'scheduled' ? 'bg-purple-600 hover:bg-purple-500 shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)]' : 'bg-primary-600 hover:bg-primary-500 shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)]'} text-white font-bold transition-all flex items-center gap-2 hover:scale-105 ${isCreating || isScheduleDisabled ? 'opacity-70 cursor-not-allowed' : ''}`;
+    ? `group relative px-10 py-3 rounded-xl ${scheduleMode === 'scheduled' ? 'bg-purple-600 hover:bg-purple-500 shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)]' : 'bg-primary-600 hover:bg-primary-500 shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)]'} dark:text-white text-[var(--ds-text-primary)] font-bold transition-all flex items-center gap-2 hover:scale-105 ${isCreating || isScheduleDisabled ? 'opacity-70 cursor-not-allowed' : ''}`
+    : `group relative px-7 py-2.5 rounded-xl ${scheduleMode === 'scheduled' ? 'bg-purple-600 hover:bg-purple-500 shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)]' : 'bg-primary-600 hover:bg-primary-500 shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)]'} dark:text-white text-[var(--ds-text-primary)] font-bold transition-all flex items-center gap-2 hover:scale-105 ${isCreating || isScheduleDisabled ? 'opacity-70 cursor-not-allowed' : ''}`;
 
   return (
     <div className={containerClasses}>

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useState, useCallback } from 'react'
 import { ArrowLeft, Loader2, PartyPopper } from 'lucide-react'
@@ -91,12 +91,12 @@ export function DirectCredentialsStep({
       <div className="space-y-2">
         <button
           onClick={onBack}
-          className="flex items-center gap-1 text-sm text-zinc-400 hover:text-white transition-colors"
+          className="flex items-center gap-1 text-sm text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Voltar
         </button>
-        <h2 className="text-xl font-semibold text-white">Conectar Credenciais</h2>
+        <h2 className="text-xl font-semibold dark:text-white text-[var(--ds-text-primary)]">Conectar Credenciais</h2>
       </div>
 
       {/* Formulário centralizado */}

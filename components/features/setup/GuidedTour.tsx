@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
@@ -105,9 +105,9 @@ export function GuidedTour({ onComplete, onSkip }: GuidedTourProps) {
 
       {/* Card do Tour */}
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[201] w-full max-w-md px-4">
-        <div className="bg-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-2xl shadow-2xl overflow-hidden">
           {/* Progress bar */}
-          <div className="h-1 bg-zinc-800">
+          <div className="h-1 bg-[var(--ds-bg-surface)]">
             <div
               className="h-full bg-purple-500 transition-all duration-500"
               style={{ width: `${progress}%` }}
@@ -115,16 +115,16 @@ export function GuidedTour({ onComplete, onSkip }: GuidedTourProps) {
           </div>
 
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-zinc-800">
+          <div className="flex items-center justify-between p-4 border-b border-[var(--ds-border-default)]">
             <div className="flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-purple-400" />
-              <span className="text-sm font-medium text-zinc-400">
+              <span className="text-sm font-medium text-[var(--ds-text-muted)]">
                 Primeiros passos • {currentStep + 1}/{TOUR_STEPS.length}
               </span>
             </div>
             <button
               onClick={handleSkip}
-              className="p-1 text-zinc-500 hover:text-white hover:bg-zinc-800 rounded transition-colors"
+              className="p-1 text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] rounded transition-colors"
               title="Pular tour"
             >
               <X className="w-4 h-4" />
@@ -139,10 +139,10 @@ export function GuidedTour({ onComplete, onSkip }: GuidedTourProps) {
             </div>
 
             {/* Text */}
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-xl font-semibold dark:text-white text-[var(--ds-text-primary)] mb-2">
               {step.title}
             </h3>
-            <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+            <p className="text-[var(--ds-text-muted)] text-sm leading-relaxed mb-6">
               {step.description}
             </p>
 
@@ -151,7 +151,7 @@ export function GuidedTour({ onComplete, onSkip }: GuidedTourProps) {
               {step.action && (
                 <Button
                   onClick={handleAction}
-                  className="flex-1 bg-purple-600 hover:bg-purple-500 text-white"
+                  className="flex-1 bg-purple-600 hover:bg-purple-500 dark:text-white text-[var(--ds-text-primary)]"
                 >
                   {step.action.label}
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -162,7 +162,7 @@ export function GuidedTour({ onComplete, onSkip }: GuidedTourProps) {
                 <Button
                   variant="ghost"
                   onClick={handleNext}
-                  className="text-zinc-400 hover:text-white"
+                  className="text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)]"
                 >
                   Depois
                 </Button>
@@ -171,7 +171,7 @@ export function GuidedTour({ onComplete, onSkip }: GuidedTourProps) {
               {isLastStep && (
                 <Button
                   onClick={handleNext}
-                  className="flex-1 bg-purple-600 hover:bg-purple-500 text-white"
+                  className="flex-1 bg-purple-600 hover:bg-purple-500 dark:text-white text-[var(--ds-text-primary)]"
                 >
                   Concluir
                   <Sparkles className="w-4 h-4 ml-2" />

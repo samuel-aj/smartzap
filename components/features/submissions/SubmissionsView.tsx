@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { Search, ChevronLeft, ChevronRight, Loader2, Inbox, Phone, Calendar, FileText, User, Megaphone, Download } from 'lucide-react'
@@ -36,7 +36,7 @@ function SubmissionCard({
   const campaignName = submission.campaign?.name
 
   return (
-    <Container variant="default" padding="lg" hover className="hover:bg-zinc-900/80 transition-colors">
+    <Container variant="default" padding="lg" hover className="hover:bg-[var(--ds-bg-hover)] transition-colors">
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
@@ -49,7 +49,7 @@ function SubmissionCard({
           </div>
           <div>
             {/* Nome do contato (se disponível) ou telefone */}
-            <div className="font-medium text-white">
+            <div className="font-medium dark:text-white text-[var(--ds-text-primary)]">
               {contactName || formatPhone(submission.from_phone)}
             </div>
             {/* Se tem nome, mostra telefone abaixo */}
@@ -85,7 +85,7 @@ function SubmissionCard({
           {fieldEntries.map(([key, value]) => (
             <div key={key} className="flex items-start gap-2">
               <span className="text-xs text-gray-500 min-w-[80px] pt-0.5">{formatFieldLabel(key)}:</span>
-              <span className="text-sm text-gray-200">{formatFieldValue(value)}</span>
+              <span className="text-sm text-[var(--ds-text-secondary)]">{formatFieldValue(value)}</span>
             </div>
           ))}
         </div>
@@ -113,10 +113,10 @@ function formatFieldValue(value: unknown): string {
 function EmptyState() {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      <div className="p-4 rounded-2xl bg-zinc-800/50 mb-4">
+      <div className="p-4 rounded-2xl bg-[var(--ds-bg-surface)] mb-4">
         <Inbox className="w-8 h-8 text-gray-500" />
       </div>
-      <h3 className="text-lg font-medium text-white mb-2">Nenhuma submissão encontrada</h3>
+      <h3 className="text-lg font-medium dark:text-white text-[var(--ds-text-primary)] mb-2">Nenhuma submissão encontrada</h3>
       <p className="text-sm text-gray-500 max-w-sm">
         As submissões aparecerão aqui quando os leads preencherem seus formulários MiniApp.
       </p>
@@ -188,17 +188,17 @@ export function SubmissionsView({
           <PageDescription>{description}</PageDescription>
         </div>
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900/60 border border-white/10">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)]">
             <FileText className="w-4 h-4 text-purple-400" />
-            <span className="text-sm text-gray-300">
-              <span className="font-semibold text-white">{total}</span> submissões
+            <span className="text-sm text-[var(--ds-text-secondary)]">
+              <span className="font-semibold dark:text-white text-[var(--ds-text-primary)]">{total}</span> submissões
             </span>
           </div>
           {total > 0 && (
             <a
               href={exportUrl}
               download
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-colors"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 dark:text-white text-[var(--ds-text-primary)] text-sm font-medium transition-colors"
             >
               <Download className="w-4 h-4" />
               Exportar CSV
@@ -215,7 +215,7 @@ export function SubmissionsView({
             placeholder="Buscar por telefone..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-10 bg-zinc-900/60 border-white/10"
+            className="pl-10 bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)]"
           />
         </div>
       </div>
@@ -240,7 +240,7 @@ export function SubmissionsView({
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/10">
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-[var(--ds-border-default)]">
               <div className="text-sm text-gray-500">
                 Página {page + 1} de {totalPages}
               </div>
@@ -250,7 +250,7 @@ export function SubmissionsView({
                   size="sm"
                   onClick={prevPage}
                   disabled={!hasPrevPage}
-                  className="border-white/10 bg-zinc-900 hover:bg-white/5"
+                  className="border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Anterior
@@ -260,7 +260,7 @@ export function SubmissionsView({
                   size="sm"
                   onClick={nextPage}
                   disabled={!hasNextPage}
-                  className="border-white/10 bg-zinc-900 hover:bg-white/5"
+                  className="border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]"
                 >
                   Próxima
                   <ChevronRight className="w-4 h-4" />

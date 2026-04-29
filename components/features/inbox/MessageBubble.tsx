@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 /**
  * MessageBubble - Vercel AI Chat Inspired
@@ -237,14 +237,14 @@ function TemplateMessageContent({ parsed, time, deliveryStatus }: {
       <div className="flex flex-col flex-1 min-w-0">
         {/* Header (título do template em negrito) */}
         {parsed.header && parsed.header.type === 'text' && (
-          <p className="text-base font-bold text-white mb-3">
+          <p className="text-base font-bold dark:text-white text-[var(--ds-text-primary)] mb-3">
             {parsed.header.content}
           </p>
         )}
 
         {/* Header de mídia */}
         {parsed.header && parsed.header.type !== 'text' && (
-          <div className="flex items-center gap-2 text-zinc-300 text-sm mb-3 bg-zinc-800/50 rounded px-2 py-1.5">
+          <div className="flex items-center gap-2 text-zinc-300 text-sm mb-3 bg-[var(--ds-bg-surface)] rounded px-2 py-1.5">
             {parsed.header.type === 'image' && <span>🖼️</span>}
             {parsed.header.type === 'video' && <span>🎬</span>}
             {parsed.header.type === 'document' && <span>📄</span>}
@@ -263,7 +263,7 @@ function TemplateMessageContent({ parsed, time, deliveryStatus }: {
         {/* Footer - separado por linha visível, texto mais sutil */}
         {parsed.footer && (
           <div className="mt-5 pt-4 border-t border-zinc-600/60">
-            <p className="text-sm text-zinc-500">
+            <p className="text-sm text-[var(--ds-text-muted)]">
               {parsed.footer}
             </p>
           </div>
@@ -297,9 +297,9 @@ function TemplateMessageContent({ parsed, time, deliveryStatus }: {
 
         {/* Template name, Time & Status */}
         <div className="flex items-center justify-end gap-1.5 mt-3">
-          <span className="text-[10px] text-zinc-500">📋 {parsed.templateName}</span>
+          <span className="text-[10px] text-[var(--ds-text-muted)]">📋 {parsed.templateName}</span>
           <span className="text-[10px] text-zinc-600">·</span>
-          <span className="text-[10px] text-zinc-500">{time}</span>
+          <span className="text-[10px] text-[var(--ds-text-muted)]">{time}</span>
           {deliveryStatus && <DeliveryStatusIcon status={deliveryStatus} />}
         </div>
       </div>
@@ -432,9 +432,9 @@ export const MessageBubble = memo(function MessageBubble({
             // Inbound (cliente): themed surface color
             isInbound && 'bg-[var(--ds-bg-surface)]/80 text-[var(--ds-text-primary)]',
             // Template message: fundo verde escuro especial
-            isTemplate && 'bg-zinc-900/95 text-white',
+            isTemplate && 'bg-zinc-900/95 dark:text-white text-[var(--ds-text-primary)]',
             // Outbound humano (não template): verde desaturado, elegante
-            !isInbound && !isAIResponse && !isTemplate && 'bg-purple-600/80 text-white',
+            !isInbound && !isAIResponse && !isTemplate && 'bg-purple-600/80 dark:text-white text-[var(--ds-text-primary)]',
             // AI Response (não template): verde mais escuro para diferenciar
             isAIResponse && !isTemplate && 'bg-purple-700/70 text-purple-50'
           )}

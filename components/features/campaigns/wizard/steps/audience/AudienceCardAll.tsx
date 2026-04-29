@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Users, ShieldAlert } from 'lucide-react';
@@ -24,12 +24,12 @@ export function AudienceCardAll({
         isOverLimit
           ? 'bg-[var(--ds-bg-elevated)] border-red-500/30 text-[var(--ds-text-secondary)] opacity-60'
           : isSelected
-            ? 'bg-primary-600 text-white dark:bg-white dark:text-black border-primary-600 dark:border-white shadow-lg ring-2 ring-primary-500/50 dark:ring-white/70'
+            ? 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] dark:bg-white dark:text-black border-primary-600 dark:border-white shadow-lg ring-2 ring-primary-500/50 dark:ring-white/70'
             : 'bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] hover:bg-[var(--ds-bg-surface)] hover:border-[var(--ds-border-strong)] text-[var(--ds-text-secondary)]'
       }`}
     >
       {isSelected && !isOverLimit && (
-        <div className="absolute top-3 right-3 text-white dark:text-black">
+        <div className="absolute top-3 right-3 dark:text-white text-[var(--ds-text-primary)] dark:text-black">
           <CheckCircleFilled size={20} />
         </div>
       )}
@@ -43,7 +43,7 @@ export function AudienceCardAll({
           isOverLimit
             ? 'bg-red-500/20 text-red-400'
             : isSelected
-              ? 'bg-white/20 text-white dark:bg-gray-200 dark:text-black'
+              ? 'bg-white/20 dark:text-white text-[var(--ds-text-primary)] dark:bg-gray-200 dark:text-black'
               : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)]'
         }`}
       >
@@ -53,7 +53,7 @@ export function AudienceCardAll({
         <h3 className="font-bold text-sm">Todos</h3>
         <p
           className={`text-xs mt-1 ${
-            isOverLimit ? 'text-red-400' : isSelected ? 'text-white/70 dark:text-gray-600' : 'text-[var(--ds-text-muted)]'
+            isOverLimit ? 'text-red-400' : isSelected ? 'dark:text-white text-[var(--ds-text-primary)]/70 dark:text-gray-600' : 'text-[var(--ds-text-muted)]'
           }`}
         >
           {eligibleContactsCount} contatos • exclui opt-out e supressões

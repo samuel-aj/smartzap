@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ChevronLeft, Clock, CheckCircle2, Ban, FileText, Loader2, AlertCircle } from 'lucide-react';
@@ -27,7 +27,7 @@ export const PreparingCampaignView: React.FC<PreparingCampaignViewProps> = ({
         <div className="min-w-0">
           <PrefetchLink
             href="/campaigns"
-            className="text-xs text-gray-500 hover:text-white mb-2 inline-flex items-center gap-1 transition-colors"
+            className="text-xs text-gray-500 hover:text-[var(--ds-text-primary)] mb-2 inline-flex items-center gap-1 transition-colors"
           >
             <ChevronLeft size={12} /> Voltar para Lista
           </PrefetchLink>
@@ -37,7 +37,7 @@ export const PreparingCampaignView: React.FC<PreparingCampaignViewProps> = ({
               <Loader2 size={18} className="animate-spin text-primary-400" />
               Preparando campanha...
             </PageTitle>
-            <span className="text-xs px-2 py-1 rounded border bg-zinc-800 border-zinc-700 text-gray-400">
+            <span className="text-xs px-2 py-1 rounded border bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] text-[var(--ds-text-muted)]">
               {campaign.status}
             </span>
           </div>
@@ -58,26 +58,26 @@ export const PreparingCampaignView: React.FC<PreparingCampaignViewProps> = ({
               <Loader2 size={18} className="animate-spin text-primary-400" />
             </div>
             <div className="min-w-0">
-              <h3 className="text-white font-semibold">Estamos preparando o envio</h3>
+              <h3 className="dark:text-white text-[var(--ds-text-primary)] font-semibold">Estamos preparando o envio</h3>
               <p className="text-sm text-gray-400 mt-1">
                 Isso pode levar alguns segundos (principalmente com listas maiores). Assim que o pre-check terminar,
                 esta tela muda automaticamente para o envio ao vivo.
               </p>
 
               <div className="mt-5 grid gap-2 text-sm">
-                <div className="flex items-center gap-2 text-gray-300">
+                <div className="flex items-center gap-2 text-[var(--ds-text-secondary)]">
                   <Clock size={14} className="text-gray-400" />
                   Validando contatos e normalizando telefones
                 </div>
-                <div className="flex items-center gap-2 text-gray-300">
+                <div className="flex items-center gap-2 text-[var(--ds-text-secondary)]">
                   <Ban size={14} className="text-gray-400" />
                   Verificando opt-out e supressoes
                 </div>
-                <div className="flex items-center gap-2 text-gray-300">
+                <div className="flex items-center gap-2 text-[var(--ds-text-secondary)]">
                   <FileText size={14} className="text-gray-400" />
                   Preparando registros para envio (campanha_contatos)
                 </div>
-                <div className="flex items-center gap-2 text-gray-300">
+                <div className="flex items-center gap-2 text-[var(--ds-text-secondary)]">
                   <CheckCircle2 size={14} className="text-gray-400" />
                   Enfileirando o workflow de disparo
                 </div>
@@ -88,7 +88,7 @@ export const PreparingCampaignView: React.FC<PreparingCampaignViewProps> = ({
 
         {Array.isArray(campaign.pendingContacts) && campaign.pendingContacts.length > 0 && (
           <Container variant="glass" padding="lg">
-            <h4 className="text-white font-semibold">Previa dos destinatarios</h4>
+            <h4 className="dark:text-white text-[var(--ds-text-primary)] font-semibold">Previa dos destinatarios</h4>
             <p className="text-sm text-gray-400 mt-1">
               Lista carregada localmente (a ordem final pode mudar apos o pre-check).
             </p>
@@ -97,7 +97,7 @@ export const PreparingCampaignView: React.FC<PreparingCampaignViewProps> = ({
               {campaign.pendingContacts.slice(0, 8).map((c, idx) => (
                 <div key={`${c.phone}_${idx}`} className="py-3 flex items-center justify-between gap-4">
                   <div className="min-w-0">
-                    <div className="text-sm text-white truncate">{c.name || 'Contato'}</div>
+                    <div className="text-sm dark:text-white text-[var(--ds-text-primary)] truncate">{c.name || 'Contato'}</div>
                     <div className="text-xs text-gray-400 truncate">{formatPhoneNumberDisplay(c.phone, 'e164')}</div>
                   </div>
                   <MessageStatusBadge status={MessageStatus.PENDING} />

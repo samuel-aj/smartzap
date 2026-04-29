@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 /**
  * ContactMemoriesSheet - Painel lateral com memórias do Mem0
@@ -468,7 +468,7 @@ export function ContactMemoriesSheet({
             <AlertDialogAction
               onClick={handleDeleteAll}
               disabled={deleting}
-              className="bg-red-600 hover:bg-red-700 text-white"
+              className="bg-red-600 hover:bg-red-700 dark:text-white text-[var(--ds-text-primary)]"
             >
               {deleting ? (
                 <>

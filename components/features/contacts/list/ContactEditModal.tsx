@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
@@ -48,22 +48,22 @@ export const ContactEditModal: React.FC<ContactEditModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-zinc-950 border border-white/10 rounded-2xl w-full max-w-md p-6 shadow-2xl animate-in zoom-in duration-200">
+      <div className="bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-2xl w-full max-w-md p-6 shadow-2xl animate-in zoom-in duration-200">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold text-white">Editar Contato</h2>
+          <h2 className="text-xl font-bold dark:text-white text-[var(--ds-text-primary)]">Editar Contato</h2>
           <button
             type="button"
             aria-label="Fechar formulário de edição de contato"
             onClick={onClose}
           >
-            <X className="text-gray-500 hover:text-white" />
+            <X className="text-gray-500 hover:text-[var(--ds-text-primary)]" />
           </button>
         </div>
         <div className="space-y-4">
           <div>
             <label className="block text-sm text-gray-400 mb-1">Nome Completo</label>
             <input
-              className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+              className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
             />
@@ -71,7 +71,7 @@ export const ContactEditModal: React.FC<ContactEditModalProps> = ({
           <div>
             <label className="block text-sm text-gray-400 mb-1">Telefone (WhatsApp) *</label>
             <input
-              className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+              className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
@@ -79,7 +79,7 @@ export const ContactEditModal: React.FC<ContactEditModalProps> = ({
           <div>
             <label className="block text-sm text-gray-400 mb-1">E-mail</label>
             <input
-              className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+              className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
               placeholder="email@exemplo.com"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -88,7 +88,7 @@ export const ContactEditModal: React.FC<ContactEditModalProps> = ({
           <div>
             <label className="block text-sm text-gray-400 mb-1">Tags (separadas por vírgula)</label>
             <input
-              className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+              className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
               value={form.tags}
               onChange={(e) => setForm({ ...form, tags: e.target.value })}
             />
@@ -96,7 +96,7 @@ export const ContactEditModal: React.FC<ContactEditModalProps> = ({
 
           {/* Custom Fields */}
           {customFields.length > 0 && (
-            <div className="pt-2 border-t border-white/10 mt-2">
+            <div className="pt-2 border-t border-[var(--ds-border-default)] mt-2">
               <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
                 Campos Personalizados
               </h3>
@@ -115,7 +115,7 @@ export const ContactEditModal: React.FC<ContactEditModalProps> = ({
           <div>
             <label className="block text-sm text-gray-400 mb-1">Status</label>
             <select
-              className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+              className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
               value={form.status}
               onChange={(e) => setForm({ ...form, status: e.target.value as ContactStatus })}
             >
@@ -127,13 +127,13 @@ export const ContactEditModal: React.FC<ContactEditModalProps> = ({
           <div className="pt-4 flex gap-3">
             <button
               onClick={onClose}
-              className="flex-1 bg-zinc-800 text-white font-medium py-3 rounded-xl hover:bg-zinc-700 transition-colors"
+              className="flex-1 bg-[var(--ds-bg-surface)] dark:text-white text-[var(--ds-text-primary)] font-medium py-3 rounded-xl hover:bg-[var(--ds-bg-hover)] transition-colors"
             >
               Cancelar
             </button>
             <button
               onClick={() => onSubmit(form)}
-              className="flex-1 bg-primary-500 text-white font-bold py-3 rounded-xl hover:bg-primary-400 transition-colors"
+              className="flex-1 bg-primary-500 dark:text-white text-[var(--ds-text-primary)] font-bold py-3 rounded-xl hover:bg-primary-400 transition-colors"
             >
               Salvar Alterações
             </button>
@@ -156,7 +156,7 @@ const CustomFieldInput: React.FC<CustomFieldInputProps> = ({ field, value, onCha
       <label className="block text-sm text-gray-400 mb-1">{field.label}</label>
       {field.type === 'select' ? (
         <select
-          className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors appearance-none"
+          className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors appearance-none"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         >
@@ -168,7 +168,7 @@ const CustomFieldInput: React.FC<CustomFieldInputProps> = ({ field, value, onCha
       ) : (
         <input
           type={field.type === 'number' ? 'number' : field.type === 'date' ? 'date' : 'text'}
-          className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+          className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={field.type === 'date' ? '' : `Digite ${field.label}...`}

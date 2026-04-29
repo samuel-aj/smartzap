@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useState } from 'react'
 import { toast } from 'sonner'
@@ -58,10 +58,10 @@ export function AIGenerateDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-zinc-950 border-white/10 text-white sm:max-w-xl">
+      <DialogContent className="bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)] sm:max-w-xl">
         <DialogHeader>
           <DialogTitle>Gerar MiniApp com IA</DialogTitle>
-          <DialogDescription className="text-zinc-400">
+          <DialogDescription className="text-[var(--ds-text-muted)]">
             Escreva em linguagem natural o que você quer coletar. A IA vai sugerir as perguntas e
             você pode editar antes de salvar.
           </DialogDescription>
@@ -72,10 +72,10 @@ export function AIGenerateDialog({
           <Textarea
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            className="min-h-28 bg-zinc-900 border-white/10 text-white"
+            className="min-h-28 bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)]"
             placeholder='Ex: "Quero um formulário de pré-cadastro para uma turma. Pergunte nome, telefone, e-mail, cidade, faixa de horário preferida e um opt-in para receber mensagens."'
           />
-          <div className="text-[11px] text-zinc-500">
+          <div className="text-[11px] text-[var(--ds-text-muted)]">
             Observação: isso substitui as perguntas atuais do modo Formulário (você pode desfazer
             com Ctrl+Z apenas se ainda não salvou).
           </div>
@@ -85,7 +85,7 @@ export function AIGenerateDialog({
           <Button
             type="button"
             variant="outline"
-            className="border-white/10 bg-zinc-900 hover:bg-white/5"
+            className="border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]"
             onClick={() => onOpenChange(false)}
             disabled={loading}
           >

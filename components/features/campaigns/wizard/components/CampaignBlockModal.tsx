@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   AlertCircle,
   ExternalLink,
@@ -37,19 +37,19 @@ export const CampaignBlockModal: React.FC<CampaignBlockModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-zinc-900 border border-white/10 rounded-2xl w-full max-w-lg mx-4 shadow-2xl animate-in zoom-in-95 duration-200">
+      <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-2xl w-full max-w-lg mx-4 shadow-2xl animate-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="flex items-center gap-4 p-6 border-b border-white/10 bg-red-500/5">
+        <div className="flex items-center gap-4 p-6 border-b border-[var(--ds-border-default)] bg-red-500/5">
           <div className="p-3 bg-red-500/20 rounded-xl">
             <ShieldAlert className="text-red-400" size={24} />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">Limite de Envio Excedido</h2>
+            <h2 className="text-xl font-bold dark:text-white text-[var(--ds-text-primary)]">Limite de Envio Excedido</h2>
             <p className="text-sm text-gray-400">Sua conta não pode enviar essa quantidade</p>
           </div>
           <button
             onClick={onClose}
-            className="ml-auto p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="ml-auto p-2 hover:bg-[var(--ds-bg-hover)] rounded-lg transition-colors"
           >
             <XCircle className="text-gray-400" size={20} />
           </button>
@@ -58,10 +58,10 @@ export const CampaignBlockModal: React.FC<CampaignBlockModalProps> = ({
         {/* Content */}
         <div className="p-6 space-y-6">
           {/* Current Status */}
-          <div className="bg-zinc-800/50 rounded-xl p-4 space-y-3">
+          <div className="bg-[var(--ds-bg-surface)] rounded-xl p-4 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-400">Seu Tier Atual</span>
-              <span className="text-sm font-bold text-white bg-zinc-700 px-3 py-1 rounded-lg">
+              <span className="text-sm font-bold dark:text-white text-[var(--ds-text-primary)] bg-zinc-700 px-3 py-1 rounded-lg">
                 {TIER_DISPLAY_NAMES[currentTier]}
               </span>
             </div>
@@ -77,7 +77,7 @@ export const CampaignBlockModal: React.FC<CampaignBlockModalProps> = ({
                 {validation.requestedCount.toLocaleString('pt-BR')}
               </span>
             </div>
-            <div className="flex items-center justify-between border-t border-white/5 pt-3">
+            <div className="flex items-center justify-between border-t border-[var(--ds-border-subtle)] pt-3">
               <span className="text-sm text-gray-400">Excedente</span>
               <span className="text-sm font-bold text-red-400">
                 +{(validation.requestedCount - currentLimit).toLocaleString('pt-BR')} mensagens
@@ -88,7 +88,7 @@ export const CampaignBlockModal: React.FC<CampaignBlockModalProps> = ({
           {/* Upgrade Roadmap */}
           {validation.upgradeRoadmap && validation.upgradeRoadmap.length > 0 && (
             <div className="space-y-3">
-              <div className="flex items-center gap-2 text-sm font-bold text-white">
+              <div className="flex items-center gap-2 text-sm font-bold dark:text-white text-[var(--ds-text-primary)]">
                 <TrendingUp size={16} className="text-primary-400" />
                 Como aumentar seu limite
               </div>
@@ -96,12 +96,12 @@ export const CampaignBlockModal: React.FC<CampaignBlockModalProps> = ({
                 {validation.upgradeRoadmap.map((step, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-3 bg-zinc-800/30 p-3 rounded-lg border border-white/5"
+                    className="flex items-start gap-3 bg-[var(--ds-bg-surface)] p-3 rounded-lg border border-[var(--ds-border-subtle)]"
                   >
                     <div className="w-5 h-5 rounded-full bg-primary-500/20 text-primary-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                       {index + 1}
                     </div>
-                    <p className="text-sm text-gray-300">{step.title}: {step.description}</p>
+                    <p className="text-sm text-[var(--ds-text-secondary)]">{step.title}: {step.description}</p>
                   </div>
                 ))}
               </div>
@@ -117,7 +117,7 @@ export const CampaignBlockModal: React.FC<CampaignBlockModalProps> = ({
               </div>
               <p className="text-sm text-gray-400">
                 Com o tier {TIER_DISPLAY_NAMES[nextTier]}, você poderá enviar até{' '}
-                <span className="text-white font-bold">{nextLimit.toLocaleString('pt-BR')}</span> mensagens por dia.
+                <span className="dark:text-white text-[var(--ds-text-primary)] font-bold">{nextLimit.toLocaleString('pt-BR')}</span> mensagens por dia.
               </p>
             </div>
           )}
@@ -129,7 +129,7 @@ export const CampaignBlockModal: React.FC<CampaignBlockModalProps> = ({
               <p className="font-bold text-amber-400 mb-1">Sugestão</p>
               <p>
                 Reduza o número de destinatários para no máximo{' '}
-                <span className="font-bold text-white">{currentLimit.toLocaleString('pt-BR')}</span>{' '}
+                <span className="font-bold dark:text-white text-[var(--ds-text-primary)]">{currentLimit.toLocaleString('pt-BR')}</span>{' '}
                 ou divida sua campanha em múltiplos envios.
               </p>
             </div>
@@ -137,7 +137,7 @@ export const CampaignBlockModal: React.FC<CampaignBlockModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between p-6 border-t border-white/10 bg-zinc-800/30">
+        <div className="flex items-center justify-between p-6 border-t border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)]">
           <a
             href="https://developers.facebook.com/docs/whatsapp/messaging-limits"
             target="_blank"

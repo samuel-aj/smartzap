@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { Eye } from 'lucide-react'
@@ -29,7 +29,7 @@ export function FloatingPreviewButton({
         // Aparencia
         'flex items-center gap-2 px-4 py-3 rounded-full',
         'bg-purple-500 hover:bg-purple-600',
-        'text-white font-medium text-sm',
+        'dark:text-white text-[var(--ds-text-primary)] font-medium text-sm',
         // Sombra e transicao
         'shadow-lg shadow-purple-500/25',
         'transition-all duration-200',

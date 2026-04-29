@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { X, Loader2, AlertTriangle, Trash2, RefreshCw, Copy } from 'lucide-react';
@@ -60,19 +60,19 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-zinc-900/80 border border-white/10 rounded-2xl w-full max-w-md p-0 shadow-[0_30px_80px_rgba(0,0,0,0.55)] animate-in zoom-in duration-200 flex flex-col max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div className="bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-2xl w-full max-w-md p-0 shadow-[0_30px_80px_rgba(0,0,0,0.25)] dark:shadow-[0_30px_80px_rgba(0,0,0,0.55)] animate-in zoom-in duration-200 flex flex-col max-h-[90vh] overflow-hidden">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center">
+        <div className="px-6 py-4 border-b border-[var(--ds-border-default)] flex justify-between items-center">
           <div>
-            <h2 className="text-lg font-bold text-white">{template.name}</h2>
+            <h2 className="text-lg font-bold text-[var(--ds-text-primary)]">{template.name}</h2>
             <div className="flex items-center gap-2 mt-1">
               <StatusBadge status={template.status} />
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors p-1"
+            className="text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] transition-colors p-1"
           >
             <X size={20} />
           </button>
@@ -122,7 +122,7 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
                       ? 'bg-purple-500/10 text-purple-200'
                       : details?.qualityScore === 'MEDIUM'
                         ? 'bg-amber-500/10 text-amber-200'
-                        : 'bg-zinc-500/10 text-gray-300'
+                        : 'bg-zinc-500/10 text-[var(--ds-text-secondary)]'
                   }`}
                 >
                   <span className="text-lg">
@@ -142,10 +142,10 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
         </div>
 
         {/* Footer with actions */}
-        <div className="px-6 py-4 border-t border-white/10 flex gap-2">
+        <div className="px-6 py-4 border-t border-[var(--ds-border-default)] flex gap-2">
           <button
             onClick={onDelete}
-            className="p-2 text-amber-300 hover:bg-amber-500/10 rounded-lg transition-colors"
+            className="p-2 text-amber-600 dark:text-amber-300 hover:bg-amber-500/10 rounded-lg transition-colors"
             title="Deletar"
           >
             <Trash2 size={18} />
@@ -154,7 +154,7 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
             <button
               onClick={onRefreshPreview}
               disabled={isRefreshingPreview || isLoading}
-              className="px-3 py-2 bg-zinc-950/40 text-gray-200 border border-white/10 rounded-lg font-medium hover:bg-white/5 transition-colors flex items-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+              className="px-3 py-2 bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] border border-[var(--ds-border-default)] rounded-lg font-medium hover:bg-[var(--ds-bg-hover)] transition-colors flex items-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
               title="Regerar preview da midia"
             >
               {isRefreshingPreview ? (
@@ -167,14 +167,14 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
           )}
           <button
             onClick={handleCopyContent}
-            className="flex-1 py-2 bg-zinc-950/40 text-gray-200 border border-white/10 rounded-lg font-medium hover:bg-white/5 transition-colors flex items-center justify-center gap-2 text-sm"
+            className="flex-1 py-2 bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] border border-[var(--ds-border-default)] rounded-lg font-medium hover:bg-[var(--ds-bg-hover)] transition-colors flex items-center justify-center gap-2 text-sm"
           >
             <Copy size={16} />
             Copiar codigo
           </button>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition-colors text-sm"
+            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 dark:text-white text-[var(--ds-text-primary)] rounded-lg font-semibold transition-colors text-sm"
           >
             OK
           </button>

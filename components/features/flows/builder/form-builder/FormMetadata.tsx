@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { Save } from 'lucide-react'
@@ -51,8 +51,8 @@ export function FormMetadata({
       </div>
 
       {showTechFields && (
-        <div className="rounded-xl border border-white/10 bg-zinc-950/40 p-4">
-          <div className="text-sm font-semibold text-white">Status</div>
+        <div className="rounded-xl border border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] p-4">
+          <div className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)]">Status</div>
           <div className="mt-2 text-sm text-gray-400">
             {dirty ? 'Alterações não salvas' : 'Sincronizado'}
             {issues.length === 0 ? (

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
@@ -36,7 +36,7 @@ export function CampaignFolderSidebar({
 
   if (collapsed) {
     return (
-      <div className={cn('flex flex-col items-center py-4 w-12 border-r border-zinc-800 bg-zinc-900', className)}>
+      <div className={cn('flex flex-col items-center py-4 w-12 border-r border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)]', className)}>
         <Button
           variant="ghost"
           size="icon"
@@ -53,7 +53,7 @@ export function CampaignFolderSidebar({
             'p-2 rounded-md transition-colors',
             isSelected(null)
               ? 'bg-primary-500/20 text-primary-400'
-              : 'text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'
+              : 'text-[var(--ds-text-muted)] hover:bg-[var(--ds-bg-hover)] hover:text-zinc-200'
           )}
           title={`Todas (${totalCount})`}
         >
@@ -68,7 +68,7 @@ export function CampaignFolderSidebar({
               'p-2 rounded-md transition-colors mt-1',
               isSelected(folder.id)
                 ? 'bg-primary-500/20 text-primary-400'
-                : 'text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'
+                : 'text-[var(--ds-text-muted)] hover:bg-[var(--ds-bg-hover)] hover:text-zinc-200'
             )}
             title={`${folder.name} (${folder.campaignCount || 0})`}
           >
@@ -82,7 +82,7 @@ export function CampaignFolderSidebar({
             'p-2 rounded-md transition-colors mt-1',
             isSelected('none')
               ? 'bg-primary-500/20 text-primary-400'
-              : 'text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'
+              : 'text-[var(--ds-text-muted)] hover:bg-[var(--ds-bg-hover)] hover:text-zinc-200'
           )}
           title={`Sem pasta (${unfiledCount})`}
         >
@@ -93,7 +93,7 @@ export function CampaignFolderSidebar({
 
         <button
           onClick={onManageFolders}
-          className="p-2 rounded-md text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 transition-colors"
+          className="p-2 rounded-md text-[var(--ds-text-muted)] hover:bg-[var(--ds-bg-hover)] hover:text-zinc-200 transition-colors"
           title="Gerenciar pastas"
         >
           <SettingsIcon className="h-5 w-5" />
@@ -103,9 +103,9 @@ export function CampaignFolderSidebar({
   }
 
   return (
-    <div className={cn('flex flex-col w-56 border-r border-zinc-800 bg-zinc-900', className)}>
-      <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
-        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+    <div className={cn('flex flex-col w-56 border-r border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)]', className)}>
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--ds-border-default)]">
+        <span className="text-xs font-semibold uppercase tracking-wider text-[var(--ds-text-muted)]">
           Pastas
         </span>
         {onToggleCollapse && (
@@ -151,7 +151,7 @@ export function CampaignFolderSidebar({
 
             {/* Sem pasta */}
             <FolderItem
-              icon={<FileIcon className="h-4 w-4 text-zinc-500" />}
+              icon={<FileIcon className="h-4 w-4 text-[var(--ds-text-muted)]" />}
               label="Sem pasta"
               count={unfiledCount}
               isSelected={isSelected('none')}
@@ -162,12 +162,12 @@ export function CampaignFolderSidebar({
       </div>
 
       {/* Gerenciar pastas */}
-      <div className="p-2 border-t border-zinc-800">
+      <div className="p-2 border-t border-[var(--ds-border-default)]">
         <Button
           variant="ghost"
           size="sm"
           onClick={onManageFolders}
-          className="w-full justify-start text-zinc-400 hover:text-zinc-200"
+          className="w-full justify-start text-[var(--ds-text-muted)] hover:text-zinc-200"
         >
           <SettingsIcon className="h-4 w-4 mr-2" />
           Gerenciar
@@ -193,14 +193,14 @@ function FolderItem({ icon, label, count, isSelected, onClick }: FolderItemProps
         'flex items-center w-full px-3 py-2 rounded-md text-sm transition-colors',
         isSelected
           ? 'bg-primary-500/20 text-primary-400'
-          : 'text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100'
+          : 'text-zinc-300 hover:bg-[var(--ds-bg-hover)] hover:text-zinc-100'
       )}
     >
       <span className="mr-2">{icon}</span>
       <span className="flex-1 truncate text-left">{label}</span>
       <span className={cn(
         'text-xs ml-2',
-        isSelected ? 'text-primary-400' : 'text-zinc-500'
+        isSelected ? 'text-primary-400' : 'text-[var(--ds-text-muted)]'
       )}>
         ({count})
       </span>

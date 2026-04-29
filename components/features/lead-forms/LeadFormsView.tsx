@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useMemo } from 'react'
 import type { CreateLeadFormDTO, LeadForm } from '@/types'
@@ -89,8 +89,8 @@ export function LeadFormsView(props: LeadFormsViewProps) {
       {!hideHeader && (
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold text-white">Formularios</h1>
-            <p className="text-sm text-zinc-400">
+            <h1 className="text-2xl font-semibold dark:text-white text-[var(--ds-text-primary)]">Formularios</h1>
+            <p className="text-sm text-[var(--ds-text-muted)]">
               Crie um link publico (tipo Google Forms) para captar contatos automaticamente com uma tag.
             </p>
           </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ArrowRight, AlertTriangle } from 'lucide-react';
@@ -94,8 +94,8 @@ export function CredentialsStep({
         onBack={onBack}
       />
 
-      <p className="text-sm text-zinc-400">
-        Na página <strong className="text-white">"API Setup"</strong> do seu app, copie os seguintes dados:
+      <p className="text-sm text-[var(--ds-text-muted)]">
+        Na página <strong className="dark:text-white text-[var(--ds-text-primary)]">"API Setup"</strong> do seu app, copie os seguintes dados:
       </p>
 
       {/* Formulário centralizado */}

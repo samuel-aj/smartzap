@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import type { LeadFormField } from '@/types'
 import { Button } from '@/components/ui/button'
@@ -35,12 +35,12 @@ export function FormFieldEditor({
   return (
     <Container variant="subtle" padding="sm">
       <div className="mb-2 flex items-center justify-between">
-        <p className="text-xs text-zinc-500">Ordem do campo</p>
+        <p className="text-xs text-[var(--ds-text-muted)]">Ordem do campo</p>
         <div className="flex items-center gap-2">
           <Button
             type="button"
             variant="secondary"
-            className="h-8 border-zinc-700 bg-zinc-900 px-2"
+            className="h-8 border-[var(--ds-border-strong)] bg-[var(--ds-bg-surface)] px-2"
             onClick={() => onMoveUp(index)}
             disabled={disabled || isFirst}
             title="Mover para cima"
@@ -50,7 +50,7 @@ export function FormFieldEditor({
           <Button
             type="button"
             variant="secondary"
-            className="h-8 border-zinc-700 bg-zinc-900 px-2"
+            className="h-8 border-[var(--ds-border-strong)] bg-[var(--ds-bg-surface)] px-2"
             onClick={() => onMoveDown(index)}
             disabled={disabled || isLast}
             title="Mover para baixo"
@@ -66,7 +66,7 @@ export function FormFieldEditor({
           <Input
             value={field.label}
             onChange={(e) => onUpdate(index, { label: e.target.value })}
-            className="bg-zinc-900 border-zinc-800"
+            className="bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)]"
             placeholder="Ex: Qual sua turma?"
             disabled={disabled}
           />
@@ -77,7 +77,7 @@ export function FormFieldEditor({
           <Input
             value={field.key}
             onChange={(e) => onUpdate(index, { key: e.target.value })}
-            className="bg-zinc-900 border-zinc-800"
+            className="bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)]"
             placeholder="Ex: turma"
             disabled={disabled}
           />
@@ -86,7 +86,7 @@ export function FormFieldEditor({
         <div className="space-y-1">
           <Label>Tipo</Label>
           <select
-            className="h-10 w-full rounded-md border border-zinc-800 bg-zinc-900 px-3 text-sm"
+            className="h-10 w-full rounded-md border border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] px-3 text-sm"
             value={field.type}
             onChange={(e) => onUpdate(index, { type: e.target.value as LeadFormField['type'] })}
             disabled={disabled}
@@ -98,10 +98,10 @@ export function FormFieldEditor({
           </select>
         </div>
 
-        <div className="flex items-center justify-between rounded-md border border-zinc-800 bg-zinc-900/40 px-3">
+        <div className="flex items-center justify-between rounded-md border border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] px-3">
           <div>
             <p className="text-sm">Obrigatorio</p>
-            <p className="text-xs text-zinc-500">Exige preenchimento</p>
+            <p className="text-xs text-[var(--ds-text-muted)]">Exige preenchimento</p>
           </div>
           <Switch
             checked={!!field.required}
@@ -124,7 +124,7 @@ export function FormFieldEditor({
                   .filter(Boolean),
               })
             }
-            className="min-h-22.5 bg-zinc-900 border-zinc-800"
+            className="min-h-22.5 bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)]"
             placeholder="Ex:\nTurma A\nTurma B\nTurma C"
             disabled={disabled}
           />

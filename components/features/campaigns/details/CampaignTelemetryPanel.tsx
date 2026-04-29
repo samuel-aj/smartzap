@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Container } from '@/components/ui/container';
@@ -12,7 +12,7 @@ export const CampaignTelemetryPanel: React.FC<CampaignTelemetryPanelProps> = ({
     <Container variant="glass" padding="lg" className="mt-4">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-white font-bold">Debug - Telemetria de latencia</h3>
+          <h3 className="dark:text-white text-[var(--ds-text-primary)] font-bold">Debug - Telemetria de latencia</h3>
           <p className="text-xs text-gray-500">
             Best-effort. Util para entender se o atraso esta no broadcast, no realtime do DB ou no refetch.
           </p>
@@ -24,15 +24,15 @@ export const CampaignTelemetryPanel: React.FC<CampaignTelemetryPanelProps> = ({
         <Container variant="subtle" padding="sm">
           <div className="text-gray-500 text-xs">Broadcast - UI</div>
           {telemetry.broadcast ? (
-            <div className="mt-2 text-xs text-gray-300 space-y-1">
+            <div className="mt-2 text-xs text-[var(--ds-text-secondary)] space-y-1">
               <div>
-                server-client: <span className="font-mono text-gray-200">{Math.round(telemetry.broadcast.serverToClientMs)}ms</span>
+                server-client: <span className="font-mono text-[var(--ds-text-secondary)]">{Math.round(telemetry.broadcast.serverToClientMs)}ms</span>
               </div>
               <div>
-                client-paint: <span className="font-mono text-gray-200">{Math.round(telemetry.broadcast.handlerToPaintMs)}ms</span>
+                client-paint: <span className="font-mono text-[var(--ds-text-secondary)]">{Math.round(telemetry.broadcast.handlerToPaintMs)}ms</span>
               </div>
               <div>
-                total: <span className="font-mono text-gray-200">{Math.round(telemetry.broadcast.serverToPaintMs)}ms</span>
+                total: <span className="font-mono text-[var(--ds-text-secondary)]">{Math.round(telemetry.broadcast.serverToPaintMs)}ms</span>
               </div>
               <div className="pt-1 text-[11px] text-gray-500">
                 trace: <span className="font-mono">{telemetry.broadcast.traceId || '—'}</span> - seq:{' '}
@@ -47,15 +47,15 @@ export const CampaignTelemetryPanel: React.FC<CampaignTelemetryPanelProps> = ({
         <Container variant="subtle" padding="sm">
           <div className="text-gray-500 text-xs">DB realtime - UI</div>
           {telemetry.dbChange ? (
-            <div className="mt-2 text-xs text-gray-300 space-y-1">
+            <div className="mt-2 text-xs text-[var(--ds-text-secondary)] space-y-1">
               <div>
-                commit-client: <span className="font-mono text-gray-200">{Math.round(telemetry.dbChange.commitToClientMs)}ms</span>
+                commit-client: <span className="font-mono text-[var(--ds-text-secondary)]">{Math.round(telemetry.dbChange.commitToClientMs)}ms</span>
               </div>
               <div>
-                client-paint: <span className="font-mono text-gray-200">{Math.round(telemetry.dbChange.handlerToPaintMs)}ms</span>
+                client-paint: <span className="font-mono text-[var(--ds-text-secondary)]">{Math.round(telemetry.dbChange.handlerToPaintMs)}ms</span>
               </div>
               <div>
-                total: <span className="font-mono text-gray-200">{Math.round(telemetry.dbChange.commitToPaintMs)}ms</span>
+                total: <span className="font-mono text-[var(--ds-text-secondary)]">{Math.round(telemetry.dbChange.commitToPaintMs)}ms</span>
               </div>
               <div className="pt-1 text-[11px] text-gray-500">
                 {telemetry.dbChange.table} - {telemetry.dbChange.eventType}
@@ -69,9 +69,9 @@ export const CampaignTelemetryPanel: React.FC<CampaignTelemetryPanelProps> = ({
         <Container variant="subtle" padding="sm">
           <div className="text-gray-500 text-xs">Refetch (React Query)</div>
           {telemetry.refetch ? (
-            <div className="mt-2 text-xs text-gray-300 space-y-1">
+            <div className="mt-2 text-xs text-[var(--ds-text-secondary)] space-y-1">
               <div>
-                duracao: <span className="font-mono text-gray-200">{Math.round(telemetry.refetch.durationMs ?? 0)}ms</span>
+                duracao: <span className="font-mono text-[var(--ds-text-secondary)]">{Math.round(telemetry.refetch.durationMs ?? 0)}ms</span>
               </div>
               <div className="pt-1 text-[11px] text-gray-500">
                 motivo: <span className="font-mono">{telemetry.refetch.reason || '—'}</span>

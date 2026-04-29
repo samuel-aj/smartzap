@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import type { LeadForm } from '@/types'
 import { Button } from '@/components/ui/button'
@@ -32,17 +32,17 @@ export function FormCard({
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <p className="font-medium text-white">{form.name}</p>
+            <p className="font-medium dark:text-white text-[var(--ds-text-primary)]">{form.name}</p>
             <Badge variant={form.isActive ? 'default' : 'secondary'}>
               {form.isActive ? 'Ativo' : 'Inativo'}
             </Badge>
           </div>
-          <p className="text-xs text-zinc-400">
-            <span className="text-zinc-500">Slug:</span> {form.slug} &nbsp;-&nbsp;{' '}
-            <span className="text-zinc-500">Tag:</span> {form.tag}
+          <p className="text-xs text-[var(--ds-text-muted)]">
+            <span className="text-[var(--ds-text-muted)]">Slug:</span> {form.slug} &nbsp;-&nbsp;{' '}
+            <span className="text-[var(--ds-text-muted)]">Tag:</span> {form.tag}
           </p>
-          <p className="text-xs text-zinc-400 break-all">
-            <span className="text-zinc-500">Link:</span> {url}
+          <p className="text-xs text-[var(--ds-text-muted)] break-all">
+            <span className="text-[var(--ds-text-muted)]">Link:</span> {url}
           </p>
         </div>
 
@@ -50,14 +50,14 @@ export function FormCard({
           <Button
             variant="secondary"
             onClick={() => onCopyLink(url)}
-            className="border-zinc-700 bg-zinc-900"
+            className="border-[var(--ds-border-strong)] bg-[var(--ds-bg-surface)]"
           >
             {isCopied ? 'Copiado' : 'Copiar link'}
           </Button>
           <Button
             variant="secondary"
             onClick={() => onEdit(form)}
-            className="border-zinc-700 bg-zinc-900"
+            className="border-[var(--ds-border-strong)] bg-[var(--ds-bg-surface)]"
           >
             <Pencil className="mr-2 h-4 w-4" />
             Editar

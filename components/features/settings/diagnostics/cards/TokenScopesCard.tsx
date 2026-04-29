@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
@@ -53,8 +53,8 @@ export function TokenScopesCard({ data, checks }: TokenScopesCardProps) {
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="text-xs text-gray-500">Token</div>
-          <div className="mt-2 text-sm text-white font-medium">Permissoes (escopos) — checklist</div>
-          <div className="mt-2 text-sm text-gray-300">
+          <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">Permissoes (escopos) — checklist</div>
+          <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">
             Aqui voce ve <b>o que conseguimos verificar</b> sobre escopos e o que e necessario para o SmartZap funcionar.
           </div>
         </div>
@@ -81,8 +81,8 @@ export function TokenScopesCard({ data, checks }: TokenScopesCardProps) {
       </div>
 
       {verificationMode !== 'unknown' && missing.length > 0 && (
-        <div className="mt-4 bg-zinc-900/40 border border-white/10 rounded-xl p-4">
-          <div className="text-sm text-white font-semibold">Faltando</div>
+        <div className="mt-4 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
+          <div className="text-sm dark:text-white text-[var(--ds-text-primary)] font-semibold">Faltando</div>
           <div className="mt-2 flex flex-wrap gap-2">
             {missing.map((s) => (
               <Pill key={s} tone={missingCritical && s === 'whatsapp_business_messaging' ? 'fail' : 'warn'}>{s}</Pill>
@@ -94,15 +94,15 @@ export function TokenScopesCard({ data, checks }: TokenScopesCardProps) {
         </div>
       )}
 
-      <details className="mt-4 bg-zinc-900/30 border border-white/10 rounded-xl p-4">
+      <details className="mt-4 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
         <summary className="cursor-pointer list-none flex items-center justify-between gap-3">
-          <div className="text-sm text-white">Ver detalhes (para suporte)</div>
+          <div className="text-sm dark:text-white text-[var(--ds-text-primary)]">Ver detalhes (para suporte)</div>
           <ChevronDown size={16} className="text-gray-400" />
         </summary>
         <div className="mt-3 space-y-3">
           <div>
             <div className="text-xs text-gray-400">Fonte principal</div>
-            <div className="mt-1 text-sm text-gray-200">
+            <div className="mt-1 text-sm text-[var(--ds-text-secondary)]">
               {verificationMode === 'debug_token'
                 ? 'debug_token (recomendado)'
                 : verificationMode === 'me_permissions'

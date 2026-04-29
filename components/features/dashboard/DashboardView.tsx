@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { PrefetchLink } from '@/components/ui/PrefetchLink';
@@ -80,7 +80,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ stats, recentCampa
         <PageActions>
           <PrefetchLink
             href="/campaigns/new"
-            className="bg-primary-600 text-white hover:bg-primary-500 dark:bg-white dark:text-black dark:hover:bg-white/90 px-4 py-2 rounded-lg font-semibold text-sm transition-colors shadow-lg shadow-primary-500/20 dark:shadow-white/15 ring-1 ring-primary-500/30 dark:ring-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500 dark:focus-visible:outline-white focus-visible:outline-offset-2"
+            className="bg-primary-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-primary-500 dark:bg-white dark:text-black dark:hover:bg-white/90 px-4 py-2 rounded-lg font-semibold text-sm transition-colors shadow-lg shadow-primary-500/20 dark:shadow-white/15 ring-1 ring-primary-500/30 dark:ring-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500 dark:focus-visible:outline-white focus-visible:outline-offset-2"
             aria-label="Criar nova campanha rápida"
           >
             Campanha Rápida
@@ -154,36 +154,36 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ stats, recentCampa
                   <AreaChart data={chartData.slice(-rangeSize)} aria-hidden="true">
                   <defs>
                     <linearGradient id="colorSent" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#10b981" stopOpacity={0.22}/>
-                      <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#9333ea" stopOpacity={0.22}/>
+                      <stop offset="95%" stopColor="#9333ea" stopOpacity={0}/>
                     </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.06)" />
-                <XAxis 
-                  dataKey="name" 
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{fill: '#71717a', fontSize: 12}} 
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--ds-border-default)" />
+                <XAxis
+                  dataKey="name"
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{fill: 'var(--ds-text-muted)', fontSize: 12}}
                   dy={15}
                 />
-                <YAxis 
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{fill: '#71717a', fontSize: 12}} 
+                <YAxis
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{fill: 'var(--ds-text-muted)', fontSize: 12}}
                 />
                 <Tooltip
-                  contentStyle={{backgroundColor: '#101113', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', color: '#fff'}}
-                  itemStyle={{color: '#10b981'}}
-                  labelStyle={{color: '#a1a1aa'}}
+                  contentStyle={{backgroundColor: 'var(--ds-bg-elevated)', borderRadius: '12px', border: '1px solid var(--ds-border-default)', color: 'var(--ds-text-primary)'}}
+                  itemStyle={{color: '#9333ea'}}
+                  labelStyle={{color: 'var(--ds-text-muted)'}}
                   formatter={(value) => [value, 'Enviadas']}
                 />
-                <Area 
-                  type="monotone" 
-                  dataKey="sent" 
-                  stroke="#10b981" 
+                <Area
+                  type="monotone"
+                  dataKey="sent"
+                  stroke="#9333ea"
                   strokeWidth={2}
-                  fillOpacity={1} 
-                  fill="url(#colorSent)" 
+                  fillOpacity={1}
+                  fill="url(#colorSent)"
                 />
               </AreaChart>
             </ResponsiveContainer>

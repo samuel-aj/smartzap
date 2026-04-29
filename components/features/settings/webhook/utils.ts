@@ -1,4 +1,4 @@
-import { PhoneNumber } from '../../../../hooks/useSettings';
+﻿import { PhoneNumber } from '../../../../hooks/useSettings';
 import { WebhookStatus, WebhookFunnelLevel } from './types';
 
 /**
@@ -137,8 +137,8 @@ export function getCardColorClasses(color: 'emerald' | 'amber' | 'blue' | 'zinc'
       text: 'text-blue-400/80',
     },
     zinc: {
-      border: 'border-white/10',
-      bg: 'bg-zinc-800/50',
+      border: 'border-[var(--ds-border-default)]',
+      bg: 'bg-[var(--ds-bg-surface)]',
       icon: 'bg-zinc-700 text-gray-400',
       text: 'text-gray-500',
     },
@@ -170,8 +170,8 @@ export function getFunnelLevelColorClasses(color: 'emerald' | 'blue' | 'zinc'): 
       ring: 'ring-blue-500/30',
     },
     zinc: {
-      active: 'bg-zinc-700 border-zinc-600 text-gray-300',
-      inactive: 'bg-zinc-800/50 border-white/5 text-gray-500',
+      active: 'bg-zinc-700 border-zinc-600 text-[var(--ds-text-secondary)]',
+      inactive: 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-subtle)] text-gray-500',
       arrow: 'text-zinc-600',
       ring: 'ring-zinc-500/30',
     },

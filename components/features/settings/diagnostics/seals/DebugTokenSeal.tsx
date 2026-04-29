@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import type { MetaDiagnosticsResponse } from '@/services/metaDiagnosticsService'
@@ -40,19 +40,19 @@ export function DebugTokenSeal({ data }: DebugTokenSealProps) {
           <div className="text-xs text-gray-500">Selo</div>
           <div className="mt-2 flex items-center gap-2">
             <StatusBadge status={status} />
-            <div className="text-sm text-white font-medium truncate">{title}</div>
+            <div className="text-sm dark:text-white text-[var(--ds-text-primary)] font-medium truncate">{title}</div>
           </div>
-          <div className="mt-2 text-sm text-gray-300">{subtitle}</div>
+          <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">{subtitle}</div>
           <div className="mt-2 text-xs text-gray-500">Fonte: {sourceLabel}</div>
         </div>
 
         <div className="text-right">
           <div className="text-xs text-gray-500">App ID</div>
-          <div className="mt-2 text-sm text-white font-mono">{metaApp?.appId || '—'}</div>
+          <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-mono">{metaApp?.appId || '—'}</div>
           <div className="mt-2">
             <Link
               href="/settings"
-              className="text-xs text-gray-300 underline hover:text-white transition-colors"
+              className="text-xs text-[var(--ds-text-secondary)] underline hover:text-[var(--ds-text-primary)] transition-colors"
             >
               Configurar
             </Link>

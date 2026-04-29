@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import {
     Sheet,
     SheetContent,
@@ -38,9 +38,9 @@ export function CustomFieldsSheet({
     return (
         <Sheet open={open} onOpenChange={setOpen}>
             {children && <SheetTrigger asChild>{children}</SheetTrigger>}
-            <SheetContent className="sm:max-w-md w-full overflow-y-auto bg-zinc-950 border-l border-white/10 p-0 flex flex-col sm:w-135">
-                <SheetHeader className="p-6 border-b border-white/10">
-                    <SheetTitle className="text-white flex items-center gap-2">
+            <SheetContent className="sm:max-w-md w-full overflow-y-auto bg-[var(--ds-bg-elevated)] border-l border-[var(--ds-border-default)] p-0 flex flex-col sm:w-135">
+                <SheetHeader className="p-6 border-b border-[var(--ds-border-default)]">
+                    <SheetTitle className="dark:text-white text-[var(--ds-text-primary)] flex items-center gap-2">
                         <div className="p-2 bg-primary-500/10 rounded-lg text-primary-500">
                             <Type size={18} />
                         </div>

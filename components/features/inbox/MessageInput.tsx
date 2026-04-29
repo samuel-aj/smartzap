@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 /**
  * MessageInput - Editorial Minimal Design
@@ -369,7 +369,7 @@ export function MessageInput({
                 'h-9 w-9 shrink-0 rounded-lg flex items-center justify-center',
                 'transition-all duration-150',
                 canSend
-                  ? 'bg-green-600 text-white hover:bg-green-500 active:scale-95'
+                  ? 'bg-green-600 dark:text-white text-[var(--ds-text-primary)] hover:bg-green-500 active:scale-95'
                   : 'bg-[var(--ds-bg-surface)]/50 text-[var(--ds-text-muted)] cursor-not-allowed'
               )}
             >

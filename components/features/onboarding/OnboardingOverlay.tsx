@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import Link from 'next/link'
@@ -119,7 +119,7 @@ export const OnboardingOverlay = ({
                 {/* Header */}
                 <div className="text-center mb-10">
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-linear-to-br from-primary-500 to-purple-600 mb-6 shadow-lg shadow-primary-500/20">
-                        <Sparkles size={40} className="text-white" />
+                        <Sparkles size={40} className="dark:text-white text-[var(--ds-text-primary)]" />
                     </div>
                     <h1 className="text-4xl font-bold text-[var(--ds-text-primary)] tracking-tight mb-3">
                         Configuração Necessária
@@ -129,7 +129,7 @@ export const OnboardingOverlay = ({
                     </p>
                     <a
                         href="/install"
-                        className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-primary-500/25"
+                        className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 dark:text-white text-[var(--ds-text-primary)] px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-primary-500/25"
                     >
                         <Sparkles size={18} />
                         Iniciar Assistente de Instalação
@@ -208,11 +208,11 @@ export const OnboardingOverlay = ({
                                 >
                                     {/* Step number badge */}
                                     <div className={`absolute top-4 left-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${isConfigured
-                                        ? 'bg-purple-500 text-white'
+                                        ? 'bg-purple-500 dark:text-white text-[var(--ds-text-primary)]'
                                         : isError
-                                            ? 'bg-red-500 text-white'
+                                            ? 'bg-red-500 dark:text-white text-[var(--ds-text-primary)]'
                                             : isNextStep
-                                                ? 'bg-primary-500 text-white'
+                                                ? 'bg-primary-500 dark:text-white text-[var(--ds-text-primary)]'
                                                 : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)]'
                                         }`}>
                                         {isConfigured ? <CheckCircle2 size={16} /> : index + 1}
@@ -280,7 +280,7 @@ export const OnboardingOverlay = ({
                                                         href={step.actionUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-sm bg-primary-500 hover:bg-primary-400 text-white transition-all"
+                                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium text-sm bg-primary-500 hover:bg-primary-400 dark:text-white text-[var(--ds-text-primary)] transition-all"
                                                     >
                                                         {step.actionLabel}
                                                         <ExternalLink size={14} />

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import {
@@ -114,7 +114,7 @@ export function TutorialsSheet({
       <SheetContent className="w-full sm:max-w-md overflow-y-auto">
         <SheetHeader className="pb-4">
           <SheetTitle className="text-xl font-semibold">Tutoriais</SheetTitle>
-          <p className="text-sm text-zinc-400 mt-1">
+          <p className="text-sm text-[var(--ds-text-muted)] mt-1">
             Guias passo a passo para configurar o WhatsApp Business API
           </p>
         </SheetHeader>
@@ -133,22 +133,22 @@ export function TutorialsSheet({
                   <button
                     key={tutorial.id}
                     onClick={() => handleStepClick(tutorial.id)}
-                    className="w-full text-left p-3 rounded-xl bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors"
+                    className="w-full text-left p-3 rounded-xl bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)]/60 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       {/* Number */}
-                      <div className="w-6 h-6 rounded-full bg-zinc-700 text-zinc-400 flex items-center justify-center flex-shrink-0">
+                      <div className="w-6 h-6 rounded-full bg-zinc-700 text-[var(--ds-text-muted)] flex items-center justify-center flex-shrink-0">
                         <span className="text-xs font-medium">{tutorial.number}</span>
                       </div>
 
                       {/* Content */}
                       <div className="flex-1 min-w-0">
                         <p className="font-medium text-zinc-300 text-sm">{tutorial.title}</p>
-                        <p className="text-xs text-zinc-500 mt-0.5">{tutorial.description}</p>
+                        <p className="text-xs text-[var(--ds-text-muted)] mt-0.5">{tutorial.description}</p>
                       </div>
 
                       {/* Duration + Chevron */}
-                      <div className="flex items-center gap-2 text-zinc-500 flex-shrink-0">
+                      <div className="flex items-center gap-2 text-[var(--ds-text-muted)] flex-shrink-0">
                         <span className="text-xs">{tutorial.duration}</span>
                         <ChevronRight className="w-4 h-4" />
                       </div>
