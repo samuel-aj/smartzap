@@ -41,15 +41,15 @@ export const ApiDocsPanel: React.FC = () => {
           testar requisições e ver exemplos de uso.
         </p>
 
-        {/* Exemplo de uso (code block — sempre dark pra legibilidade) */}
-        <div className="bg-zinc-950 rounded-lg p-4 border border-[var(--ds-border-default)]">
+        {/* Exemplo de uso (code block — theme-aware) */}
+        <div className="dark:bg-zinc-950 bg-[var(--ds-bg-surface)] rounded-lg p-4 border border-[var(--ds-border-default)]">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-[var(--ds-text-muted)] uppercase tracking-wider">Exemplo</span>
             <Button
               variant="ghost"
               size="sm"
               onClick={copyExample}
-              className="h-6 px-2 text-[var(--ds-text-muted)] hover:text-zinc-300 hover:bg-[var(--ds-bg-hover)]"
+              className="h-6 px-2 text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]"
             >
               {copied ? (
                 <Check className="h-3 w-3 text-green-400" />
@@ -58,7 +58,7 @@ export const ApiDocsPanel: React.FC = () => {
               )}
             </Button>
           </div>
-          <pre className="text-xs text-zinc-300 overflow-x-auto">
+          <pre className="text-xs dark:text-zinc-300 text-[var(--ds-text-secondary)] overflow-x-auto">
             <code>{`curl -X GET "/api/campaigns" \\
   -H "Authorization: Bearer <API_KEY>"`}</code>
           </pre>
@@ -66,7 +66,7 @@ export const ApiDocsPanel: React.FC = () => {
 
         {/* Botão de acesso */}
         <Link href="/docs" target="_blank">
-          <Button className="w-full bg-purple-600 hover:bg-purple-700 dark:text-white text-[var(--ds-text-primary)]">
+          <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
             <BookOpen className="h-4 w-4 mr-2" />
             Abrir Documentação
             <ExternalLink className="h-3 w-3 ml-2 opacity-50" />
