@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useMemo, useState } from 'react'
 import { Save, Braces, AlertTriangle } from 'lucide-react'
@@ -46,7 +46,7 @@ export function FlowJsonEditorPanel(props: {
     <div className="glass-panel p-4 space-y-3">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <div className="text-white font-semibold flex items-center gap-2">
+          <div className="dark:text-white text-[var(--ds-text-primary)] font-semibold flex items-center gap-2">
             <Braces className="h-4 w-4" />
             JSON da MiniApp (Meta)
           </div>

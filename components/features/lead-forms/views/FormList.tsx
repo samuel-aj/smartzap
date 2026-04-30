@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import type { LeadForm } from '@/types'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -30,10 +30,10 @@ export function FormList({
   onDelete,
 }: FormListProps) {
   return (
-    <Card className="border-zinc-800 bg-zinc-900/50">
+    <Card className="border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)]">
       <CardHeader>
-        <CardTitle className="text-white">Seus formularios</CardTitle>
-        <CardDescription className="text-zinc-400">
+        <CardTitle className="dark:text-white text-[var(--ds-text-primary)]">Seus formularios</CardTitle>
+        <CardDescription className="text-[var(--ds-text-muted)]">
           Copie o link e compartilhe com os alunos.
         </CardDescription>
       </CardHeader>
@@ -47,9 +47,9 @@ export function FormList({
         ) : null}
 
         {isLoading ? (
-          <div className="text-sm text-zinc-400">Carregando...</div>
+          <div className="text-sm text-[var(--ds-text-muted)]">Carregando...</div>
         ) : forms.length === 0 ? (
-          <div className="text-sm text-zinc-400">Nenhum formulario ainda.</div>
+          <div className="text-sm text-[var(--ds-text-muted)]">Nenhum formulario ainda.</div>
         ) : (
           <div className="space-y-3">
             {forms.map((form) => (

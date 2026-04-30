@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { 
   Database, 
   Zap, 
@@ -53,10 +53,10 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
     <div className="max-w-2xl mx-auto">
       {/* Header */}
       <div className="text-center mb-10">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-primary-500 to-emerald-600 mb-4">
-          <Sparkles size={32} className="text-white" />
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-primary-500 to-purple-600 mb-4">
+          <Sparkles size={32} className="dark:text-white text-[var(--ds-text-primary)]" />
         </div>
-        <h1 className="text-3xl font-bold text-white tracking-tight mb-2">
+        <h1 className="text-3xl font-bold dark:text-white text-[var(--ds-text-primary)] tracking-tight mb-2">
           Configuração Inicial
         </h1>
         <p className="text-gray-400 max-w-md mx-auto">
@@ -74,15 +74,15 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
           <button
             onClick={onRefresh}
             disabled={isLoading}
-            className="flex items-center gap-1 text-gray-400 hover:text-white transition-colors"
+            className="flex items-center gap-1 text-gray-400 hover:text-[var(--ds-text-primary)] transition-colors"
           >
             <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
             Verificar novamente
           </button>
         </div>
-        <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
+        <div className="h-2 bg-[var(--ds-bg-surface)] rounded-full overflow-hidden">
           <div 
-            className="h-full bg-linear-to-r from-primary-500 to-emerald-500 transition-all duration-500"
+            className="h-full bg-linear-to-r from-primary-500 to-purple-500 transition-all duration-500"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -107,18 +107,18 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
               key={step.id}
               className={`relative rounded-2xl border transition-all duration-300 overflow-hidden ${
                 isConfigured
-                  ? 'bg-emerald-500/5 border-emerald-500/30'
+                  ? 'bg-purple-500/5 border-purple-500/30'
                   : isError
                     ? 'bg-red-500/5 border-red-500/30'
                     : isNextStep
                       ? 'bg-primary-500/5 border-primary-500/30 ring-2 ring-primary-500/20'
-                      : 'bg-zinc-900/50 border-white/10 opacity-60'
+                      : 'bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] opacity-60'
               }`}
             >
               {/* Step number badge */}
               <div className={`absolute top-4 left-4 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
                 isConfigured
-                  ? 'bg-emerald-500 text-white'
+                  ? 'bg-purple-500 text-white'
                   : isError
                     ? 'bg-red-500 text-white'
                     : isNextStep
@@ -133,7 +133,7 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className={`font-semibold ${
-                        isConfigured ? 'text-emerald-400' : isError ? 'text-red-400' : 'text-white'
+                        isConfigured ? 'text-purple-400' : isError ? 'text-red-400' : 'dark:text-white text-[var(--ds-text-primary)]'
                       }`}>
                         {step.title}
                       </h3>
@@ -157,7 +157,7 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
 
                     {/* Success message */}
                     {isConfigured && (
-                      <div className="flex items-center gap-2 text-sm text-emerald-400">
+                      <div className="flex items-center gap-2 text-sm text-purple-400">
                         <Check size={14} />
                         <span>Configurado com sucesso</span>
                       </div>
@@ -188,7 +188,7 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
 
                   {/* Icon for configured state */}
                   {isConfigured && (
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
                       {step.icon}
                     </div>
                   )}
@@ -198,7 +198,7 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
               {/* Arrow connector */}
               {index < steps.length - 1 && (
                 <div className="absolute -bottom-4 left-7 z-10">
-                  <div className={`w-0.5 h-8 ${isConfigured ? 'bg-emerald-500/30' : 'bg-zinc-700'}`} />
+                  <div className={`w-0.5 h-8 ${isConfigured ? 'bg-purple-500/30' : 'bg-zinc-700'}`} />
                 </div>
               )}
             </div>
@@ -209,7 +209,7 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
       {/* Bottom CTA */}
       {allConfigured ? (
         <div className="mt-8 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-emerald-400 mb-4">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-purple-500/20 border border-purple-500/30 rounded-xl text-purple-400 mb-4">
             <Check size={20} />
             <span className="font-medium">Tudo configurado!</span>
           </div>
@@ -250,7 +250,7 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
           </div>
         </div>
       ) : (
-        <div className="mt-8 p-4 bg-zinc-800/50 border border-white/10 rounded-xl text-center">
+        <div className="mt-8 p-4 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl text-center">
           <p className="text-gray-400 text-sm">
             Complete os passos acima para liberar as configurações do WhatsApp.
           </p>
@@ -261,14 +261,14 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
       )}
 
       {/* Help section */}
-      <div className="mt-8 pt-6 border-t border-white/5">
+      <div className="mt-8 pt-6 border-t border-[var(--ds-border-subtle)]">
         <h4 className="text-sm font-medium text-gray-400 mb-3">Precisa de ajuda?</h4>
         <div className="grid grid-cols-2 gap-3">
           <a
             href="https://vercel.com/docs/storage/upstash"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 p-3 bg-zinc-800/50 hover:bg-zinc-800 border border-white/10 rounded-xl text-sm text-gray-300 transition-colors"
+            className="flex items-center gap-2 p-3 bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] rounded-xl text-sm text-[var(--ds-text-secondary)] transition-colors"
           >
             <Database size={16} className="text-red-400" />
             Docs: Upstash no Vercel
@@ -278,7 +278,7 @@ export const SetupWizardView: React.FC<SetupWizardViewProps> = ({
             href="https://developers.facebook.com/docs/whatsapp/cloud-api/get-started"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 p-3 bg-zinc-800/50 hover:bg-zinc-800 border border-white/10 rounded-xl text-sm text-gray-300 transition-colors"
+            className="flex items-center gap-2 p-3 bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] rounded-xl text-sm text-[var(--ds-text-secondary)] transition-colors"
           >
             <MessageSquare size={16} className="text-green-400" />
             Docs: WhatsApp Cloud API

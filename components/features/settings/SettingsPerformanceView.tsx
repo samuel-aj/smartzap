@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { RefreshCw, AlertTriangle, ArrowLeft, Activity, TrendingUp, Timer, Hash } from 'lucide-react'
@@ -60,7 +60,7 @@ function Gauge(props: {
   return (
     <Container variant="glass" padding="md">
       <div className="text-xs text-gray-500">{props.title}</div>
-      <div className="mt-1 text-sm text-gray-300">{props.subtitle || '—'}</div>
+      <div className="mt-1 text-sm text-[var(--ds-text-secondary)]">{props.subtitle || '—'}</div>
 
       <div className="mt-4 flex items-center justify-center">
         <svg width={size} height={size / 2 + 70} viewBox={`0 0 ${size} ${size / 2 + 70}`} role="img" aria-label={props.title}>
@@ -216,7 +216,7 @@ export function SettingsPerformanceView(props: {
         <PageActions>
           <PrefetchLink
             href="/settings"
-            className="px-4 py-2 rounded-xl bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium flex items-center gap-2"
+            className="px-4 py-2 rounded-xl bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium flex items-center gap-2"
           >
             <ArrowLeft size={16} />
             Voltar
@@ -224,7 +224,7 @@ export function SettingsPerformanceView(props: {
 
           <button
             onClick={props.onRefresh}
-            className="px-4 py-2 rounded-xl bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium flex items-center gap-2"
+            className="px-4 py-2 rounded-xl bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium flex items-center gap-2"
             title="Atualizar"
           >
             <RefreshCw size={16} className={props.isFetching ? 'animate-spin' : ''} />
@@ -250,8 +250,8 @@ export function SettingsPerformanceView(props: {
             type="button"
             onClick={() => props.setRangeDays(d)}
             className={`px-3 py-1.5 rounded-lg border text-xs transition-colors ${props.rangeDays === d
-              ? 'bg-white/10 text-white border-white/20'
-              : 'bg-zinc-900/40 text-gray-300 border-white/10 hover:bg-white/5'
+              ? 'bg-white/10 dark:text-white text-[var(--ds-text-primary)] border-[var(--ds-border-strong)]'
+              : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] border-[var(--ds-border-default)] hover:bg-[var(--ds-bg-hover)]'
               }`}
           >
             {d}d
@@ -263,7 +263,7 @@ export function SettingsPerformanceView(props: {
           <select
             value={props.selectedConfigHash || ''}
             onChange={(e) => props.setSelectedConfigHash(e.target.value || null)}
-            className="px-3 py-2 bg-zinc-900/50 border border-white/10 rounded-lg text-xs text-white font-mono"
+            className="px-3 py-2 bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-lg text-xs dark:text-white text-[var(--ds-text-primary)] font-mono"
           >
             <option value="">(todas)</option>
             {(props.configs || []).map((c) => (
@@ -280,7 +280,7 @@ export function SettingsPerformanceView(props: {
           <div className="flex items-center gap-2 text-xs text-gray-500">
             <Activity size={14} /> Runs
           </div>
-          <div className="mt-2 text-2xl font-bold text-white">{data ? fmtInt(data.totals.runs) : '—'}</div>
+          <div className="mt-2 text-2xl font-bold dark:text-white text-[var(--ds-text-primary)]">{data ? fmtInt(data.totals.runs) : '—'}</div>
           <div className="mt-1 text-xs text-gray-500">amostras: {data ? fmtInt(data.totals.throughput_mps.samples) : '—'}</div>
         </Container>
 
@@ -288,7 +288,7 @@ export function SettingsPerformanceView(props: {
           <div className="flex items-center gap-2 text-xs text-gray-500">
             <TrendingUp size={14} /> Throughput (mps)
           </div>
-          <div className="mt-2 text-2xl font-bold text-white">{data ? fmtNumber(data.totals.throughput_mps.median, 2) : '—'}</div>
+          <div className="mt-2 text-2xl font-bold dark:text-white text-[var(--ds-text-primary)]">{data ? fmtNumber(data.totals.throughput_mps.median, 2) : '—'}</div>
           <div className="mt-1 text-xs text-gray-500">p90: {data ? fmtNumber(data.totals.throughput_mps.p90, 2) : '—'}</div>
         </Container>
 
@@ -296,7 +296,7 @@ export function SettingsPerformanceView(props: {
           <div className="flex items-center gap-2 text-xs text-gray-500">
             <Timer size={14} /> Meta avg
           </div>
-          <div className="mt-2 text-2xl font-bold text-white">{data ? fmtMs(data.totals.meta_avg_ms.median) : '—'}</div>
+          <div className="mt-2 text-2xl font-bold dark:text-white text-[var(--ds-text-primary)]">{data ? fmtMs(data.totals.meta_avg_ms.median) : '—'}</div>
           <div className="mt-1 text-xs text-gray-500">amostras: {data ? fmtInt(data.totals.meta_avg_ms.samples) : '—'}</div>
         </Container>
 
@@ -304,7 +304,7 @@ export function SettingsPerformanceView(props: {
           <div className="flex items-center gap-2 text-xs text-gray-500">
             <AlertTriangle size={14} /> 130429
           </div>
-          <div className="mt-2 text-2xl font-bold text-white">{data ? fmtPct(data.totals.throughput_429_rate, 1) : '—'}</div>
+          <div className="mt-2 text-2xl font-bold dark:text-white text-[var(--ds-text-primary)]">{data ? fmtPct(data.totals.throughput_429_rate, 1) : '—'}</div>
           <div className="mt-1 text-xs text-gray-500">taxa no período</div>
         </Container>
       </div>
@@ -320,13 +320,13 @@ export function SettingsPerformanceView(props: {
         />
 
         <Container variant="glass" padding="md" className="lg:col-span-2">
-          <div className="text-sm font-semibold text-white">Como ler esse gauge</div>
-          <div className="mt-2 text-sm text-gray-300 space-y-2">
+          <div className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)]">Como ler esse gauge</div>
+          <div className="mt-2 text-sm text-[var(--ds-text-secondary)] space-y-2">
             <p>
-              O ponteiro mostra a <span className="font-medium text-white">mediana</span> do throughput (mps) no período selecionado.
+              O ponteiro mostra a <span className="font-medium dark:text-white text-[var(--ds-text-primary)]">mediana</span> do throughput (mps) no período selecionado.
             </p>
             <p>
-              O teto é ajustado automaticamente (com base no <span className="font-medium text-white">p90</span>) para manter o velocímetro “vivo” e comparável.
+              O teto é ajustado automaticamente (com base no <span className="font-medium dark:text-white text-[var(--ds-text-primary)]">p90</span>) para manter o velocímetro “vivo” e comparável.
             </p>
             <p className="text-xs text-gray-500">
               Dica: aplique presets (Safe/Balanced/Boost) e rode campanhas suficientes para aumentar a confiança do baseline.
@@ -338,7 +338,7 @@ export function SettingsPerformanceView(props: {
       <Container variant="glass" padding="md" className="mt-6">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <div className="text-sm font-semibold text-white">Histórico de throughput (sent-only)</div>
+            <div className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)]">Histórico de throughput (sent-only)</div>
             <div className="text-xs text-gray-500">
               fonte: <span className="font-mono">{data?.source || '—'}</span>
               {props.selectedConfigHash ? (
@@ -385,7 +385,7 @@ export function SettingsPerformanceView(props: {
       <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Container variant="glass" padding="md">
           <div className="flex items-center justify-between">
-            <div className="text-sm font-semibold text-white">Baselines por config_hash</div>
+            <div className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)]">Baselines por config_hash</div>
             <div className="text-xs text-gray-500">ordenado por mediana</div>
           </div>
 
@@ -395,7 +395,7 @@ export function SettingsPerformanceView(props: {
             <div className="mt-4 overflow-auto">
               <table className="w-full text-left text-xs">
                 <thead className="text-gray-500">
-                  <tr className="border-b border-white/5">
+                  <tr className="border-b border-[var(--ds-border-subtle)]">
                     <th className="py-2 pr-2">Config</th>
                     <th className="py-2 pr-2">Amostras</th>
                     <th className="py-2 pr-2">Mediana (mps)</th>
@@ -405,12 +405,12 @@ export function SettingsPerformanceView(props: {
                 </thead>
                 <tbody>
                   {props.configs.slice(0, 12).map((c) => (
-                    <tr key={c.config_hash} className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                    <tr key={c.config_hash} className="border-b border-[var(--ds-border-subtle)] hover:bg-[var(--ds-bg-hover)] transition-colors">
                       <td className="py-2 pr-2">
                         <button
                           type="button"
                           onClick={() => props.setSelectedConfigHash(c.config_hash)}
-                          className="font-mono text-white/90 hover:text-white"
+                          className="font-mono dark:text-white text-[var(--ds-text-primary)]/90 hover:text-[var(--ds-text-primary)]"
                           title={pickConfigSummary(c.config)}
                         >
                           <span className="inline-flex items-center gap-1">
@@ -422,10 +422,10 @@ export function SettingsPerformanceView(props: {
                           {pickConfigSummary(c.config)}
                         </div>
                       </td>
-                      <td className="py-2 pr-2 text-gray-300">{fmtInt(c.sample_size)}</td>
-                      <td className="py-2 pr-2 text-white">{fmtNumber(c.throughput_mps.median, 2)}</td>
-                      <td className="py-2 pr-2 text-gray-300">{fmtNumber(c.throughput_mps.p90, 2)}</td>
-                      <td className="py-2 pr-2 text-gray-300">{fmtPct(c.throughput_429_rate, 1)}</td>
+                      <td className="py-2 pr-2 text-[var(--ds-text-secondary)]">{fmtInt(c.sample_size)}</td>
+                      <td className="py-2 pr-2 dark:text-white text-[var(--ds-text-primary)]">{fmtNumber(c.throughput_mps.median, 2)}</td>
+                      <td className="py-2 pr-2 text-[var(--ds-text-secondary)]">{fmtNumber(c.throughput_mps.p90, 2)}</td>
+                      <td className="py-2 pr-2 text-[var(--ds-text-secondary)]">{fmtPct(c.throughput_429_rate, 1)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -435,7 +435,7 @@ export function SettingsPerformanceView(props: {
 
           {props.selectedConfigHash && (
             <div className="mt-3 text-xs text-gray-500">
-              Filtro ativo: <span className="font-mono text-white">{props.selectedConfigHash}</span>
+              Filtro ativo: <span className="font-mono dark:text-white text-[var(--ds-text-primary)]">{props.selectedConfigHash}</span>
               <button
                 type="button"
                 onClick={() => props.setSelectedConfigHash(null)}
@@ -449,12 +449,12 @@ export function SettingsPerformanceView(props: {
 
         <Container variant="glass" padding="md">
           <div className="flex items-center justify-between">
-            <div className="text-sm font-semibold text-white">Notas</div>
+            <div className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)]">Notas</div>
           </div>
 
-          <div className="mt-3 text-sm text-gray-300 space-y-2">
+          <div className="mt-3 text-sm text-[var(--ds-text-secondary)] space-y-2">
             <p>
-              <span className="font-medium text-white">Baseline</span> aqui é a <span className="font-medium">mediana</span> do throughput por <span className="font-mono">config_hash</span> no período.
+              <span className="font-medium dark:text-white text-[var(--ds-text-primary)]">Baseline</span> aqui é a <span className="font-medium">mediana</span> do throughput por <span className="font-mono">config_hash</span> no período.
             </p>
             <p>
               Se você mudou presets (Safe/Balanced/Boost) mas não rodou campanhas suficientes, a amostra ainda vai ficar pequena.

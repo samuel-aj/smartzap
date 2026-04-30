@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useMemo, useState } from 'react'
 import { Wand2, Loader2 } from 'lucide-react'
@@ -35,10 +35,10 @@ export function CreateFlowWithAIDialog(props: {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="max-w-xl bg-zinc-950 border-white/10 text-white">
+      <DialogContent className="max-w-xl bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)]">
         <DialogHeader>
           <DialogTitle>Criar MiniApp com IA</DialogTitle>
-          <DialogDescription className="text-zinc-400">
+          <DialogDescription className="text-[var(--ds-text-muted)]">
             Descreva o que você quer coletar. A IA sugere as perguntas e a gente já cria o MiniApp no modo “Formulário”.
           </DialogDescription>
         </DialogHeader>
@@ -61,7 +61,7 @@ export function CreateFlowWithAIDialog(props: {
               id="flow_ai_prompt"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              className="min-h-28 bg-zinc-900 border-white/10 text-white"
+              className="min-h-28 bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)]"
               placeholder="Ex: Quero captar nome, telefone, e-mail, cidade, interesse (imóvel/financiamento), melhor horário para contato e um opt-in para receber novidades."
             />
             <div className="text-[11px] text-gray-500">Mínimo: 10 caracteres. Quanto mais contexto, melhor.</div>
@@ -72,7 +72,7 @@ export function CreateFlowWithAIDialog(props: {
           <Button
             type="button"
             variant="outline"
-            className="border-white/10 bg-zinc-900 hover:bg-white/5"
+            className="border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]"
             onClick={() => setOpen(false)}
             disabled={props.isCreating}
           >

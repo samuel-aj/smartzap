@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { formatJsonMaybe } from './utils'
 
@@ -13,7 +13,7 @@ export function NextSteps({ value }: NextStepsProps) {
   return (
     <div className="mt-3">
       <div className="text-xs text-gray-400">Passo a passo sugerido</div>
-      <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-gray-200">
+      <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-[var(--ds-text-secondary)]">
         {steps.map((s, idx) => (
           <li key={idx}>{typeof s === 'string' ? s : formatJsonMaybe(s)}</li>
         ))}

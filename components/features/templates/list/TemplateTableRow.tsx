@@ -7,6 +7,7 @@ import { Template } from '../../../../types';
 import { StatusBadge } from './StatusBadge';
 import { Button } from '@/components/ui/button';
 import { WhatsAppInlineText } from '@/components/ui/whatsapp-text';
+import { getTemplateDisplayName } from '@/lib/template-display';
 
 export interface TemplateTableRowProps {
   template: Template;
@@ -53,6 +54,8 @@ const TemplateTableRowComponent: React.FC<TemplateTableRowProps> = ({
   onPrefetchPreview,
 }) => {
   const draftHref = `/templates/drafts/${encodeURIComponent(template.id)}`;
+  const displayName = getTemplateDisplayName(template);
+  const hasAlias = displayName !== template.name;
 
   const handleCellClick = () => {
     if (!isManualDraft) {
@@ -71,7 +74,7 @@ const TemplateTableRowComponent: React.FC<TemplateTableRowProps> = ({
   return (
     <tr
       className={`hover:bg-[var(--ds-bg-hover)] transition-colors group cursor-pointer ${
-        isRowSelected ? (isManualDraft ? 'bg-amber-500/5' : 'bg-emerald-500/5') : ''
+        isRowSelected ? (isManualDraft ? 'bg-amber-500/5' : 'bg-purple-500/5') : ''
       }`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -84,7 +87,7 @@ const TemplateTableRowComponent: React.FC<TemplateTableRowProps> = ({
             isRowSelected
               ? isManualDraft
                 ? 'bg-amber-500 border-amber-500'
-                : 'bg-emerald-500 border-emerald-500'
+                : 'bg-purple-500 border-purple-500'
               : 'border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)]'
           }`}
           title={isRowSelected ? 'Desmarcar' : 'Selecionar'}
@@ -103,27 +106,41 @@ const TemplateTableRowComponent: React.FC<TemplateTableRowProps> = ({
             className="flex items-center gap-3 hover:opacity-90"
             title="Continuar edicao"
           >
-            <div className="p-2 bg-[var(--ds-bg-elevated)] rounded-lg text-[var(--ds-text-secondary)] group-hover:text-emerald-200 transition-colors">
+            <div className="p-2 bg-[var(--ds-bg-elevated)] rounded-lg text-[var(--ds-text-secondary)] group-hover:text-[var(--ds-text-brand)] transition-colors">
               <FileText size={16} />
             </div>
-            <span
-              className="font-medium text-[var(--ds-text-primary)] group-hover:text-emerald-200 transition-colors truncate max-w-50"
-              title={template.name}
-            >
-              {template.name}
-            </span>
+            <div className="min-w-0">
+              <span
+                className="block font-medium text-[var(--ds-text-primary)] group-hover:text-[var(--ds-text-brand)] transition-colors truncate max-w-50"
+                title={template.name}
+              >
+                {displayName}
+              </span>
+              {hasAlias && (
+                <span className="block text-[10px] font-mono text-[var(--ds-text-muted)] truncate max-w-50">
+                  {template.name}
+                </span>
+              )}
+            </div>
           </Link>
         ) : (
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-[var(--ds-bg-elevated)] rounded-lg text-[var(--ds-text-secondary)] group-hover:text-emerald-200 transition-colors">
+            <div className="p-2 bg-[var(--ds-bg-elevated)] rounded-lg text-[var(--ds-text-secondary)] group-hover:text-[var(--ds-text-brand)] transition-colors">
               <FileText size={16} />
             </div>
-            <span
-              className="font-medium text-[var(--ds-text-primary)] group-hover:text-emerald-200 transition-colors truncate max-w-50"
-              title={template.name}
-            >
-              {template.name}
-            </span>
+            <div className="min-w-0">
+              <span
+                className="block font-medium text-[var(--ds-text-primary)] group-hover:text-[var(--ds-text-brand)] transition-colors truncate max-w-50"
+                title={template.name}
+              >
+                {displayName}
+              </span>
+              {hasAlias && (
+                <span className="block text-[10px] font-mono text-[var(--ds-text-muted)] truncate max-w-50">
+                  {template.name}
+                </span>
+              )}
+            </div>
           </div>
         )}
       </td>
@@ -144,7 +161,7 @@ const TemplateTableRowComponent: React.FC<TemplateTableRowProps> = ({
         <span
           className={`inline-flex items-center rounded-md border px-2 py-1 text-xs font-medium ${
             template.category === 'UTILIDADE'
-              ? 'bg-emerald-500/10 text-[var(--ds-status-success-text)] border-emerald-500/20'
+              ? 'bg-green-500/10 text-[var(--ds-status-success-text)] border-green-500/20'
               : template.category === 'MARKETING'
                 ? 'bg-amber-500/10 text-[var(--ds-status-warning-text)] border-amber-500/20'
                 : 'bg-[var(--ds-bg-hover)] text-[var(--ds-text-secondary)] border-[var(--ds-border-default)]'
@@ -273,6 +290,7 @@ export const TemplateTableRow = React.memo(TemplateTableRowComponent, (prev, nex
   // Se qualquer prop visual mudou, deve re-renderizar (retorna false)
   if (prev.template.id !== next.template.id) return false;
   if (prev.template.name !== next.template.name) return false;
+  if (prev.template.displayName !== next.template.displayName) return false;
   if (prev.template.status !== next.template.status) return false;
   if (prev.template.category !== next.template.category) return false;
   if (prev.template.content !== next.template.content) return false;

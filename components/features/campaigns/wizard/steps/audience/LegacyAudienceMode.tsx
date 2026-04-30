@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Users, Smartphone, ShieldAlert, Sparkles } from 'lucide-react';
@@ -41,7 +41,7 @@ export function LegacyAudienceMode({
         }`}
       >
         {recipientSource === 'all' && !isOverLimit && (
-          <div className="absolute top-3 right-3 text-white dark:text-black">
+          <div className="absolute top-3 right-3 dark:text-white text-[var(--ds-text-primary)] dark:text-black">
             <CheckCircleFilled size={20} />
           </div>
         )}
@@ -68,7 +68,7 @@ export function LegacyAudienceMode({
               isOverLimit
                 ? 'text-red-400'
                 : recipientSource === 'all'
-                  ? 'text-white/70 dark:text-gray-600'
+                  ? 'dark:text-white text-[var(--ds-text-primary)]/70 dark:text-gray-600'
                   : 'text-[var(--ds-text-muted)]'
             }`}
           >
@@ -105,7 +105,7 @@ export function LegacyAudienceMode({
         }`}
       >
         {recipientSource === 'specific' && (
-          <div className="absolute top-3 right-3 text-white dark:text-black">
+          <div className="absolute top-3 right-3 dark:text-white text-[var(--ds-text-primary)] dark:text-black">
             <CheckCircleFilled size={20} />
           </div>
         )}
@@ -132,7 +132,7 @@ export function LegacyAudienceMode({
               isOverLimit && recipientSource !== 'specific'
                 ? 'text-primary-400 font-medium'
                 : recipientSource === 'specific'
-                  ? 'text-white/70 dark:text-gray-600'
+                  ? 'dark:text-white text-[var(--ds-text-primary)]/70 dark:text-gray-600'
                   : 'text-[var(--ds-text-muted)]'
             }`}
           >

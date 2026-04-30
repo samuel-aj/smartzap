@@ -47,15 +47,15 @@ const buttonVariants = cva(
         ].join(" "),
         // Ghost destructive para ações destrutivas sutis (ex: botão de lixeira)
         "ghost-destructive": [
-          "text-zinc-400 hover:text-red-400 hover:bg-red-500/10",
+          "text-[var(--ds-text-muted)] hover:text-red-600 dark:hover:text-red-400 hover:bg-red-500/10",
           "[transition:var(--ds-transition-fast)]",
         ].join(" "),
         link: "text-primary underline-offset-4 hover:underline",
         // Nova variante brand com glow emerald
         brand: [
-          "bg-emerald-600 text-white border border-emerald-600",
+          "bg-purple-600 text-white border border-purple-600",
           "[box-shadow:var(--ds-shadow-button-primary)]",
-          "hover:bg-emerald-500 hover:border-emerald-500 hover:[box-shadow:var(--ds-shadow-button-primary-hover)]",
+          "hover:bg-purple-500 hover:border-purple-500 hover:[box-shadow:var(--ds-shadow-button-primary-hover)]",
           "[transition:var(--ds-transition-fast)]",
         ].join(" "),
       },

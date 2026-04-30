@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import type { ReactNode } from 'react'
 
@@ -12,7 +12,7 @@ export function Pill({ tone, children }: PillProps) {
 
   if (tone === 'ok') {
     return (
-      <span className={`${base} bg-emerald-500/10 border-emerald-500/20 text-emerald-200`}>
+      <span className={`${base} bg-purple-500/10 border-purple-500/20 text-purple-200`}>
         {children}
       </span>
     )
@@ -35,7 +35,7 @@ export function Pill({ tone, children }: PillProps) {
   }
 
   return (
-    <span className={`${base} bg-white/5 border-white/10 text-gray-200`}>
+    <span className={`${base} bg-white/5 border-[var(--ds-border-default)] text-[var(--ds-text-secondary)]`}>
       {children}
     </span>
   )

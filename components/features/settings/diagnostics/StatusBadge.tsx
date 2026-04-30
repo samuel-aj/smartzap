@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { CheckCircle2, XCircle, AlertTriangle, Info } from 'lucide-react'
 import type { MetaDiagnosticsCheckStatus } from './types'
@@ -12,7 +12,7 @@ export function StatusBadge({ status }: StatusBadgeProps) {
 
   if (status === 'pass') {
     return (
-      <span className={`${base} bg-emerald-500/10 border-emerald-500/20 text-emerald-200`}>
+      <span className={`${base} bg-purple-500/10 border-purple-500/20 text-purple-200`}>
         <CheckCircle2 size={14} /> OK
       </span>
     )
@@ -35,7 +35,7 @@ export function StatusBadge({ status }: StatusBadgeProps) {
   }
 
   return (
-    <span className={`${base} bg-white/5 border-white/10 text-gray-200`}>
+    <span className={`${base} bg-white/5 border-[var(--ds-border-default)] text-[var(--ds-text-secondary)]`}>
       <Info size={14} /> Info
     </span>
   )

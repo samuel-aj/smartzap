@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { CheckCircle, RefreshCw, ShieldAlert, Wand2 } from 'lucide-react';
@@ -81,7 +81,7 @@ export function PrecheckSection({
                 'px-4 py-2 rounded-lg text-sm font-bold border transition-colors flex items-center gap-2 ' +
                 (!!isPrechecking || !!quickEditContactId
                   ? 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] text-[var(--ds-text-muted)]'
-                  : 'bg-primary-600 text-white border-primary-500/40 hover:bg-primary-500')
+                  : 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] border-primary-500/40 hover:bg-primary-500')
               }
               title="Corrigir contatos ignorados em sequência (sem sair da campanha)"
             >
@@ -100,7 +100,7 @@ export function PrecheckSection({
               'px-4 py-2 rounded-lg text-sm font-bold border transition-colors flex items-center gap-2 ' +
               (isPrechecking
                 ? 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] text-[var(--ds-text-secondary)]'
-                : 'bg-primary-600 text-white dark:bg-white dark:text-black border-primary-500 dark:border-white hover:bg-primary-500 dark:hover:bg-gray-200')
+                : 'bg-primary-600 dark:text-white text-[var(--ds-text-primary)] dark:bg-white dark:text-black border-primary-500 dark:border-white hover:bg-primary-500 dark:hover:bg-gray-200')
             }
             title="Valida telefones + variáveis do template sem criar campanha"
           >
@@ -126,7 +126,7 @@ export function PrecheckSection({
       {precheckResult?.totals && (
         <div className="mt-3 text-xs text-[var(--ds-text-secondary)] space-y-2">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-emerald-400 font-bold">
+            <span className="text-purple-400 font-bold">
               Válidos: {precheckResult.totals.valid}
             </span>
             <span className="text-amber-400 font-bold">

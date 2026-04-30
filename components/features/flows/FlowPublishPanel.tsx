@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
@@ -201,8 +201,8 @@ export function FlowPublishPanel({
               className={cn(
                 'rounded-full border px-3 py-1 text-xs font-medium transition-colors whitespace-nowrap',
                 statusFilter === item.id
-                  ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-200'
-                  : 'border-white/10 bg-zinc-950/40 text-gray-400 hover:text-white',
+                  ? 'border-purple-400/40 bg-purple-500/10 text-purple-200'
+                  : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] text-gray-400 hover:text-[var(--ds-text-primary)]',
               )}
               aria-pressed={statusFilter === item.id}
             >
@@ -213,12 +213,12 @@ export function FlowPublishPanel({
 
         {/* Search + Selection actions */}
         <div className="flex items-center gap-2 w-full md:w-auto">
-          <div className="flex items-center gap-3 bg-zinc-950/40 border border-white/10 rounded-xl px-4 py-3 w-full md:w-72 transition-all focus-within:border-primary-500/50 focus-within:ring-1 focus-within:ring-primary-500/50">
+          <div className="flex items-center gap-3 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl px-4 py-3 w-full md:w-72 transition-all focus-within:border-primary-500/50 focus-within:ring-1 focus-within:ring-primary-500/50">
             <Search size={18} className="text-gray-500" aria-hidden="true" />
             <input
               type="text"
               placeholder="Buscar MiniApps..."
-              className="bg-transparent border-none outline-none text-sm w-full text-white placeholder:text-gray-600"
+              className="bg-transparent border-none outline-none text-sm w-full dark:text-white text-[var(--ds-text-primary)] placeholder:text-gray-600"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               aria-label="Buscar MiniApps por nome"
@@ -243,7 +243,7 @@ export function FlowPublishPanel({
       <Container variant="default" padding="none" className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="bg-zinc-950/40 border-b border-white/10 text-gray-500 uppercase tracking-widest text-xs">
+            <thead className="bg-[var(--ds-bg-surface)] border-b border-[var(--ds-border-default)] text-gray-500 uppercase tracking-widest text-xs">
               <tr>
                 <th className="px-4 py-4 w-10">
                   <button
@@ -257,15 +257,15 @@ export function FlowPublishPanel({
                     disabled={visibleFlows.length === 0}
                     className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${
                       visibleFlows.length === 0
-                        ? 'border-white/10 opacity-40 cursor-not-allowed'
+                        ? 'border-[var(--ds-border-default)] opacity-40 cursor-not-allowed'
                         : allVisibleSelected
-                          ? 'bg-emerald-500 border-emerald-500'
-                          : 'border-white/20 hover:border-white/40'
+                          ? 'bg-purple-500 border-purple-500'
+                          : 'border-[var(--ds-border-strong)] hover:border-white/40'
                     }`}
                     aria-label="Selecionar todos"
                   >
                     {allVisibleSelected && visibleFlows.length > 0 && (
-                      <Check className="w-3 h-3 text-white" />
+                      <Check className="w-3 h-3 dark:text-white text-[var(--ds-text-primary)]" />
                     )}
                   </button>
                 </th>
@@ -287,7 +287,7 @@ export function FlowPublishPanel({
                 <tr>
                   <td colSpan={6} className="px-6 py-16 text-center">
                     <div className="flex flex-col items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-[var(--ds-bg-surface)] flex items-center justify-center">
                         <Search size={24} className="text-gray-500" />
                       </div>
                       <div>
@@ -309,8 +309,8 @@ export function FlowPublishPanel({
                   const isDeleting = deletingId === flow.id
                   const canTest = !!flow.meta_flow_id
                   return (
-                    <tr key={flow.id} className={`hover:bg-white/5 transition-colors group cursor-pointer ${
-                      selectedIds.has(flow.id) ? 'bg-emerald-500/5' : ''
+                    <tr key={flow.id} className={`hover:bg-[var(--ds-bg-hover)] transition-colors group cursor-pointer ${
+                      selectedIds.has(flow.id) ? 'bg-purple-500/5' : ''
                     }`}>
                       <td className="px-4 py-4" onClick={(e) => e.stopPropagation()}>
                         <button
@@ -324,23 +324,23 @@ export function FlowPublishPanel({
                           }}
                           className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${
                             selectedIds.has(flow.id)
-                              ? 'bg-emerald-500 border-emerald-500'
-                              : 'border-white/20 hover:border-white/40'
+                              ? 'bg-purple-500 border-purple-500'
+                              : 'border-[var(--ds-border-strong)] hover:border-white/40'
                           }`}
                           title={selectedIds.has(flow.id) ? 'Desmarcar' : 'Selecionar'}
                         >
                           {selectedIds.has(flow.id) && (
-                            <Check className="w-3 h-3 text-white" />
+                            <Check className="w-3 h-3 dark:text-white text-[var(--ds-text-primary)]" />
                           )}
                         </button>
                       </td>
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="p-2 bg-zinc-950/40 rounded-lg text-gray-400 group-hover:text-emerald-200 transition-colors">
+                          <div className="p-2 bg-[var(--ds-bg-surface)] rounded-lg text-gray-400 group-hover:text-[var(--ds-text-brand)] transition-colors">
                             <FileText size={16} />
                           </div>
                           <span
-                            className="font-medium text-white group-hover:text-emerald-200 transition-colors truncate max-w-50"
+                            className="font-medium dark:text-white text-[var(--ds-text-primary)] group-hover:text-[var(--ds-text-brand)] transition-colors truncate max-w-50"
                             title={flow.name}
                           >
                             {flow.name}
@@ -417,15 +417,15 @@ export function FlowPublishPanel({
       </Container>
 
       <Dialog open={!!confirmFlow} onOpenChange={(open) => !open && setConfirmFlow(null)}>
-        <DialogContent className="sm:max-w-md bg-zinc-900/80 border border-amber-500/20 text-white">
+        <DialogContent className="sm:max-w-md bg-[var(--ds-bg-elevated)] border border-amber-500/20 dark:text-white text-[var(--ds-text-primary)]">
           <DialogHeader>
             <DialogTitle>Excluir MiniApp</DialogTitle>
           </DialogHeader>
-          <div className="text-sm text-gray-300">
+          <div className="text-sm text-[var(--ds-text-secondary)]">
             MiniApp: <span className="font-semibold">{confirmFlow?.name}</span>
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setConfirmFlow(null)} className="border-white/10 bg-zinc-950/40 text-gray-200 hover:text-white hover:bg-white/5">
+            <Button variant="outline" onClick={() => setConfirmFlow(null)} className="border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]">
               Cancelar
             </Button>
             <Button
@@ -441,7 +441,7 @@ export function FlowPublishPanel({
       </Dialog>
 
       <Dialog open={confirmBulkDelete} onOpenChange={(open) => !open && setConfirmBulkDelete(false)}>
-        <DialogContent className="sm:max-w-md bg-zinc-900/80 border border-amber-500/20 text-white">
+        <DialogContent className="sm:max-w-md bg-[var(--ds-bg-elevated)] border border-amber-500/20 dark:text-white text-[var(--ds-text-primary)]">
           <DialogHeader>
             <DialogTitle>Excluir MiniApps selecionados</DialogTitle>
             <DialogDescription className="text-gray-400">
@@ -452,7 +452,7 @@ export function FlowPublishPanel({
             <Button
               variant="outline"
               onClick={() => setConfirmBulkDelete(false)}
-              className="border-white/10 bg-zinc-950/40 text-gray-200 hover:text-white hover:bg-white/5"
+              className="border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]"
             >
               Cancelar
             </Button>

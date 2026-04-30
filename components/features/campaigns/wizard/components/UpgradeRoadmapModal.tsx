@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   Check,
   Circle,
@@ -37,19 +37,19 @@ export const UpgradeRoadmapModal: React.FC<UpgradeRoadmapModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-zinc-900 border border-white/10 rounded-2xl w-full max-w-lg mx-4 shadow-2xl animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-2xl w-full max-w-lg mx-4 shadow-2xl animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="flex items-center gap-4 p-6 border-b border-white/10 bg-linear-to-r from-primary-500/10 to-transparent shrink-0">
+        <div className="flex items-center gap-4 p-6 border-b border-[var(--ds-border-default)] bg-linear-to-r from-primary-500/10 to-transparent shrink-0">
           <div className="p-3 bg-primary-500/20 rounded-xl">
             <TrendingUp className="text-primary-400" size={24} />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">Aumentar seu Limite</h2>
+            <h2 className="text-xl font-bold dark:text-white text-[var(--ds-text-primary)]">Aumentar seu Limite</h2>
             <p className="text-sm text-gray-400">Siga o roadmap para evoluir seu tier</p>
           </div>
           <button
             onClick={onClose}
-            className="ml-auto p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="ml-auto p-2 hover:bg-[var(--ds-bg-hover)] rounded-lg transition-colors"
           >
             <XCircle className="text-gray-400" size={20} />
           </button>
@@ -59,9 +59,9 @@ export const UpgradeRoadmapModal: React.FC<UpgradeRoadmapModalProps> = ({
         <div className="p-6 space-y-6 overflow-y-auto flex-1">
           {/* Current vs Next Tier */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-zinc-800/50 rounded-xl p-4 text-center border border-white/5">
+            <div className="bg-[var(--ds-bg-surface)] rounded-xl p-4 text-center border border-[var(--ds-border-subtle)]">
               <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Tier Atual</p>
-              <p className="text-lg font-bold text-white">{TIER_DISPLAY_NAMES[currentTier]}</p>
+              <p className="text-lg font-bold dark:text-white text-[var(--ds-text-primary)]">{TIER_DISPLAY_NAMES[currentTier]}</p>
               <p className="text-sm text-gray-400">{currentLimit.toLocaleString('pt-BR')}/dia</p>
             </div>
             {nextTier && nextLimit && (
@@ -84,7 +84,7 @@ export const UpgradeRoadmapModal: React.FC<UpgradeRoadmapModalProps> = ({
                     key={index}
                     className={`p-4 rounded-xl border transition-all \${isCompleted
                       ? 'bg-primary-500/10 border-primary-500/30'
-                      : 'bg-zinc-800/30 border-white/5'
+                      : 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-subtle)]'
                       }`}
                   >
                     <div className="flex items-start gap-3">
@@ -95,7 +95,7 @@ export const UpgradeRoadmapModal: React.FC<UpgradeRoadmapModalProps> = ({
                         {isCompleted ? <Check size={14} /> : <Circle size={14} />}
                       </div>
                       <div className="flex-1">
-                        <p className={`font-bold text-sm \${isCompleted ? 'text-primary-400' : 'text-white'}`}>
+                        <p className={`font-bold text-sm \${isCompleted ? 'text-primary-400' : 'dark:text-white text-[var(--ds-text-primary)]'}`}>
                           {step.title}
                         </p>
                         <p className="text-xs text-gray-400 mt-1">{step.description}</p>
@@ -130,7 +130,7 @@ export const UpgradeRoadmapModal: React.FC<UpgradeRoadmapModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between p-6 border-t border-white/10 bg-zinc-800/30 shrink-0">
+        <div className="flex items-center justify-between p-6 border-t border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] shrink-0">
           <a
             href="https://developers.facebook.com/docs/whatsapp/messaging-limits"
             target="_blank"
@@ -163,7 +163,7 @@ const QualityScoreCard: React.FC<{ qualityScore: string }> = ({ qualityScore }) 
       case 'RED':
         return 'bg-red-500/10 border-red-500/30';
       default:
-        return 'bg-zinc-800/30 border-white/5';
+        return 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-subtle)]';
     }
   };
 
@@ -200,7 +200,7 @@ const QualityScoreCard: React.FC<{ qualityScore: string }> = ({ qualityScore }) 
       </p>
       <div className="flex items-center gap-2">
         <div className={`w-3 h-3 rounded-full \${getDotColor()}`} />
-        <span className="text-sm text-white font-medium">{getLabel()}</span>
+        <span className="text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">{getLabel()}</span>
       </div>
       <p className="text-xs text-gray-400 mt-2">
         {qualityScore === 'RED'

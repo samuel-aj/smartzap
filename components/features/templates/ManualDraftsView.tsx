@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
@@ -31,8 +31,8 @@ function DraftStatusBadge({ ready }: DraftStatusBadgeProps) {
       className={cn(
         'inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide border',
         ready
-          ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20'
-          : 'bg-white/5 text-gray-400 border-white/10'
+          ? 'bg-purple-500/10 text-purple-300 border-purple-500/20'
+          : 'bg-white/5 text-gray-400 border-[var(--ds-border-default)]'
       )}
     >
       {ready ? 'Pronto para enviar' : 'Em edição'}
@@ -124,11 +124,11 @@ export function ManualDraftsView({
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-200">
+          <div className="p-2 rounded-lg bg-white/5 border border-[var(--ds-border-default)] text-[var(--ds-text-secondary)]">
             <FileText className="w-4 h-4" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-white">Templates em rascunho</h2>
+            <h2 className="text-lg font-semibold dark:text-white text-[var(--ds-text-primary)]">Templates em rascunho</h2>
             <p className="text-sm text-gray-400">Crie, edite e envie para a Meta.</p>
           </div>
         </div>
@@ -139,11 +139,11 @@ export function ManualDraftsView({
           <div className="flex items-center gap-3">
             <div className="text-xs uppercase tracking-widest text-gray-500">Etapas</div>
             <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400">
-              <span className={draftStage === 'create' ? 'text-white font-semibold' : ''}>1. Criar</span>
+              <span className={draftStage === 'create' ? 'dark:text-white text-[var(--ds-text-primary)] font-semibold' : ''}>1. Criar</span>
               <span className="opacity-40">→</span>
-              <span className={draftStage === 'edit' ? 'text-white font-semibold' : ''}>2. Editar</span>
+              <span className={draftStage === 'edit' ? 'dark:text-white text-[var(--ds-text-primary)] font-semibold' : ''}>2. Editar</span>
               <span className="opacity-40">→</span>
-              <span className={draftStage === 'send' ? 'text-white font-semibold' : ''}>3. Enviar</span>
+              <span className={draftStage === 'send' ? 'dark:text-white text-[var(--ds-text-primary)] font-semibold' : ''}>3. Enviar</span>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -155,7 +155,7 @@ export function ManualDraftsView({
               variant="outline"
               onClick={onRefresh}
               disabled={isRefreshing}
-              className="border-white/10 bg-zinc-950/40 text-gray-200 hover:text-white hover:bg-white/5"
+              className="border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]"
             >
               <RefreshCw className={cn('w-4 h-4', isRefreshing ? 'animate-spin' : '')} />
               Atualizar
@@ -168,7 +168,7 @@ export function ManualDraftsView({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Buscar rascunhos..."
-            className="bg-zinc-950/40 border-white/10 text-white placeholder:text-gray-600 w-full sm:w-96"
+            className="bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)] placeholder:text-gray-600 w-full sm:w-96"
           />
           <div className="text-xs text-gray-400">
             {drafts.length} rascunho(s) • {readyDrafts.length} pronto(s) para envio
@@ -180,7 +180,7 @@ export function ManualDraftsView({
           <div className="px-6 py-10 text-center text-gray-400">Carregando...</div>
         ) : drafts.length === 0 ? (
           <div className="px-6 py-10 text-center text-gray-500">
-            <div className="text-sm font-semibold text-gray-300">Nenhum rascunho ainda.</div>
+            <div className="text-sm font-semibold text-[var(--ds-text-secondary)]">Nenhum rascunho ainda.</div>
             <div className="text-xs text-gray-500 mt-1">Clique em “Criar rascunho” para começar.</div>
           </div>
         ) : (
@@ -194,10 +194,10 @@ export function ManualDraftsView({
               editingDrafts.slice(0, 3).map((draft) => {
                 const snippet = extractDraftBody(draft).trim()
                 return (
-                  <div key={draft.id} className="px-6 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between hover:bg-white/5">
+                  <div key={draft.id} className="px-6 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between hover:bg-[var(--ds-bg-hover)]">
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <div className="text-white font-medium truncate">{draft.name}</div>
+                        <div className="dark:text-white text-[var(--ds-text-primary)] font-medium truncate">{draft.name}</div>
                         <DraftStatusBadge ready={false} />
                       </div>
                       <p className="text-xs text-gray-500 line-clamp-2 whitespace-pre-wrap">
@@ -237,7 +237,7 @@ export function ManualDraftsView({
                 <span>Mostrando 3 de {editingDrafts.length}.</span>
                 <button
                   type="button"
-                  className="text-gray-300 hover:text-white underline underline-offset-2"
+                  className="text-[var(--ds-text-secondary)] hover:text-[var(--ds-text-primary)] underline underline-offset-2"
                   onClick={() => setSearch('')}
                 >
                   Ver todos
@@ -254,10 +254,10 @@ export function ManualDraftsView({
               readyDrafts.slice(0, 3).map((draft) => {
                 const snippet = extractDraftBody(draft).trim()
                 return (
-                  <div key={draft.id} className="px-6 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between hover:bg-white/5">
+                  <div key={draft.id} className="px-6 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between hover:bg-[var(--ds-bg-hover)]">
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <div className="text-white font-medium truncate">{draft.name}</div>
+                        <div className="dark:text-white text-[var(--ds-text-primary)] font-medium truncate">{draft.name}</div>
                         <DraftStatusBadge ready />
                       </div>
                       <p className="text-xs text-gray-500 line-clamp-2 whitespace-pre-wrap">
@@ -307,7 +307,7 @@ export function ManualDraftsView({
                 <span>Mostrando 3 de {readyDrafts.length}.</span>
                 <button
                   type="button"
-                  className="text-gray-300 hover:text-white underline underline-offset-2"
+                  className="text-[var(--ds-text-secondary)] hover:text-[var(--ds-text-primary)] underline underline-offset-2"
                   onClick={() => setSearch('')}
                 >
                   Ver todos

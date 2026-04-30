@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Search, Filter, RefreshCw, Eye, Ban, AlertCircle, Pencil, Loader2 } from 'lucide-react';
@@ -28,10 +28,10 @@ export const MessageLogTable: React.FC<MessageLogTableProps> = ({
 
   return (
     <Container variant="glass" padding="none" className="overflow-hidden">
-      <div className="p-5 border-b border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h3 className="font-bold text-white flex items-center gap-2">
+      <div className="p-5 border-b border-[var(--ds-border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <h3 className="font-bold dark:text-white text-[var(--ds-text-primary)] flex items-center gap-2">
           Logs de Envio{' '}
-          <span className="text-xs font-normal text-gray-500 bg-zinc-900 px-2 py-0.5 rounded-full">
+          <span className="text-xs font-normal text-[var(--ds-text-muted)] bg-[var(--ds-bg-surface)] px-2 py-0.5 rounded-full">
             {total.toLocaleString()}
           </span>
         </h3>
@@ -44,7 +44,7 @@ export const MessageLogTable: React.FC<MessageLogTableProps> = ({
               className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors flex items-center gap-2 ${
                 includeReadInDelivered
                   ? 'bg-blue-500/10 border-blue-500/20 text-blue-300 hover:bg-blue-500/15'
-                  : 'bg-zinc-900/50 border-white/10 text-gray-300 hover:text-white hover:bg-white/5'
+                  : 'bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)] text-[var(--ds-text-secondary)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)]'
               }`}
               title={includeReadInDelivered
                 ? 'Mostrando entregues + lidas (cumulativo)'
@@ -55,20 +55,20 @@ export const MessageLogTable: React.FC<MessageLogTableProps> = ({
             </button>
           )}
 
-          <div className="flex items-center gap-2 bg-zinc-900/50 border border-white/10 rounded-lg px-3 py-1.5 w-full sm:w-64 focus-within:border-primary-500/50 transition-all">
+          <div className="flex items-center gap-2 bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-lg px-3 py-1.5 w-full sm:w-64 focus-within:border-primary-500/50 transition-all">
             <Search size={14} className="text-gray-500" />
             <input
               type="text"
               placeholder="Buscar destinatario..."
-              className="bg-transparent border-none outline-none text-sm w-full text-white placeholder-gray-600"
+              className="bg-transparent border-none outline-none text-sm w-full dark:text-white text-[var(--ds-text-primary)] placeholder-gray-600"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <button className="p-1.5 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg border border-white/10 transition-colors">
+          <button className="p-1.5 text-gray-400 hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] rounded-lg border border-[var(--ds-border-default)] transition-colors">
             <Filter size={16} />
           </button>
-          <button className="p-1.5 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg border border-white/10 transition-colors">
+          <button className="p-1.5 text-gray-400 hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] rounded-lg border border-[var(--ds-border-default)] transition-colors">
             <RefreshCw size={16} />
           </button>
         </div>
@@ -88,8 +88,8 @@ export const MessageLogTable: React.FC<MessageLogTableProps> = ({
           </thead>
           <tbody className="divide-y divide-white/5">
             {messages.map((msg) => (
-              <tr key={msg.id} className="hover:bg-white/5 transition-colors">
-                <td className="px-6 py-3 font-medium text-gray-200">{msg.contactName}</td>
+              <tr key={msg.id} className="hover:bg-[var(--ds-bg-hover)] transition-colors">
+                <td className="px-6 py-3 font-medium text-[var(--ds-text-secondary)]">{msg.contactName}</td>
                 <td className="px-6 py-3 font-mono text-xs text-gray-500">{msg.contactPhone}</td>
                 <td className="px-6 py-3">
                   <MessageStatusBadge status={msg.status} />
@@ -143,10 +143,10 @@ export const MessageLogTable: React.FC<MessageLogTableProps> = ({
         </table>
 
         {showPagination && (
-          <div className="p-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="p-4 border-t border-[var(--ds-border-subtle)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="text-xs text-gray-500">
-              Mostrando <span className="font-mono text-gray-300">{shown}</span> de{' '}
-              <span className="font-mono text-gray-300">{total}</span>
+              Mostrando <span className="font-mono text-[var(--ds-text-secondary)]">{shown}</span> de{' '}
+              <span className="font-mono text-[var(--ds-text-secondary)]">{total}</span>
             </div>
 
             {showLoadMore ? (
@@ -154,7 +154,7 @@ export const MessageLogTable: React.FC<MessageLogTableProps> = ({
                 type="button"
                 onClick={onLoadMore}
                 disabled={!!isLoadingMore}
-                className="px-3 py-2 bg-zinc-900 border border-white/10 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-2 text-xs font-medium disabled:opacity-50"
+                className="px-3 py-2 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg text-[var(--ds-text-secondary)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] transition-colors flex items-center gap-2 text-xs font-medium disabled:opacity-50"
               >
                 {isLoadingMore ? <Loader2 size={14} className="animate-spin" /> : null}
                 {isLoadingMore ? 'Carregando...' : 'Carregar mais'}

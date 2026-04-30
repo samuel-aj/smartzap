@@ -6,6 +6,7 @@ import { FileText, Check, Loader2, Trash2, Eye, Pencil, Send, Megaphone } from '
 import { Template } from '../../../../types'
 import { StatusBadge } from './StatusBadge'
 import { Button } from '@/components/ui/button'
+import { getTemplateDisplayName } from '@/lib/template-display'
 
 export interface TemplateCardProps {
   template: Template
@@ -47,6 +48,8 @@ export const TemplateCard = React.memo(
     onCreateCampaign,
   }: TemplateCardProps) {
     const draftHref = `/templates/drafts/${encodeURIComponent(template.id)}`
+    const displayName = getTemplateDisplayName(template)
+    const hasAlias = displayName !== template.name
 
     const handleCardClick = () => {
       if (!isManualDraft) {
@@ -60,7 +63,7 @@ export const TemplateCard = React.memo(
         isRowSelected
           ? isManualDraft
             ? 'border-amber-500/40 bg-amber-500/5'
-            : 'border-emerald-500/40 bg-emerald-500/5'
+            : 'border-purple-500/40 bg-purple-500/5'
           : 'border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)]'
       }`}
     >
@@ -76,7 +79,7 @@ export const TemplateCard = React.memo(
             isRowSelected
               ? isManualDraft
                 ? 'bg-amber-500 border-amber-500'
-                : 'bg-emerald-500 border-emerald-500'
+                : 'bg-purple-500 border-purple-500'
               : 'border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)]'
           }`}
           title={isRowSelected ? 'Desmarcar' : 'Selecionar'}
@@ -92,13 +95,21 @@ export const TemplateCard = React.memo(
             <Link href={draftHref} className="block">
               <div className="flex items-center gap-2">
                 <FileText size={14} className="text-[var(--ds-text-secondary)] shrink-0" />
-                <span className="font-medium text-[var(--ds-text-primary)] truncate">{template.name}</span>
+                <span className="font-medium text-[var(--ds-text-primary)] truncate" title={template.name}>{displayName}</span>
               </div>
+              {hasAlias && (
+                <div className="mt-0.5 text-[10px] font-mono text-[var(--ds-text-muted)] truncate">{template.name}</div>
+              )}
             </Link>
           ) : (
-            <div className="flex items-center gap-2 cursor-pointer">
-              <FileText size={14} className="text-[var(--ds-text-secondary)] shrink-0" />
-              <span className="font-medium text-[var(--ds-text-primary)] truncate">{template.name}</span>
+            <div className="cursor-pointer">
+              <div className="flex items-center gap-2">
+                <FileText size={14} className="text-[var(--ds-text-secondary)] shrink-0" />
+                <span className="font-medium text-[var(--ds-text-primary)] truncate" title={template.name}>{displayName}</span>
+              </div>
+              {hasAlias && (
+                <div className="mt-0.5 text-[10px] font-mono text-[var(--ds-text-muted)] truncate">{template.name}</div>
+              )}
             </div>
           )}
 
@@ -107,7 +118,7 @@ export const TemplateCard = React.memo(
             <span
               className={`inline-flex items-center rounded border px-1.5 py-0.5 font-medium ${
                 template.category === 'UTILIDADE'
-                  ? 'bg-emerald-500/10 text-[var(--ds-status-success-text)] border-emerald-500/20'
+                  ? 'bg-green-500/10 text-[var(--ds-status-success-text)] border-green-500/20'
                   : template.category === 'MARKETING'
                     ? 'bg-amber-500/10 text-[var(--ds-status-warning-text)] border-amber-500/20'
                     : 'bg-[var(--ds-bg-hover)] text-[var(--ds-text-secondary)] border-[var(--ds-border-default)]'
@@ -231,6 +242,7 @@ export const TemplateCard = React.memo(
     prev.template.id === next.template.id &&
     prev.template.status === next.template.status &&
     prev.template.name === next.template.name &&
+    prev.template.displayName === next.template.displayName &&
     prev.template.lastUpdated === next.template.lastUpdated &&
     prev.isManualDraft === next.isManualDraft &&
     prev.isRowSelected === next.isRowSelected &&

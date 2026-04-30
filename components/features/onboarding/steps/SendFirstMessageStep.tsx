@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import {
@@ -141,7 +141,7 @@ export function SendFirstMessageStep({
   if (isLoadingContact) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Loader2 className="w-8 h-8 animate-spin text-zinc-400" />
+        <Loader2 className="w-8 h-8 animate-spin text-[var(--ds-text-muted)]" />
       </div>
     );
   }
@@ -160,21 +160,21 @@ export function SendFirstMessageStep({
         <div className={`
           w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300
           ${sendStatus === 'sending' ? 'bg-blue-500/20 animate-pulse' : ''}
-          ${sendStatus === 'success' ? 'bg-emerald-500/20' : ''}
+          ${sendStatus === 'success' ? 'bg-green-500/20' : ''}
           ${sendStatus === 'error' ? 'bg-amber-500/20' : ''}
-          ${sendStatus === 'idle' ? 'bg-gradient-to-br from-emerald-500/20 to-teal-500/20' : ''}
+          ${sendStatus === 'idle' ? 'bg-gradient-to-br from-purple-500/20 to-teal-500/20' : ''}
         `}>
           {sendStatus === 'sending' && (
             <Loader2 className="w-10 h-10 text-blue-400 animate-spin" />
           )}
           {sendStatus === 'success' && (
-            <CheckCircle2 className="w-10 h-10 text-emerald-400" />
+            <CheckCircle2 className="w-10 h-10 text-purple-400" />
           )}
           {sendStatus === 'error' && (
             <AlertCircle className="w-10 h-10 text-amber-400" />
           )}
           {sendStatus === 'idle' && (
-            <Send className="w-10 h-10 text-emerald-400" />
+            <Send className="w-10 h-10 text-purple-400" />
           )}
         </div>
       </div>
@@ -188,13 +188,13 @@ export function SendFirstMessageStep({
 
       {/* Formulário de contato */}
       {sendStatus !== 'success' && (
-        <div className="space-y-4 p-4 rounded-xl bg-zinc-800/50 border border-zinc-700">
+        <div className="space-y-4 p-4 rounded-xl bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
           <h4 className="text-sm font-medium text-zinc-300">Contato para teste:</h4>
 
           <div className="space-y-3">
             {/* Nome (opcional) */}
             <div className="space-y-1">
-              <label className="text-xs text-zinc-400 flex items-center gap-1">
+              <label className="text-xs text-[var(--ds-text-muted)] flex items-center gap-1">
                 <User className="w-3 h-3" />
                 Nome (opcional)
               </label>
@@ -209,7 +209,7 @@ export function SendFirstMessageStep({
 
             {/* Telefone */}
             <div className="space-y-1">
-              <label className="text-xs text-zinc-400 flex items-center gap-1">
+              <label className="text-xs text-[var(--ds-text-muted)] flex items-center gap-1">
                 <Phone className="w-3 h-3" />
                 Número de WhatsApp *
               </label>
@@ -221,7 +221,7 @@ export function SendFirstMessageStep({
                 disabled={sendStatus === 'sending'}
                 className={sendStatus === 'error' && sendResult?.error?.includes('inválido') ? 'border-red-500' : ''}
               />
-              <p className="text-xs text-zinc-500">
+              <p className="text-xs text-[var(--ds-text-muted)]">
                 Use seu próprio número para receber a mensagem de teste
               </p>
             </div>
@@ -231,19 +231,19 @@ export function SendFirstMessageStep({
 
       {/* Resultado de sucesso */}
       {sendStatus === 'success' && sendResult && (
-        <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 space-y-3">
+        <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 space-y-3">
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
             <div>
-              <p className="font-medium text-emerald-200">Mensagem enviada com sucesso!</p>
-              <p className="text-sm text-emerald-200/70">
+              <p className="font-medium text-purple-200">Mensagem enviada com sucesso!</p>
+              <p className="text-sm text-purple-200/70">
                 Template usado: {sendResult.templateUsed}
               </p>
             </div>
           </div>
 
-          <p className="text-sm text-zinc-400">
-            Verifique seu WhatsApp em <strong className="text-white">{phoneInput}</strong> para confirmar o recebimento.
+          <p className="text-sm text-[var(--ds-text-muted)]">
+            Verifique seu WhatsApp em <strong className="dark:text-white text-[var(--ds-text-primary)]">{phoneInput}</strong> para confirmar o recebimento.
           </p>
         </div>
       )}

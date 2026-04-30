@@ -53,10 +53,11 @@ export function filterTemplates(
   const normalizedSearch = searchTerm.toLowerCase()
 
   return templates.filter((template) => {
-    // Search term filter: matches against name or content
+    // Search term filter: matches against name, displayName (alias) or content
     const matchesSearch =
       !normalizedSearch ||
       template.name.toLowerCase().includes(normalizedSearch) ||
+      (template.displayName?.toLowerCase().includes(normalizedSearch) ?? false) ||
       template.content.toLowerCase().includes(normalizedSearch)
 
     // Category filter: 'ALL' skips this filter

@@ -32,6 +32,8 @@ export interface Template {
   id: string;
   /** Template name (must follow Meta naming rules) */
   name: string;
+  /** User-defined alias shown in the app. Falls back to `name` when null. Never sent to Meta. */
+  displayName?: string | null;
   /** Template category */
   category: TemplateCategory;
   /** Language code (e.g., 'pt_BR', 'en_US') */

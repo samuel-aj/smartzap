@@ -1,11 +1,14 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
-import { X, Loader2, AlertTriangle, Trash2, RefreshCw, Copy } from 'lucide-react';
+import { X, Loader2, AlertTriangle, Trash2, RefreshCw, Copy, Pencil, Check } from 'lucide-react';
 import { Template } from '../../../../types';
 import { StatusBadge } from './StatusBadge';
 import { TemplateDetails } from './types';
 import { WhatsAppPhonePreview } from '@/components/ui/WhatsAppPhonePreview';
+import { templateService } from '@/services/templateService';
+import { getTemplateDisplayName } from '@/lib/template-display';
+import { useQueryClient } from '@tanstack/react-query';
 
 export interface TemplateDetailsModalProps {
   isOpen: boolean;
@@ -30,7 +33,64 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
   onDelete,
   onRefreshPreview,
 }) => {
+  const queryClient = useQueryClient();
+  const [isEditingName, setIsEditingName] = React.useState(false);
+  const [aliasInput, setAliasInput] = React.useState('');
+  const [savedDisplayName, setSavedDisplayName] = React.useState<string | null>(null);
+  const [isSavingAlias, setIsSavingAlias] = React.useState(false);
+  const [aliasError, setAliasError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (template) {
+      setSavedDisplayName(template.displayName ?? null);
+      setAliasInput(template.displayName ?? '');
+      setIsEditingName(false);
+      setAliasError(null);
+    }
+  }, [template?.id]);
+
   if (!isOpen || !template) return null;
+
+  const displayName = savedDisplayName?.trim() || template.name;
+  const hasAlias = displayName !== template.name;
+
+  const handleSaveAlias = async () => {
+    if (!template) return;
+    const trimmed = aliasInput.trim();
+    if (trimmed.length > 80) {
+      setAliasError('Máximo 80 caracteres.');
+      return;
+    }
+    setIsSavingAlias(true);
+    setAliasError(null);
+    const newDisplayName = trimmed.length > 0 ? trimmed : null;
+    try {
+      await templateService.setDisplayName(
+        template.name,
+        newDisplayName,
+        template.language,
+      );
+      // Atualiza estado local imediatamente (reflete no header do modal na hora)
+      setSavedDisplayName(newDisplayName);
+      // Atualiza cache do React Query pra lista também refletir
+      queryClient.setQueriesData<Template[]>(
+        { queryKey: ['templates'] },
+        (current) => {
+          if (!Array.isArray(current)) return current;
+          return current.map((t) =>
+            t.name === template.name && t.language === template.language
+              ? { ...t, displayName: newDisplayName }
+              : t,
+          );
+        },
+      );
+      setIsEditingName(false);
+    } catch (err) {
+      setAliasError(err instanceof Error ? err.message : 'Falha ao salvar.');
+    } finally {
+      setIsSavingAlias(false);
+    }
+  };
 
   // Generate preview with smart examples
   let previewContent = template.content;
@@ -60,19 +120,94 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-zinc-900/80 border border-white/10 rounded-2xl w-full max-w-md p-0 shadow-[0_30px_80px_rgba(0,0,0,0.55)] animate-in zoom-in duration-200 flex flex-col max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div className="bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-2xl w-full max-w-md p-0 shadow-[0_30px_80px_rgba(0,0,0,0.25)] dark:shadow-[0_30px_80px_rgba(0,0,0,0.55)] animate-in zoom-in duration-200 flex flex-col max-h-[90vh] overflow-hidden">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center">
-          <div>
-            <h2 className="text-lg font-bold text-white">{template.name}</h2>
-            <div className="flex items-center gap-2 mt-1">
-              <StatusBadge status={template.status} />
-            </div>
+        <div className="px-6 py-4 border-b border-[var(--ds-border-default)] flex justify-between items-start gap-3">
+          <div className="min-w-0 flex-1">
+            {isEditingName ? (
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={aliasInput}
+                    onChange={(e) => setAliasInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        handleSaveAlias();
+                      } else if (e.key === 'Escape') {
+                        setIsEditingName(false);
+                        setAliasInput(savedDisplayName ?? '');
+                        setAliasError(null);
+                      }
+                    }}
+                    placeholder="Nome de exibição (apelido)"
+                    maxLength={80}
+                    autoFocus
+                    disabled={isSavingAlias}
+                    className="flex-1 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-md px-2 py-1 text-base font-bold text-[var(--ds-text-primary)] focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 disabled:opacity-60"
+                  />
+                  <button
+                    onClick={handleSaveAlias}
+                    disabled={isSavingAlias}
+                    className="p-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors disabled:opacity-60"
+                    title="Salvar"
+                  >
+                    {isSavingAlias ? (
+                      <Loader2 size={16} className="animate-spin" />
+                    ) : (
+                      <Check size={16} />
+                    )}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsEditingName(false);
+                      setAliasInput(savedDisplayName ?? '');
+                      setAliasError(null);
+                    }}
+                    disabled={isSavingAlias}
+                    className="p-1.5 text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] transition-colors"
+                    title="Cancelar"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
+                {aliasError && (
+                  <p className="text-xs text-red-500">{aliasError}</p>
+                )}
+                <p className="text-[10px] font-mono text-[var(--ds-text-muted)] truncate">
+                  {template.name}
+                </p>
+              </div>
+            ) : (
+              <div>
+                <div className="flex items-center gap-2">
+                  <h2 className="text-lg font-bold text-[var(--ds-text-primary)] truncate" title={template.name}>
+                    {displayName}
+                  </h2>
+                  <button
+                    onClick={() => setIsEditingName(true)}
+                    className="text-[var(--ds-text-muted)] hover:text-purple-400 transition-colors p-0.5 shrink-0"
+                    title="Renomear (apenas no app)"
+                  >
+                    <Pencil size={14} />
+                  </button>
+                </div>
+                {hasAlias && (
+                  <p className="text-[10px] font-mono text-[var(--ds-text-muted)] truncate mt-0.5">
+                    {template.name}
+                  </p>
+                )}
+                <div className="flex items-center gap-2 mt-1">
+                  <StatusBadge status={template.status} />
+                </div>
+              </div>
+            )}
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors p-1"
+            className="text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] transition-colors p-1 shrink-0"
           >
             <X size={20} />
           </button>
@@ -82,7 +217,7 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
         <div className="p-6 overflow-y-auto space-y-4">
           {isLoading ? (
             <div className="flex items-center justify-center py-8">
-              <Loader2 size={24} className="animate-spin text-emerald-300" />
+              <Loader2 size={24} className="animate-spin text-purple-300" />
             </div>
           ) : (
             <>
@@ -119,10 +254,10 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
                 <div
                   className={`flex items-center gap-2 p-3 rounded-lg ${
                     details?.qualityScore === 'HIGH'
-                      ? 'bg-emerald-500/10 text-emerald-200'
+                      ? 'bg-purple-500/10 text-purple-200'
                       : details?.qualityScore === 'MEDIUM'
                         ? 'bg-amber-500/10 text-amber-200'
-                        : 'bg-zinc-500/10 text-gray-300'
+                        : 'bg-zinc-500/10 text-[var(--ds-text-secondary)]'
                   }`}
                 >
                   <span className="text-lg">
@@ -142,10 +277,10 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
         </div>
 
         {/* Footer with actions */}
-        <div className="px-6 py-4 border-t border-white/10 flex gap-2">
+        <div className="px-6 py-4 border-t border-[var(--ds-border-default)] flex gap-2">
           <button
             onClick={onDelete}
-            className="p-2 text-amber-300 hover:bg-amber-500/10 rounded-lg transition-colors"
+            className="p-2 text-amber-600 dark:text-amber-300 hover:bg-amber-500/10 rounded-lg transition-colors"
             title="Deletar"
           >
             <Trash2 size={18} />
@@ -154,7 +289,7 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
             <button
               onClick={onRefreshPreview}
               disabled={isRefreshingPreview || isLoading}
-              className="px-3 py-2 bg-zinc-950/40 text-gray-200 border border-white/10 rounded-lg font-medium hover:bg-white/5 transition-colors flex items-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+              className="px-3 py-2 bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] border border-[var(--ds-border-default)] rounded-lg font-medium hover:bg-[var(--ds-bg-hover)] transition-colors flex items-center gap-2 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
               title="Regerar preview da midia"
             >
               {isRefreshingPreview ? (
@@ -167,14 +302,14 @@ export const TemplateDetailsModal: React.FC<TemplateDetailsModalProps> = ({
           )}
           <button
             onClick={handleCopyContent}
-            className="flex-1 py-2 bg-zinc-950/40 text-gray-200 border border-white/10 rounded-lg font-medium hover:bg-white/5 transition-colors flex items-center justify-center gap-2 text-sm"
+            className="flex-1 py-2 bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] border border-[var(--ds-border-default)] rounded-lg font-medium hover:bg-[var(--ds-bg-hover)] transition-colors flex items-center justify-center gap-2 text-sm"
           >
             <Copy size={16} />
             Copiar codigo
           </button>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition-colors text-sm"
+            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors text-sm"
           >
             OK
           </button>

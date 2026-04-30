@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import {
@@ -158,26 +158,26 @@ export function OnboardingChecklist({
   const showTokenWarning = tokenExpiresIn && !isPermanentToken;
 
   return (
-    <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4 space-y-4">
+    <div className="bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-xl p-4 space-y-4">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <h3 className="font-semibold text-white">Complete sua configuração</h3>
-          <span className="text-sm text-zinc-500">
+          <h3 className="font-semibold dark:text-white text-[var(--ds-text-primary)]">Complete sua configuração</h3>
+          <span className="text-sm text-[var(--ds-text-muted)]">
             {checklistProgress.percentage}%
           </span>
         </div>
         <div className="flex items-center gap-1">
           <button
             onClick={() => minimizeChecklist(true)}
-            className="p-1.5 text-zinc-500 hover:text-white hover:bg-zinc-800 rounded-lg transition-colors"
+            className="p-1.5 text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] rounded-lg transition-colors"
             title="Minimizar"
           >
             <Minimize2 className="w-4 h-4" />
           </button>
           <button
             onClick={dismissChecklist}
-            className="p-1.5 text-zinc-500 hover:text-white hover:bg-zinc-800 rounded-lg transition-colors"
+            className="p-1.5 text-[var(--ds-text-muted)] hover:text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] rounded-lg transition-colors"
             title="Fechar"
           >
             <X className="w-4 h-4" />
@@ -186,9 +186,9 @@ export function OnboardingChecklist({
       </div>
 
       {/* Progress bar */}
-      <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+      <div className="h-1.5 bg-[var(--ds-bg-surface)] rounded-full overflow-hidden">
         <div
-          className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+          className="h-full bg-purple-500 rounded-full transition-all duration-500"
           style={{ width: `${checklistProgress.percentage}%` }}
         />
       </div>
@@ -200,12 +200,12 @@ export function OnboardingChecklist({
             key={item.id}
             className={cn(
               'flex items-center justify-between p-3 rounded-lg transition-colors',
-              item.isComplete ? 'bg-zinc-800/30' : 'bg-zinc-800/50 hover:bg-zinc-800/70'
+              item.isComplete ? 'bg-[var(--ds-bg-surface)]' : 'bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)]/70'
             )}
           >
             <div className="flex items-center gap-3">
               {item.isComplete ? (
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-purple-500 flex-shrink-0" />
               ) : (
                 <Circle className="w-5 h-5 text-zinc-600 flex-shrink-0" />
               )}
@@ -213,13 +213,13 @@ export function OnboardingChecklist({
                 <p
                   className={cn(
                     'text-sm font-medium',
-                    item.isComplete ? 'text-zinc-500 line-through' : 'text-white'
+                    item.isComplete ? 'text-[var(--ds-text-muted)] line-through' : 'dark:text-white text-[var(--ds-text-primary)]'
                   )}
                 >
                   {item.label}
                 </p>
                 {item.description && !item.isComplete && (
-                  <p className="text-xs text-zinc-500">{item.description}</p>
+                  <p className="text-xs text-[var(--ds-text-muted)]">{item.description}</p>
                 )}
               </div>
             </div>
@@ -228,7 +228,7 @@ export function OnboardingChecklist({
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10"
+                className="text-purple-400 hover:text-purple-300 hover:bg-purple-500/10"
                 onClick={() => {
                   // Webhook abre o wizard no step de configuração
                   if (item.id === 'webhook') {
@@ -297,22 +297,22 @@ export function OnboardingChecklist({
             {/* Instruções */}
             <div className="space-y-3">
               <h4 className="text-sm font-medium text-zinc-300">No Meta Business Suite:</h4>
-              <ol className="space-y-2 text-sm text-zinc-400">
+              <ol className="space-y-2 text-sm text-[var(--ds-text-muted)]">
                 <li className="flex items-start gap-2">
                   <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</span>
-                  <span>Vá em <strong className="text-white">System Users</strong></span>
+                  <span>Vá em <strong className="dark:text-white text-[var(--ds-text-primary)]">System Users</strong></span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</span>
-                  <span>Clique em <strong className="text-white">Add</strong> para criar um novo System User</span>
+                  <span>Clique em <strong className="dark:text-white text-[var(--ds-text-primary)]">Add</strong> para criar um novo System User</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</span>
-                  <span>Dê permissão de <strong className="text-white">WhatsApp Business</strong></span>
+                  <span>Dê permissão de <strong className="dark:text-white text-[var(--ds-text-primary)]">WhatsApp Business</strong></span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-5 h-5 rounded-full bg-zinc-700 text-zinc-300 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">4</span>
-                  <span>Gere o token e <strong className="text-white">atualize nas configurações</strong> do SmartZap</span>
+                  <span>Gere o token e <strong className="dark:text-white text-[var(--ds-text-primary)]">atualize nas configurações</strong> do SmartZap</span>
                 </li>
               </ol>
             </div>
@@ -329,18 +329,18 @@ export function OnboardingChecklist({
             </a>
 
             {/* Confirmação */}
-            <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
+            <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
               <Checkbox
                 id="confirm-token"
                 checked={tokenConfirmChecked}
                 onCheckedChange={(checked) => setTokenConfirmChecked(checked === true)}
-                className="mt-0.5 border-emerald-500 data-[state=checked]:bg-emerald-500"
+                className="mt-0.5 border-purple-500 data-[state=checked]:bg-purple-500"
               />
               <label
                 htmlFor="confirm-token"
                 className="text-sm text-zinc-300 cursor-pointer select-none leading-relaxed"
               >
-                Confirmo que criei um <strong className="text-white">System User</strong> e atualizei o token nas configurações
+                Confirmo que criei um <strong className="dark:text-white text-[var(--ds-text-primary)]">System User</strong> e atualizei o token nas configurações
               </label>
             </div>
 

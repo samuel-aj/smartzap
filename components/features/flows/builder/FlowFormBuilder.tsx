@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { nanoid } from 'nanoid'
@@ -320,21 +320,21 @@ export function FlowFormBuilder(props: FlowFormBuilderProps) {
       />
 
       {/* Steps (multi-screen form) */}
-      <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-4 space-y-3">
+      <div className="rounded-2xl border border-[var(--ds-border-default)] bg-[var(--ds-bg-elevated)] p-4 space-y-3">
         <div className="flex items-center justify-between">
-          <div className="text-sm font-semibold text-white">Etapas</div>
+          <div className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)]">Etapas</div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 type="button"
                 variant="outline"
-                className="border-white/10 bg-zinc-950/40 hover:bg-white/5 px-2"
+                className="border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)] px-2"
                 aria-label="Ações das etapas"
               >
                 <MoreVertical className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="bg-zinc-900 border-white/10 text-white min-w-56">
+            <DropdownMenuContent align="end" className="bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)] min-w-56">
               <DropdownMenuItem onClick={addStep}>
                 <Plus className="h-4 w-4" />
                 Adicionar etapa
@@ -352,7 +352,7 @@ export function FlowFormBuilder(props: FlowFormBuilderProps) {
         </div>
 
         <Tabs value={activeStepId} onValueChange={setActiveStepId}>
-          <TabsList className="bg-zinc-950/40 border border-white/10">
+          <TabsList className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)]">
             {steps.map((s, idx) => (
               <TabsTrigger key={s.id} value={s.id} className="text-xs">
                 {(s.title || `Etapa ${idx + 1}`).slice(0, 18)}
@@ -409,9 +409,9 @@ export function FlowFormBuilder(props: FlowFormBuilderProps) {
 
       {isLastStep ? (
         <>
-          <div className="flex items-center justify-between rounded-xl border border-white/10 bg-zinc-950/40 px-3 py-2">
+          <div className="flex items-center justify-between rounded-xl border border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] px-3 py-2">
             <div>
-              <div className="text-xs font-medium text-gray-300">Enviar confirmação ao usuário</div>
+              <div className="text-xs font-medium text-[var(--ds-text-secondary)]">Enviar confirmação ao usuário</div>
               <div className="text-[11px] text-gray-500">Mostra o resumo das respostas após finalizar</div>
             </div>
             <Switch checked={form.sendConfirmation !== false} onCheckedChange={(checked) => update({ sendConfirmation: checked })} />

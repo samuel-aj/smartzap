@@ -637,7 +637,13 @@ export const useTemplatesController = () => {
     const allTemplates = templatesQuery.data || []
     // Aplica apenas filtro de categoria e busca, não status
     const filteredByCategoryAndSearch = allTemplates.filter(t => {
-      if (searchTerm && !t.name.toLowerCase().includes(searchTerm.toLowerCase())) return false
+      if (searchTerm) {
+        const term = searchTerm.toLowerCase()
+        const matches =
+          t.name.toLowerCase().includes(term) ||
+          (t.displayName?.toLowerCase().includes(term) ?? false)
+        if (!matches) return false
+      }
       if (categoryFilter !== 'ALL' && t.category !== categoryFilter) return false
       return true
     })

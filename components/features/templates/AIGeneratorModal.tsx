@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { Sparkles, X, Copy, Check, Loader2 } from 'lucide-react';
 import { GeneratedTemplate } from '@/hooks/useAITemplateGenerator';
@@ -63,16 +63,16 @@ export const AIGeneratorModal = ({
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-      <div className="bg-zinc-900/80 border border-white/10 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+      <div className="bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-zinc-950/40">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)]">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-emerald-300" />
-            <h2 className="text-lg font-medium text-white">{title}</h2>
+            <Sparkles className="h-5 w-5 text-purple-300" />
+            <h2 className="text-lg font-medium dark:text-white text-[var(--ds-text-primary)]">{title}</h2>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-white/5 rounded-lg transition-colors text-gray-400 hover:text-white"
+            className="p-2 hover:bg-[var(--ds-bg-hover)] rounded-lg transition-colors text-gray-400 hover:text-[var(--ds-text-primary)]"
           >
             <X className="h-5 w-5" />
           </button>
@@ -83,29 +83,29 @@ export const AIGeneratorModal = ({
           {/* Input Form - Always visible */}
           <div className="space-y-4">
             <div>
-              <label className="block text-sm text-zinc-400 mb-2">
+              <label className="block text-sm text-[var(--ds-text-muted)] mb-2">
                 O que você precisa? Seja específico para melhores resultados
               </label>
               <textarea
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Ex: Sou dono de uma pizzaria delivery e preciso de templates para confirmar pedidos, avisar sobre tempo de entrega, e informar quando o motoboy saiu..."
-                className="w-full h-32 px-4 py-3 bg-zinc-950/40 rounded-xl border border-white/10 focus:border-emerald-500/50 focus:outline-none resize-none text-sm text-white placeholder:text-gray-600"
+                className="w-full h-32 px-4 py-3 bg-[var(--ds-bg-surface)] rounded-xl border border-[var(--ds-border-default)] focus:border-purple-500/50 focus:outline-none resize-none text-sm dark:text-white text-[var(--ds-text-primary)] placeholder:text-gray-600"
               />
-              <p className="text-xs text-zinc-500 mt-1">
+              <p className="text-xs text-[var(--ds-text-muted)] mt-1">
                 Mínimo 10 caracteres. Quanto mais detalhes, melhor a IA entende seu negócio.
               </p>
             </div>
 
             <div className="flex gap-4">
               <div className="flex-1">
-                <label className="block text-sm text-zinc-400 mb-2">
+                <label className="block text-sm text-[var(--ds-text-muted)] mb-2">
                   Quantidade
                 </label>
                 <select
                   value={quantity}
                   onChange={(e) => setQuantity(Number(e.target.value))}
-                  className="w-full h-11 px-4 bg-zinc-950/40 rounded-xl border border-white/10 focus:border-emerald-500/50 focus:outline-none text-white"
+                  className="w-full h-11 px-4 bg-[var(--ds-bg-surface)] rounded-xl border border-[var(--ds-border-default)] focus:border-purple-500/50 focus:outline-none dark:text-white text-[var(--ds-text-primary)]"
                 >
                   <option value={3}>3 templates</option>
                   <option value={5}>5 templates</option>
@@ -114,13 +114,13 @@ export const AIGeneratorModal = ({
                 </select>
               </div>
               <div className="flex-1">
-                <label className="block text-sm text-zinc-400 mb-2">
+                <label className="block text-sm text-[var(--ds-text-muted)] mb-2">
                   Idioma
                 </label>
                 <select
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
-                  className="w-full h-11 px-4 bg-zinc-950/40 rounded-xl border border-white/10 focus:border-emerald-500/50 focus:outline-none text-white"
+                  className="w-full h-11 px-4 bg-[var(--ds-bg-surface)] rounded-xl border border-[var(--ds-border-default)] focus:border-purple-500/50 focus:outline-none dark:text-white text-[var(--ds-text-primary)]"
                 >
                   <option value="pt_BR">Português (BR)</option>
                   <option value="en_US">English (US)</option>
@@ -141,7 +141,7 @@ export const AIGeneratorModal = ({
                 </>
               ) : (
                 <>
-                  <Sparkles className="h-5 w-5 text-emerald-600" />
+                  <Sparkles className="h-5 w-5 text-purple-600" />
                   Gerar Templates
                 </>
               )}
@@ -150,14 +150,14 @@ export const AIGeneratorModal = ({
 
           {/* Generated Templates List */}
           {hasTemplates && (
-            <div className="border-t border-white/10 pt-4 space-y-3">
+            <div className="border-t border-[var(--ds-border-default)] pt-4 space-y-3">
               <div className="flex items-center justify-between">
                 <h3 className="text-sm font-medium text-zinc-300">
                   Templates Gerados ({generatedTemplates.length})
                 </h3>
                 <button
                   onClick={onSelectAll}
-                  className="text-sm text-emerald-200 hover:text-emerald-100"
+                  className="text-sm text-[var(--ds-text-brand)] hover:text-[var(--ds-brand-primary)]"
                 >
                   {selectedTemplates.size === generatedTemplates.length
                     ? 'Desmarcar todos'
@@ -171,8 +171,8 @@ export const AIGeneratorModal = ({
                     key={template.id}
                     className={`p-3 rounded-lg border transition-colors ${
                       selectedTemplates.has(template.id)
-                        ? 'bg-emerald-500/10 border-emerald-500/30'
-                        : 'bg-zinc-950/40 border-white/10 hover:border-white/20'
+                        ? 'bg-purple-500/10 border-purple-500/30'
+                        : 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)]'
                     }`}
                   >
                     <div className="flex items-start gap-3">
@@ -180,28 +180,28 @@ export const AIGeneratorModal = ({
                         onClick={() => onToggleTemplate(template.id)}
                         className={`flex-shrink-0 mt-0.5 w-5 h-5 rounded border flex items-center justify-center transition-colors ${
                           selectedTemplates.has(template.id)
-                            ? 'bg-emerald-500 border-emerald-500'
-                            : 'border-white/20 hover:border-white/40'
+                            ? 'bg-purple-500 border-purple-500'
+                            : 'border-[var(--ds-border-strong)] hover:border-white/40'
                         }`}
                       >
                         {selectedTemplates.has(template.id) && (
-                          <Check className="h-3 w-3 text-white" />
+                          <Check className="h-3 w-3 dark:text-white text-[var(--ds-text-primary)]" />
                         )}
                       </button>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-sm font-medium text-white">
+                          <span className="text-sm font-medium dark:text-white text-[var(--ds-text-primary)]">
                             {template.name}
                           </span>
                           <button
                             onClick={() => onCopyTemplate(template)}
-                            className="p-1 hover:bg-white/5 rounded transition-colors"
+                            className="p-1 hover:bg-[var(--ds-bg-hover)] rounded transition-colors"
                             title="Copiar"
                           >
-                            <Copy className="h-4 w-4 text-zinc-400" />
+                            <Copy className="h-4 w-4 text-[var(--ds-text-muted)]" />
                           </button>
                         </div>
-                        <p className="text-sm text-zinc-400 whitespace-pre-wrap">
+                        <p className="text-sm text-[var(--ds-text-muted)] whitespace-pre-wrap">
                           {template.content}
                         </p>
                       </div>
@@ -215,14 +215,14 @@ export const AIGeneratorModal = ({
 
         {/* Footer - Only when templates exist */}
         {hasTemplates && (
-          <div className="flex items-center justify-between px-6 py-4 border-t border-white/10 bg-zinc-950/40">
-            <span className="text-sm text-zinc-400">
+          <div className="flex items-center justify-between px-6 py-4 border-t border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)]">
+            <span className="text-sm text-[var(--ds-text-muted)]">
               {selectedCount} de {generatedTemplates.length} selecionados
             </span>
             <button
               onClick={onExport}
               disabled={selectedCount === 0 || isExporting}
-              className="flex items-center gap-2 px-4 py-2 bg-emerald-500 text-black hover:bg-emerald-400 disabled:opacity-50 rounded-lg transition-colors font-semibold"
+              className="flex items-center gap-2 px-4 py-2 bg-purple-500 text-black hover:bg-purple-400 disabled:opacity-50 rounded-lg transition-colors font-semibold"
             >
               {isExporting ? (
                 <>

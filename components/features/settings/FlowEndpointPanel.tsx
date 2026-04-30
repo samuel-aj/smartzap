@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Workflow, Copy, Check, RefreshCw, Key } from 'lucide-react';
@@ -114,18 +114,18 @@ export function FlowEndpointPanel({ devBaseUrl }: FlowEndpointPanelProps) {
           </Alert>
 
           {/* Endpoint URL */}
-          <div className="bg-zinc-900/50 rounded-xl p-4">
+          <div className="bg-[var(--ds-bg-elevated)] rounded-xl p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-400">URL do Endpoint</span>
               <button
                 onClick={() => resolvedEndpointUrl && copyToClipboard(resolvedEndpointUrl, 'url')}
-                className="text-xs text-purple-300 hover:text-purple-200 flex items-center gap-1"
+                className="text-xs text-[var(--ds-text-brand)] hover:text-[var(--ds-brand-primary-hover)] flex items-center gap-1"
               >
                 {copied === 'url' ? <Check size={12} /> : <Copy size={12} />}
                 {copied === 'url' ? 'Copiado' : 'Copiar'}
               </button>
             </div>
-            <code className="text-sm text-white font-mono break-all">
+            <code className="text-sm dark:text-white text-[var(--ds-text-primary)] font-mono break-all">
               {resolvedEndpointUrl || 'URL não disponível'}
             </code>
             {!resolvedEndpointUrl ? (
@@ -135,7 +135,7 @@ export function FlowEndpointPanel({ devBaseUrl }: FlowEndpointPanelProps) {
               </p>
             ) : null}
             {devEndpointUrl ? (
-              <p className="mt-2 text-[11px] text-emerald-300">
+              <p className="mt-2 text-[11px] text-[var(--ds-text-brand)]">
                 URL dev (túnel) ativa nesta tela.
               </p>
             ) : null}
@@ -146,7 +146,7 @@ export function FlowEndpointPanel({ devBaseUrl }: FlowEndpointPanelProps) {
             <button
               onClick={handleGenerate}
               disabled={generating}
-              className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors"
+              className="text-xs text-gray-400 hover:text-[var(--ds-text-primary)] flex items-center gap-1 transition-colors"
             >
               <RefreshCw size={12} className={generating ? 'animate-spin' : ''} />
               Regenerar chaves

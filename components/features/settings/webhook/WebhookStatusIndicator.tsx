@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { CheckCircle2, XCircle, Loader2, RefreshCw, Info } from 'lucide-react';
@@ -71,9 +71,9 @@ export function WebhookStatusIndicator({
 }: WebhookStatusIndicatorProps) {
   if (isLoading) {
     return (
-      <div className="flex items-center gap-2 px-3 py-2 bg-zinc-800/50 rounded-lg">
-        <Loader2 size={16} className="animate-spin text-zinc-400" />
-        <span className="text-sm text-zinc-400">Verificando webhook...</span>
+      <div className="flex items-center gap-2 px-3 py-2 bg-[var(--ds-bg-surface)] rounded-lg">
+        <Loader2 size={16} className="animate-spin text-[var(--ds-text-muted)]" />
+        <span className="text-sm text-[var(--ds-text-muted)]">Verificando webhook...</span>
       </div>
     );
   }
@@ -113,15 +113,15 @@ export function WebhookStatusIndicator({
   // URL do SmartZap configurada = sucesso
   if (active.isSmartZap) {
     return (
-      <div className="px-4 py-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg space-y-3">
+      <div className="px-4 py-3 bg-purple-500/10 border border-purple-500/20 rounded-lg space-y-3">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <CheckCircle2 size={18} className="text-emerald-500" />
+            <CheckCircle2 size={18} className="text-purple-500" />
             <div className="flex flex-col">
-              <span className="text-sm font-medium text-emerald-400">
+              <span className="text-sm font-medium text-purple-400">
                 Webhook configurado
               </span>
-              <span className="text-xs text-emerald-400/70">
+              <span className="text-xs text-purple-400/70">
                 Nível {active.level} ativo
               </span>
             </div>
@@ -129,7 +129,7 @@ export function WebhookStatusIndicator({
           {onRefresh && (
             <button
               onClick={onRefresh}
-              className="p-1.5 text-emerald-400/60 hover:text-emerald-400 hover:bg-emerald-500/10 rounded transition-colors"
+              className="p-1.5 text-purple-400/60 hover:text-purple-400 hover:bg-purple-500/10 rounded transition-colors"
               title="Verificar novamente"
             >
               <RefreshCw size={14} />
@@ -137,9 +137,9 @@ export function WebhookStatusIndicator({
           )}
         </div>
         {/* Nota informativa */}
-        <div className="flex items-start gap-2 pt-2 border-t border-emerald-500/20">
-          <Info size={14} className="text-emerald-400/60 mt-0.5 shrink-0" />
-          <p className="text-xs text-emerald-400/70">
+        <div className="flex items-start gap-2 pt-2 border-t border-purple-500/20">
+          <Info size={14} className="text-purple-400/60 mt-0.5 shrink-0" />
+          <p className="text-xs text-purple-400/70">
             Certifique-se de que o campo &quot;messages&quot; está ativo no Dashboard da Meta.
           </p>
         </div>
@@ -173,14 +173,14 @@ export function WebhookStatusIndicator({
       <div className="space-y-1.5 text-xs">
         {active.url && (
           <div className="break-all">
-            <span className="text-zinc-500">URL atual: </span>
+            <span className="text-[var(--ds-text-muted)]">URL atual: </span>
             <code className="text-red-400">{active.url}</code>
           </div>
         )}
         {expectedUrl && (
           <div className="break-all">
-            <span className="text-zinc-500">URL esperada: </span>
-            <code className="text-emerald-400">{expectedUrl}</code>
+            <span className="text-[var(--ds-text-muted)]">URL esperada: </span>
+            <code className="text-purple-400">{expectedUrl}</code>
           </div>
         )}
       </div>

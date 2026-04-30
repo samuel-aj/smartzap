@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import {
@@ -26,8 +26,8 @@ export function OnboardingCompleteStep({
       {/* Ícone de sucesso */}
       <div className="flex justify-center">
         <div className="relative">
-          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center animate-pulse">
-            <CheckCircle2 className="w-12 h-12 text-white" />
+          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-500 to-teal-500 flex items-center justify-center animate-pulse">
+            <CheckCircle2 className="w-12 h-12 dark:text-white text-[var(--ds-text-primary)]" />
           </div>
           <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center">
             <span className="text-lg">🎉</span>
@@ -37,8 +37,8 @@ export function OnboardingCompleteStep({
 
       {/* Título */}
       <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold text-white">Tudo pronto!</h2>
-        <p className="text-zinc-400">
+        <h2 className="text-2xl font-bold dark:text-white text-[var(--ds-text-primary)]">Tudo pronto!</h2>
+        <p className="text-[var(--ds-text-muted)]">
           Seu SmartZap está configurado e pronto para usar
         </p>
       </div>
@@ -50,33 +50,33 @@ export function OnboardingCompleteStep({
         </h4>
 
         <div className="grid gap-3">
-          <div className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
-            <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-              <MessageSquare className="w-5 h-5 text-emerald-400" />
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
+            <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <MessageSquare className="w-5 h-5 text-purple-400" />
             </div>
             <div>
-              <p className="font-medium text-white text-sm">Criar campanhas</p>
-              <p className="text-xs text-zinc-400">Envie mensagens em massa para seus contatos</p>
+              <p className="font-medium dark:text-white text-[var(--ds-text-primary)] text-sm">Criar campanhas</p>
+              <p className="text-xs text-[var(--ds-text-muted)]">Envie mensagens em massa para seus contatos</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
             <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
               <Users className="w-5 h-5 text-blue-400" />
             </div>
             <div>
-              <p className="font-medium text-white text-sm">Importar contatos</p>
-              <p className="text-xs text-zinc-400">Adicione sua lista de contatos via CSV</p>
+              <p className="font-medium dark:text-white text-[var(--ds-text-primary)] text-sm">Importar contatos</p>
+              <p className="text-xs text-[var(--ds-text-muted)]">Adicione sua lista de contatos via CSV</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
             <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
               <BarChart3 className="w-5 h-5 text-purple-400" />
             </div>
             <div>
-              <p className="font-medium text-white text-sm">Acompanhar métricas</p>
-              <p className="text-xs text-zinc-400">Veja entregas, leituras e respostas</p>
+              <p className="font-medium dark:text-white text-[var(--ds-text-primary)] text-sm">Acompanhar métricas</p>
+              <p className="text-xs text-[var(--ds-text-muted)]">Veja entregas, leituras e respostas</p>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ export function OnboardingCompleteStep({
       {/* Botão de conclusão */}
       <Button
         onClick={handleComplete}
-        className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600"
+        className="w-full bg-gradient-to-r from-purple-500 to-teal-500 hover:from-purple-600 hover:to-teal-600"
         size="lg"
       >
         <Rocket className="w-5 h-5 mr-2" />

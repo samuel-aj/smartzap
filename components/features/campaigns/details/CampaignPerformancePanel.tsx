@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { ChevronDown, Clock, CheckCircle2, AlertCircle } from 'lucide-react';
@@ -36,7 +36,7 @@ export const CampaignPerformancePanel: React.FC<CampaignPerformancePanelProps> =
           aria-label={isPerfOpen ? 'Recolher performance do disparo' : 'Expandir performance do disparo'}
         >
           <div>
-            <h3 className="text-white font-bold">Velocidade do disparo</h3>
+            <h3 className="dark:text-white text-[var(--ds-text-primary)] font-bold">Velocidade do disparo</h3>
             <p className="text-xs text-gray-500">
               Conta apenas o periodo do primeiro envio ate o ultimo envio (sent-only).
             </p>
@@ -121,7 +121,7 @@ export const CampaignPerformancePanel: React.FC<CampaignPerformancePanelProps> =
                   aria-label={isPerfTechOpen ? 'Recolher detalhes tecnicos' : 'Expandir detalhes tecnicos'}
                 >
                   <div>
-                    <div className="text-sm text-gray-300 font-medium">Detalhes tecnicos</div>
+                    <div className="text-sm text-[var(--ds-text-secondary)] font-medium">Detalhes tecnicos</div>
                     <div className="text-xs text-gray-500">Config aplicada e identificadores (para diagnostico)</div>
                   </div>
                   <ChevronDown

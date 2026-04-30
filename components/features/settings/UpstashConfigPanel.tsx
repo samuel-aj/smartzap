@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { BarChart3, X, Check, ExternalLink } from 'lucide-react';

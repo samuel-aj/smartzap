@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ArrowLeft, ArrowRight, AlertTriangle, CheckCircle2, Info } from 'lucide-react';
@@ -24,20 +24,20 @@ export function RequirementsStep({ onNext, onBack, stepNumber, totalSteps }: Req
 
       <div className="space-y-4">
         {/* Requisito 1: Conta Facebook */}
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <CheckCircle2 className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" />
           <div>
-            <p className="font-medium text-white">Conta no Facebook</p>
-            <p className="text-sm text-zinc-400">Pode criar uma nova se não tiver</p>
+            <p className="font-medium dark:text-white text-[var(--ds-text-primary)]">Conta no Facebook</p>
+            <p className="text-sm text-[var(--ds-text-muted)]">Pode criar uma nova se não tiver</p>
           </div>
         </div>
 
         {/* Requisito 2: Número dedicado */}
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <CheckCircle2 className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" />
           <div>
-            <p className="font-medium text-white">Um número de telefone dedicado</p>
-            <p className="text-sm text-zinc-400">Celular ou fixo, que possa receber SMS ou ligação</p>
+            <p className="font-medium dark:text-white text-[var(--ds-text-primary)]">Um número de telefone dedicado</p>
+            <p className="text-sm text-[var(--ds-text-muted)]">Celular ou fixo, que possa receber SMS ou ligação</p>
           </div>
         </div>
       </div>

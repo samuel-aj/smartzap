@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+﻿import { describe, expect, it } from 'vitest'
 import { CampaignStatus } from '@/types'
 import {
   formatDurationMs,
@@ -137,7 +137,7 @@ describe('formatMs', () => {
 describe('getCampaignStatusClass', () => {
   it('retorna classe correta para COMPLETED', () => {
     expect(getCampaignStatusClass(CampaignStatus.COMPLETED)).toBe(
-      'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
+      'bg-purple-500/10 border-purple-500/20 text-purple-400'
     )
   })
 
@@ -149,7 +149,7 @@ describe('getCampaignStatusClass', () => {
 
   it('retorna classe correta para CANCELLED', () => {
     expect(getCampaignStatusClass(CampaignStatus.CANCELLED)).toBe(
-      'bg-zinc-800 border-zinc-700/70 text-gray-300'
+      'bg-zinc-800 border-[var(--ds-border-strong)]/70 text-[var(--ds-text-secondary)]'
     )
   })
 
@@ -173,13 +173,13 @@ describe('getCampaignStatusClass', () => {
 
   it('retorna classe padrao para DRAFT', () => {
     expect(getCampaignStatusClass(CampaignStatus.DRAFT)).toBe(
-      'bg-zinc-800 border-zinc-700 text-gray-400'
+      'bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] text-[var(--ds-text-muted)]'
     )
   })
 
   it('retorna classe padrao para status desconhecido', () => {
     expect(getCampaignStatusClass('unknown' as CampaignStatus)).toBe(
-      'bg-zinc-800 border-zinc-700 text-gray-400'
+      'bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] text-[var(--ds-text-muted)]'
     )
   })
 })
@@ -281,7 +281,7 @@ describe('computePerfSourceLabel', () => {
   it('retorna label correto para run_metrics', () => {
     const result = computePerfSourceLabel('run_metrics')
     expect(result.label).toBe('Dados: avancados')
-    expect(result.tone).toBe('text-emerald-300 bg-emerald-500/10 border-emerald-500/20')
+    expect(result.tone).toBe('text-purple-300 bg-purple-500/10 border-purple-500/20')
   })
 
   it('retorna label correto para campaigns_fallback', () => {
@@ -293,25 +293,25 @@ describe('computePerfSourceLabel', () => {
   it('retorna label padrao para undefined', () => {
     const result = computePerfSourceLabel(undefined)
     expect(result.label).toBe('Dados: —')
-    expect(result.tone).toBe('text-gray-500 bg-zinc-900/60 border-white/10')
+    expect(result.tone).toBe('text-gray-500 bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)]')
   })
 
   it('retorna label padrao para string vazia', () => {
     const result = computePerfSourceLabel('')
     expect(result.label).toBe('Dados: —')
-    expect(result.tone).toBe('text-gray-500 bg-zinc-900/60 border-white/10')
+    expect(result.tone).toBe('text-gray-500 bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)]')
   })
 
   it('retorna label padrao para string com espacos', () => {
     const result = computePerfSourceLabel('   ')
     expect(result.label).toBe('Dados: —')
-    expect(result.tone).toBe('text-gray-500 bg-zinc-900/60 border-white/10')
+    expect(result.tone).toBe('text-gray-500 bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)]')
   })
 
   it('retorna label customizado para source desconhecido', () => {
     const result = computePerfSourceLabel('custom_source')
     expect(result.label).toBe('Dados: custom_source')
-    expect(result.tone).toBe('text-gray-500 bg-zinc-900/60 border-white/10')
+    expect(result.tone).toBe('text-gray-500 bg-[var(--ds-bg-elevated)] border-[var(--ds-border-default)]')
   })
 
   it('faz trim em sources com espacos', () => {

@@ -1558,6 +1558,7 @@ export const templateDb = {
             return {
                 id: row.id,
                 name: row.name,
+                displayName: (row as any).display_name ?? null,
                 category: canonicalTemplateCategory(row.category),
                 language: row.language,
                 status: (row.status as TemplateStatus) || 'PENDING',
@@ -1602,6 +1603,7 @@ export const templateDb = {
         return {
             id: data.id,
             name: data.name,
+            displayName: (data as any).display_name ?? null,
             category: canonicalTemplateCategory(data.category),
             language: data.language,
             status: (data.status as TemplateStatus) || 'PENDING',
@@ -1677,6 +1679,26 @@ export const templateDb = {
                 created_at: now,
                 updated_at: now,
             }, { onConflict: 'name,language' })
+
+        if (error) throw error
+    },
+
+    // Atualiza apenas o alias de exibição (não enviado à Meta).
+    // Importante: nenhum upsert do sync inclui display_name, então o alias
+    // sobrevive a qualquer ressincronia com a Meta.
+    setDisplayName: async (
+        name: string,
+        language: string,
+        displayName: string | null,
+    ): Promise<void> => {
+        const { error } = await supabase
+            .from('templates')
+            .update({
+                display_name: displayName,
+                updated_at: new Date().toISOString(),
+            })
+            .eq('name', name)
+            .eq('language', language)
 
         if (error) throw error
     },

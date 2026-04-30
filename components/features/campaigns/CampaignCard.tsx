@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { Copy, Trash2, Calendar, Play, Pause, Loader2, Users, FolderIcon } from 'lucide-react'
@@ -94,16 +94,16 @@ export const CampaignCard = React.memo(
     return (
       <div
         onClick={() => onRowClick(campaign.id)}
-        className="p-4 border border-white/10 rounded-xl bg-zinc-900/60 hover:bg-white/5 transition-all cursor-pointer hover:shadow-[0_0_20px_rgba(16,185,129,0.1)]"
+        className="p-4 border border-[var(--ds-border-default)] rounded-xl bg-[var(--ds-bg-elevated)] hover:bg-[var(--ds-bg-hover)] transition-all cursor-pointer hover:shadow-[var(--ds-shadow-card-hover)]"
       >
         {/* Header: Name, Template, Status, Tags */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
-            <p className="font-medium text-white truncate">{campaign.name}</p>
+            <p className="font-medium text-[var(--ds-text-primary)] truncate">{campaign.name}</p>
             <div className="flex items-center gap-2 mt-0.5">
               <p className="text-xs text-gray-500 font-mono truncate">{campaign.templateName}</p>
               {campaign.folder && (
-                <span className="flex items-center gap-1 text-xs text-zinc-500">
+                <span className="flex items-center gap-1 text-xs text-[var(--ds-text-muted)]">
                   <FolderIcon size={10} style={{ color: campaign.folder.color }} />
                   <span className="truncate max-w-[80px]">{campaign.folder.name}</span>
                 </span>
@@ -146,7 +146,7 @@ export const CampaignCard = React.memo(
         </div>
 
         {/* Footer: Date + Actions */}
-        <div className="mt-3 pt-3 border-t border-white/5 flex items-center justify-between">
+        <div className="mt-3 pt-3 border-t border-[var(--ds-border-subtle)] flex items-center justify-between">
           <span className="text-xs text-gray-500 font-mono">
             {formatDateFull(campaign.createdAt)}
           </span>
@@ -330,7 +330,7 @@ export const CampaignCardList = React.memo(function CampaignCardList({
   if (campaigns.length === 0) {
     return (
       <div className="py-16 text-center">
-        <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center mx-auto mb-3">
+        <div className="w-12 h-12 rounded-full bg-[var(--ds-bg-surface)] flex items-center justify-center mx-auto mb-3">
           <Users size={24} className="text-gray-500" />
         </div>
         <p className="text-gray-400 font-medium">Nenhuma campanha encontrada</p>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import {
@@ -188,7 +188,7 @@ export function WebhookSubscriptionStatus({
             <button
               onClick={handleSubscribe}
               disabled={isLoading || !onSubscribe || (webhookSubscription !== undefined && !webhookSubscription?.ok)}
-              className="h-10 px-3 bg-[var(--ds-status-success)] hover:opacity-90 text-white font-medium rounded-lg transition-colors text-sm flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="h-10 px-3 bg-[var(--ds-status-success)] hover:opacity-90 dark:text-white text-[var(--ds-text-primary)] font-medium rounded-lg transition-colors text-sm flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               title={webhookSubscription && !webhookSubscription.ok ? 'Configure as credenciais antes de ativar' : 'Configurar SmartZap como webhook WABA'}
             >
               {webhookSubscriptionMutating ? (

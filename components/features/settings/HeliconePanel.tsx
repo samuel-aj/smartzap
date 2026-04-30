@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Activity, Eye, EyeOff, Info, Loader2, Check, ExternalLink, Trash2 } from 'lucide-react';

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect, useState } from 'react';
 import { FormInput, ArrowUpRight, Users, Percent } from 'lucide-react';
@@ -65,7 +65,7 @@ export const CampaignFlowPanel: React.FC<CampaignFlowPanelProps> = ({ campaign }
   }, [campaign.submissionsCount]);
 
   return (
-    <div className="bg-zinc-900/50 border border-white/10 rounded-xl p-6 mt-6">
+    <div className="bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-xl p-6 mt-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
@@ -73,7 +73,7 @@ export const CampaignFlowPanel: React.FC<CampaignFlowPanelProps> = ({ campaign }
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-semibold text-white">MiniApp / Flow</h3>
+              <h3 className="font-semibold dark:text-white text-[var(--ds-text-primary)]">MiniApp / Flow</h3>
               {isLive && (
                 <span className="inline-flex items-center gap-1.5 text-xs text-primary-400">
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-500" />
@@ -95,12 +95,12 @@ export const CampaignFlowPanel: React.FC<CampaignFlowPanelProps> = ({ campaign }
 
       <div className="grid grid-cols-2 gap-4">
         {/* Submissões */}
-        <div className="bg-zinc-800/50 border border-white/5 rounded-lg p-4">
+        <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-subtle)] rounded-lg p-4">
           <div className="flex items-center gap-2 text-gray-400 text-xs uppercase tracking-wide mb-2">
             <Users size={14} />
             Respostas
           </div>
-          <div className="text-2xl font-bold text-white">
+          <div className="text-2xl font-bold dark:text-white text-[var(--ds-text-primary)]">
             {submissionsCount.toLocaleString('pt-BR')}
           </div>
           <p className="text-xs text-gray-500 mt-1">
@@ -109,12 +109,12 @@ export const CampaignFlowPanel: React.FC<CampaignFlowPanelProps> = ({ campaign }
         </div>
 
         {/* Taxa de Conversão */}
-        <div className="bg-zinc-800/50 border border-white/5 rounded-lg p-4">
+        <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-subtle)] rounded-lg p-4">
           <div className="flex items-center gap-2 text-gray-400 text-xs uppercase tracking-wide mb-2">
             <Percent size={14} />
             Taxa de Resposta
           </div>
-          <div className="text-2xl font-bold text-white">
+          <div className="text-2xl font-bold dark:text-white text-[var(--ds-text-primary)]">
             {conversionRate}%
           </div>
           <p className="text-xs text-gray-500 mt-1">

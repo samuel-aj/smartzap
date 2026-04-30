@@ -1,4 +1,4 @@
-import { PhoneNumber } from '../../../../hooks/useSettings';
+﻿import { PhoneNumber } from '../../../../hooks/useSettings';
 import { WebhookStatus, WebhookFunnelLevel } from './types';
 
 /**
@@ -119,10 +119,10 @@ export function getCardColorClasses(color: 'emerald' | 'amber' | 'blue' | 'zinc'
 } {
   const colorMap = {
     emerald: {
-      border: 'border-emerald-500/20',
-      bg: 'bg-emerald-500/5',
-      icon: 'bg-emerald-500/20 text-emerald-400',
-      text: 'text-emerald-400/80',
+      border: 'border-purple-500/20',
+      bg: 'bg-purple-500/5',
+      icon: 'bg-purple-500/20 text-purple-400',
+      text: 'text-purple-400/80',
     },
     amber: {
       border: 'border-amber-500/20',
@@ -137,8 +137,8 @@ export function getCardColorClasses(color: 'emerald' | 'amber' | 'blue' | 'zinc'
       text: 'text-blue-400/80',
     },
     zinc: {
-      border: 'border-white/10',
-      bg: 'bg-zinc-800/50',
+      border: 'border-[var(--ds-border-default)]',
+      bg: 'bg-[var(--ds-bg-surface)]',
       icon: 'bg-zinc-700 text-gray-400',
       text: 'text-gray-500',
     },
@@ -158,10 +158,10 @@ export function getFunnelLevelColorClasses(color: 'emerald' | 'blue' | 'zinc'): 
 } {
   const colorMap = {
     emerald: {
-      active: 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400',
-      inactive: 'bg-emerald-500/5 border-emerald-500/10 text-emerald-400/50',
-      arrow: 'text-emerald-500/30',
-      ring: 'ring-emerald-500/30',
+      active: 'bg-green-500/20 border-green-500/40 text-green-400',
+      inactive: 'bg-green-500/5 border-green-500/10 text-green-400/50',
+      arrow: 'text-purple-500/30',
+      ring: 'ring-purple-500/30',
     },
     blue: {
       active: 'bg-blue-500/20 border-blue-500/40 text-blue-400',
@@ -170,8 +170,8 @@ export function getFunnelLevelColorClasses(color: 'emerald' | 'blue' | 'zinc'): 
       ring: 'ring-blue-500/30',
     },
     zinc: {
-      active: 'bg-zinc-700 border-zinc-600 text-gray-300',
-      inactive: 'bg-zinc-800/50 border-white/5 text-gray-500',
+      active: 'bg-zinc-700 border-zinc-600 text-[var(--ds-text-secondary)]',
+      inactive: 'bg-[var(--ds-bg-surface)] border-[var(--ds-border-subtle)] text-gray-500',
       arrow: 'text-zinc-600',
       ring: 'ring-zinc-500/30',
     },

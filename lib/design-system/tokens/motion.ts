@@ -225,8 +225,8 @@ export const keyframes = {
 
   // Glow pulse (for brand elements)
   glowPulse: {
-    '0%, 100%': { boxShadow: '0 0 5px 0 rgba(16, 185, 129, 0.3)' },
-    '50%': { boxShadow: '0 0 20px 5px rgba(16, 185, 129, 0.5)' },
+    '0%, 100%': { boxShadow: '0 0 5px 0 rgba(147, 51, 234, 0.3)' },
+    '50%': { boxShadow: '0 0 20px 5px rgba(147, 51, 234, 0.5)' },
   },
 
   // Skeleton loading

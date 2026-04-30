@@ -36,6 +36,8 @@ export type TemplateStatus = 'DRAFT' | 'APPROVED' | 'PENDING' | 'REJECTED';
 export interface Template {
   id: string;
   name: string;
+  /** User-defined alias shown in the app. Falls back to `name` when null. Never sent to Meta. */
+  displayName?: string | null;
   category: TemplateCategory;
   language: string;
   status: TemplateStatus;

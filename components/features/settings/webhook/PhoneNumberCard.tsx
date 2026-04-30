@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import {
@@ -193,7 +193,7 @@ export function PhoneNumberCard({
               <button
                 onClick={handleSetOverride}
                 disabled={isLocalSaving || !overrideUrl.trim()}
-                className="h-10 px-4 bg-[var(--ds-status-info)] hover:opacity-90 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-2"
+                className="h-10 px-4 bg-[var(--ds-status-info)] hover:opacity-90 disabled:opacity-50 dark:text-white text-[var(--ds-text-primary)] text-sm font-medium rounded-lg transition-colors flex items-center gap-2"
               >
                 {isLocalSaving ? (
                   <Loader2 size={14} className="animate-spin" />

@@ -28,19 +28,19 @@ export const primitiveColors = {
     950: '#09090b',
   },
 
-  // Emerald Scale (Primary - WhatsApp inspired)
-  emerald: {
-    50: '#ecfdf5',
-    100: '#d1fae5',
-    200: '#a7f3d0',
-    300: '#6ee7b7',
-    400: '#34d399',
-    500: '#10b981',
-    600: '#059669',
-    700: '#047857',
-    800: '#065f46',
-    900: '#064e3b',
-    950: '#022c22',
+  // Green Scale (Success/Completed/Online — semantic only)
+  green: {
+    50: '#f0fdf4',
+    100: '#dcfce7',
+    200: '#bbf7d0',
+    300: '#86efac',
+    400: '#4ade80',
+    500: '#22c55e',
+    600: '#16a34a',
+    700: '#15803d',
+    800: '#166534',
+    900: '#14532d',
+    950: '#052e16',
   },
 
   // Red Scale (Destructive/Error)
@@ -145,11 +145,11 @@ export const primitiveColors = {
 export const semanticColors = {
   // Brand
   brand: {
-    primary: primitiveColors.emerald[500],
-    primaryHover: primitiveColors.emerald[600],
-    primaryActive: primitiveColors.emerald[700],
-    primaryMuted: primitiveColors.emerald[500] + '1a', // 10% opacity
-    primarySubtle: primitiveColors.emerald[950],
+    primary: primitiveColors.purple[600],
+    primaryHover: primitiveColors.purple[700],
+    primaryActive: primitiveColors.purple[800],
+    primaryMuted: primitiveColors.purple[600] + '1a', // 10% opacity
+    primarySubtle: primitiveColors.purple[950],
   },
 
   // Backgrounds
@@ -170,7 +170,7 @@ export const semanticColors = {
     muted: primitiveColors.zinc[500],
     disabled: primitiveColors.zinc[600],
     inverse: primitiveColors.zinc[950],
-    brand: primitiveColors.emerald[400],
+    brand: primitiveColors.purple[400],
   },
 
   // Borders
@@ -178,17 +178,17 @@ export const semanticColors = {
     subtle: 'rgba(255, 255, 255, 0.05)',
     default: 'rgba(255, 255, 255, 0.10)',
     strong: 'rgba(255, 255, 255, 0.15)',
-    brand: primitiveColors.emerald[500],
-    focus: primitiveColors.emerald[400],
+    brand: primitiveColors.purple[600],
+    focus: primitiveColors.purple[400],
   },
 
   // Status Colors
   status: {
     success: {
-      base: primitiveColors.emerald[500],
-      text: primitiveColors.emerald[400],
-      bg: primitiveColors.emerald[500] + '1a',
-      border: primitiveColors.emerald[500] + '33',
+      base: primitiveColors.green[500],
+      text: primitiveColors.green[400],
+      bg: primitiveColors.green[500] + '1a',
+      border: primitiveColors.green[500] + '33',
     },
     error: {
       base: primitiveColors.red[500],
@@ -225,8 +225,8 @@ export const semanticColors = {
       bg: primitiveColors.blue[500] + '1a',
     },
     completed: {
-      text: primitiveColors.emerald[400],
-      bg: primitiveColors.emerald[500] + '1a',
+      text: primitiveColors.green[400],
+      bg: primitiveColors.green[500] + '1a',
     },
     paused: {
       text: primitiveColors.amber[400],
@@ -248,7 +248,7 @@ export const nodeColors = {
   message: {
     border: 'hsl(161.4, 93.5%, 30.4%)',
     bg: 'hsl(164, 86%, 16%)',
-    accent: primitiveColors.emerald[500],
+    accent: primitiveColors.green[500],
   },
   ai: {
     border: 'hsl(262.1, 83.3%, 57.8%)',

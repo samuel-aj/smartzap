@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import {
@@ -87,7 +87,7 @@ export function SyncTemplatesStep({
         <div className={`
           w-24 h-24 rounded-2xl flex items-center justify-center transition-all duration-500
           ${syncStatus === 'syncing' ? 'bg-blue-500/20 animate-pulse' : ''}
-          ${syncStatus === 'success' ? 'bg-emerald-500/20' : ''}
+          ${syncStatus === 'success' ? 'bg-green-500/20' : ''}
           ${syncStatus === 'error' ? 'bg-red-500/20' : ''}
           ${syncStatus === 'idle' ? 'bg-zinc-700/50' : ''}
         `}>
@@ -95,13 +95,13 @@ export function SyncTemplatesStep({
             <Loader2 className="w-12 h-12 text-blue-400 animate-spin" />
           )}
           {syncStatus === 'success' && (
-            <CheckCircle2 className="w-12 h-12 text-emerald-400" />
+            <CheckCircle2 className="w-12 h-12 text-green-400" />
           )}
           {syncStatus === 'error' && (
             <AlertCircle className="w-12 h-12 text-red-400" />
           )}
           {syncStatus === 'idle' && (
-            <FileText className="w-12 h-12 text-zinc-400" />
+            <FileText className="w-12 h-12 text-[var(--ds-text-muted)]" />
           )}
         </div>
       </div>
@@ -110,17 +110,17 @@ export function SyncTemplatesStep({
       <div className="text-center space-y-2">
         {syncStatus === 'syncing' && (
           <>
-            <p className="text-lg font-medium text-white">Sincronizando templates...</p>
-            <p className="text-sm text-zinc-400">Buscando seus templates aprovados da Meta</p>
+            <p className="text-lg font-medium dark:text-white text-[var(--ds-text-primary)]">Sincronizando templates...</p>
+            <p className="text-sm text-[var(--ds-text-muted)]">Buscando seus templates aprovados da Meta</p>
           </>
         )}
 
         {syncStatus === 'success' && templateCount > 0 && (
           <>
-            <p className="text-lg font-medium text-emerald-400">
+            <p className="text-lg font-medium text-green-400">
               {templateCount} {templateCount === 1 ? 'template encontrado' : 'templates encontrados'}!
             </p>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-[var(--ds-text-muted)]">
               Seus templates estão prontos para uso
             </p>
           </>
@@ -129,7 +129,7 @@ export function SyncTemplatesStep({
         {syncStatus === 'success' && templateCount === 0 && (
           <>
             <p className="text-lg font-medium text-amber-400">Nenhum template encontrado</p>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-[var(--ds-text-muted)]">
               Você ainda não tem templates aprovados na sua conta
             </p>
           </>
@@ -138,7 +138,7 @@ export function SyncTemplatesStep({
         {syncStatus === 'error' && (
           <>
             <p className="text-lg font-medium text-red-400">Erro ao sincronizar</p>
-            <p className="text-sm text-zinc-400">{errorMessage}</p>
+            <p className="text-sm text-[var(--ds-text-muted)]">{errorMessage}</p>
           </>
         )}
       </div>

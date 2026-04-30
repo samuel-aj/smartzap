@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Container } from '@/components/ui/container';
@@ -24,9 +24,9 @@ export const DetailCard: React.FC<DetailCardProps> = ({
     <div className="flex justify-between items-start mb-2">
       <div>
         <p className="text-sm text-gray-400 font-medium">{title}</p>
-        <h3 className="text-3xl font-bold text-white mt-1">{value}</h3>
+        <h3 className="text-3xl font-bold dark:text-white text-[var(--ds-text-primary)] mt-1">{value}</h3>
       </div>
-      <div className="p-2 rounded-lg bg-white/5 text-white">
+      <div className="p-2 rounded-lg bg-white/5 dark:text-white text-[var(--ds-text-primary)]">
         <Icon size={20} color={color} />
       </div>
     </div>

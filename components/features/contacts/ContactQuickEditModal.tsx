@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useMutation, useQuery, useQueryClient, type QueryKey } from '@tanstack/react-query';
@@ -306,10 +306,10 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-60 flex items-center justify-center p-4">
-      <div className="bg-zinc-950 border border-white/10 rounded-2xl w-full max-w-md p-6 shadow-2xl animate-in zoom-in duration-200">
+      <div className="bg-[var(--ds-bg-elevated)] border border-[var(--ds-border-default)] rounded-2xl w-full max-w-md p-6 shadow-2xl animate-in zoom-in duration-200">
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-xl font-bold text-white">{title}</h2>
+            <h2 className="text-xl font-bold dark:text-white text-[var(--ds-text-primary)]">{title}</h2>
 
             {!!contactId && (
               <p className="text-xs text-gray-400 mt-1">
@@ -319,7 +319,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
                     <span className="inline-block h-3 w-36 rounded bg-white/10 animate-pulse" />
                   </span>
                 ) : contactHeaderText ? (
-                  <span className="text-gray-200 font-medium">{contactHeaderText}</span>
+                  <span className="text-[var(--ds-text-secondary)] font-medium">{contactHeaderText}</span>
                 ) : (
                   <span className="text-gray-500">—</span>
                 )}
@@ -328,24 +328,24 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
 
             {focusLabel && (
               <p className="text-xs text-gray-500 mt-1">
-                Dica: complete <span className="text-white">{focusLabel}</span> para destravar o envio.
+                Dica: complete <span className="dark:text-white text-[var(--ds-text-primary)]">{focusLabel}</span> para destravar o envio.
               </p>
             )}
           </div>
-          <button onClick={onClose} aria-label="Fechar" className="p-1 rounded-lg hover:bg-white/5">
-            <X className="text-gray-500 hover:text-white" />
+          <button onClick={onClose} aria-label="Fechar" className="p-1 rounded-lg hover:bg-[var(--ds-bg-hover)]">
+            <X className="text-gray-500 hover:text-[var(--ds-text-primary)]" />
           </button>
         </div>
 
         {!contactId ? (
           <div className="flex flex-col items-center justify-center py-10 text-gray-400 text-center">
             <AlertTriangle className="w-5 h-5 text-amber-400 mb-2" />
-            <p className="text-sm text-gray-200 font-medium">Contato inválido</p>
+            <p className="text-sm text-[var(--ds-text-secondary)] font-medium">Contato inválido</p>
             <p className="text-xs text-gray-500 mt-1">Não foi possível abrir este contato. Feche e tente novamente.</p>
             <div className="mt-4">
               <button
                 onClick={onClose}
-                className="px-4 py-2 rounded-lg bg-zinc-800 border border-white/10 text-white hover:bg-zinc-700 transition-colors"
+                className="px-4 py-2 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] transition-colors"
               >
                 Fechar
               </button>
@@ -359,20 +359,20 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
         ) : isError ? (
           <div className="flex flex-col items-center justify-center py-10 text-gray-400 text-center">
             <AlertTriangle className="w-5 h-5 text-amber-400 mb-2" />
-            <p className="text-sm text-gray-200 font-medium">Não foi possível carregar o contato</p>
+            <p className="text-sm text-[var(--ds-text-secondary)] font-medium">Não foi possível carregar o contato</p>
             <p className="text-xs text-gray-500 mt-1">
               {errorMessage || 'O contato pode ter sido removido ou você não tem permissão para acessá-lo.'}
             </p>
             <div className="mt-4 flex items-center gap-2">
               <button
                 onClick={() => contactQuery.refetch()}
-                className="px-4 py-2 rounded-lg bg-white/10 border border-white/10 text-white hover:bg-white/15 transition-colors inline-flex items-center gap-2"
+                className="px-4 py-2 rounded-lg bg-white/10 border border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)] hover:bg-white/15 transition-colors inline-flex items-center gap-2"
               >
                 <RefreshCw size={14} /> Tentar novamente
               </button>
               <button
                 onClick={onClose}
-                className="px-4 py-2 rounded-lg bg-zinc-800 border border-white/10 text-white hover:bg-zinc-700 transition-colors"
+                className="px-4 py-2 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] transition-colors"
               >
                 Fechar
               </button>
@@ -388,7 +388,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
                 )}
                 <input
                   ref={nameRef}
-                  className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+                  className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
                   value={form.name}
                   onChange={(e) => setForm(prev => ({ ...prev, name: e.target.value }))}
                   placeholder="Ex: João Silva"
@@ -402,7 +402,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
                 <input
                   ref={emailRef}
                   type="email"
-                  className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+                  className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
                   value={form.email}
                   onChange={(e) => setForm(prev => ({ ...prev, email: e.target.value }))}
                   placeholder="email@exemplo.com"
@@ -423,7 +423,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
                       <div key={key}>
                         <label className="block text-sm text-gray-400 mb-1">{label}</label>
                         <select
-                          className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+                          className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
                           value={String(form.custom_fields?.[key] ?? '')}
                           onChange={(e) =>
                             setForm((prev) => ({
@@ -447,7 +447,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
                       <input
                         ref={(el) => { customRefs.current[key] = el; }}
                         type={type === 'number' ? 'number' : type === 'date' ? 'date' : 'text'}
-                        className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary-500 outline-none transition-colors"
+                        className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-3 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
                         value={String(form.custom_fields?.[key] ?? '')}
                         onChange={(e) =>
                           setForm((prev) => ({
@@ -464,7 +464,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
             )}
 
             {shouldShowAllCustomFields && (
-              <details className="pt-2 border-t border-white/10">
+              <details className="pt-2 border-t border-[var(--ds-border-default)]">
                 <summary className="cursor-pointer text-sm text-gray-400">Campos personalizados</summary>
                 <div className="mt-3 space-y-3">
                   {customFields.length === 0 ? (
@@ -475,7 +475,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
                         <label className="block text-xs text-gray-500 mb-1">{field.label}</label>
                         {field.type === 'select' && field.options && field.options.length > 0 ? (
                           <select
-                            className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:border-primary-500 outline-none transition-colors"
+                            className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-2.5 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
                             value={String(form.custom_fields?.[field.key] ?? '')}
                             onChange={(e) =>
                               setForm(prev => ({
@@ -492,7 +492,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
                         ) : (
                           <input
                             type={field.type === 'number' ? 'number' : field.type === 'date' ? 'date' : 'text'}
-                            className="w-full bg-zinc-900 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:border-primary-500 outline-none transition-colors"
+                            className="w-full bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg px-4 py-2.5 dark:text-white text-[var(--ds-text-primary)] focus:border-primary-500 outline-none transition-colors"
                             value={String(form.custom_fields?.[field.key] ?? '')}
                             onChange={(e) =>
                               setForm(prev => ({
@@ -513,7 +513,7 @@ export const ContactQuickEditModal: React.FC<ContactQuickEditModalProps> = ({
             <div className="pt-4 flex gap-3">
               <button
                 onClick={onClose}
-                className="flex-1 bg-zinc-800 text-white font-medium py-3 rounded-xl hover:bg-zinc-700 transition-colors"
+                className="flex-1 bg-[var(--ds-bg-surface)] dark:text-white text-[var(--ds-text-primary)] font-medium py-3 rounded-xl hover:bg-[var(--ds-bg-hover)] transition-colors"
                 disabled={updateMutation.isPending}
               >
                 Cancelar

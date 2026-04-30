@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { TemplateComponent, TemplateButton } from '../../../types';
 import { Zap, ExternalLink, Phone, Copy, Image, Video, FileText, MessageCircle, MapPin } from 'lucide-react';
 
@@ -68,14 +68,14 @@ export const TemplatePreviewRenderer: React.FC<TemplatePreviewRendererProps> = (
                 if (!header.text) return null;
                 return (
                     <div className="bg-[#202c33] p-2 px-3 rounded-lg rounded-tl-none shadow-sm mb-1">
-                        <p className="text-[13px] font-bold text-white">{replaceVariables(header.text, variables)}</p>
+                        <p className="text-[13px] font-bold dark:text-white text-[var(--ds-text-primary)]">{replaceVariables(header.text, variables)}</p>
                     </div>
                 );
             case 'IMAGE':
                 return (
                     <div className="bg-[#202c33] rounded-lg rounded-tl-none shadow-sm mb-1 overflow-hidden">
                         <div className="bg-zinc-700/50 h-32 flex items-center justify-center">
-                            <Image size={32} className="text-zinc-500" />
+                            <Image size={32} className="text-[var(--ds-text-muted)]" />
                         </div>
                     </div>
                 );
@@ -83,14 +83,14 @@ export const TemplatePreviewRenderer: React.FC<TemplatePreviewRendererProps> = (
                 return (
                     <div className="bg-[#202c33] rounded-lg rounded-tl-none shadow-sm mb-1 overflow-hidden">
                         <div className="bg-zinc-700/50 h-32 flex items-center justify-center">
-                            <Video size={32} className="text-zinc-500" />
+                            <Video size={32} className="text-[var(--ds-text-muted)]" />
                         </div>
                     </div>
                 );
             case 'DOCUMENT':
                 return (
                     <div className="bg-[#202c33] rounded-lg rounded-tl-none shadow-sm mb-1 p-3">
-                        <div className="flex items-center gap-2 text-zinc-400">
+                        <div className="flex items-center gap-2 text-[var(--ds-text-muted)]">
                             <FileText size={20} />
                             <span className="text-[12px]">Documento anexado</span>
                         </div>
@@ -99,10 +99,10 @@ export const TemplatePreviewRenderer: React.FC<TemplatePreviewRendererProps> = (
             case 'LOCATION':
                 return (
                     <div className="bg-[#202c33] rounded-lg rounded-tl-none shadow-sm mb-1 overflow-hidden">
-                        <div className="relative h-24 bg-gradient-to-br from-emerald-900/50 to-emerald-800/30">
+                        <div className="relative h-24 bg-gradient-to-br from-purple-900/50 to-purple-800/30">
                             {/* Grid pattern to simulate map */}
                             <div className="absolute inset-0 opacity-10" style={{
-                                backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)',
+                                backgroundImage: 'linear-gradient(#9333ea 1px, transparent 1px), linear-gradient(90deg, #9333ea 1px, transparent 1px)',
                                 backgroundSize: '20px 20px'
                             }} />
                             {/* Pin */}

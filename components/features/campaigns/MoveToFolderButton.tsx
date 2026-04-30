@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useRef, useEffect } from 'react'
 import { cn } from '@/lib/utils'
@@ -71,7 +71,7 @@ export function MoveToFolderButton({
             {currentFolder ? (
               <FolderIcon size={16} style={{ color: currentFolder.color }} />
             ) : (
-              <FolderInputIcon size={16} className="text-zinc-400" />
+              <FolderInputIcon size={16} className="text-[var(--ds-text-muted)]" />
             )}
           </Button>
         </TooltipTrigger>
@@ -82,11 +82,11 @@ export function MoveToFolderButton({
 
       {isOpen && (
         <div
-          className="absolute top-full right-0 mt-1 w-48 rounded-md border border-zinc-700 bg-zinc-800 shadow-xl z-[200]"
+          className="absolute top-full right-0 mt-1 w-48 rounded-md border border-[var(--ds-border-strong)] bg-[var(--ds-bg-elevated)] shadow-xl z-[200]"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="p-2 border-b border-zinc-700">
-            <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
+          <div className="p-2 border-b border-[var(--ds-border-strong)]">
+            <span className="text-xs font-medium text-[var(--ds-text-muted)] uppercase tracking-wider">
               Mover para
             </span>
           </div>
@@ -101,7 +101,7 @@ export function MoveToFolderButton({
               {currentFolderId && (
                 <button
                   onClick={() => handleSelect(null)}
-                  className="flex items-center w-full px-3 py-2 rounded text-sm transition-colors gap-2 text-zinc-400 hover:bg-zinc-700/50 hover:text-zinc-200"
+                  className="flex items-center w-full px-3 py-2 rounded text-sm transition-colors gap-2 text-[var(--ds-text-muted)] hover:bg-[var(--ds-bg-hover)]/50 hover:text-zinc-200"
                 >
                   <XIcon className="h-4 w-4 flex-shrink-0" />
                   <span className="flex-1 text-left">Remover da pasta</span>
@@ -119,7 +119,7 @@ export function MoveToFolderButton({
                       'flex items-center w-full px-3 py-2 rounded text-sm transition-colors gap-2',
                       isCurrentFolder
                         ? 'bg-primary-500/10 text-primary-400'
-                        : 'text-zinc-200 hover:bg-zinc-700/50'
+                        : 'text-zinc-200 hover:bg-[var(--ds-bg-hover)]/50'
                     )}
                   >
                     <FolderIcon

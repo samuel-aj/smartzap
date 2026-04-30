@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { ChevronDown, ListPlus, Plus } from 'lucide-react'
@@ -25,9 +25,9 @@ export function FieldList({
   onAddField,
 }: FieldListProps) {
   return (
-    <div className="border-t border-white/10 pt-6">
+    <div className="border-t border-[var(--ds-border-default)] pt-6">
       <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold text-white flex items-center gap-2">
+        <div className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)] flex items-center gap-2">
           <ListPlus className="h-4 w-4" />
           Perguntas
         </div>
@@ -41,7 +41,7 @@ export function FieldList({
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="end"
-            className="bg-zinc-900 border-white/10 text-white min-w-56"
+            className="bg-[var(--ds-bg-surface)] border-[var(--ds-border-default)] dark:text-white text-[var(--ds-text-primary)] min-w-56"
           >
             {Object.entries(FIELD_TYPE_LABEL).map(([key, label]) => (
               <DropdownMenuItem key={key} onClick={() => onAddField(key as FlowFormFieldType)}>
@@ -53,8 +53,8 @@ export function FieldList({
       </div>
 
       {fields.length === 0 ? (
-        <div className="mt-4 rounded-xl border border-white/10 bg-zinc-950/40 px-6 py-8 text-center text-gray-400">
-          <div className="text-sm text-gray-300">
+        <div className="mt-4 rounded-xl border border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] px-6 py-8 text-center text-gray-400">
+          <div className="text-sm text-[var(--ds-text-secondary)]">
             Crie a primeira pergunta para começar sua MiniApp.
           </div>
         </div>

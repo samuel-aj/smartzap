@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ContactFormView - Exemplo de View com React Hook Form + Zod
  * 
  * Demonstra:
@@ -102,12 +102,12 @@ export const ContactFormView: React.FC<ContactFormViewProps> = ({
       </FormField>
 
       {/* Actions */}
-      <div className="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
+      <div className="flex items-center justify-end gap-3 pt-4 border-t border-[var(--ds-border-default)]">
         {onCancel && (
           <button
             type="button"
             onClick={onCancel}
-            className="px-4 py-2 text-gray-400 hover:text-white transition-colors"
+            className="px-4 py-2 text-gray-400 hover:text-[var(--ds-text-primary)] transition-colors"
           >
             Cancelar
           </button>

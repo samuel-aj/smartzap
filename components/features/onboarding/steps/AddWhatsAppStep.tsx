@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ArrowRight, AlertTriangle } from 'lucide-react';
@@ -24,39 +24,39 @@ export function AddWhatsAppStep({ onNext, onBack, stepNumber, totalSteps }: AddW
 
       {/* Instruções */}
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
           <p className="text-zinc-300">
-            No painel do app, vá em <strong className="text-white">"Adicionar Produtos"</strong>
+            No painel do app, vá em <strong className="dark:text-white text-[var(--ds-text-primary)]">"Adicionar Produtos"</strong>
           </p>
         </div>
 
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">2</span>
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">2</span>
           <p className="text-zinc-300">
-            Encontre <strong className="text-white">"WhatsApp"</strong> e clique <strong className="text-white">"Configurar"</strong>
+            Encontre <strong className="dark:text-white text-[var(--ds-text-primary)]">"WhatsApp"</strong> e clique <strong className="dark:text-white text-[var(--ds-text-primary)]">"Configurar"</strong>
           </p>
         </div>
 
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
           <p className="text-zinc-300">
-            Vá em <strong className="text-white">"API Setup"</strong> no menu lateral
+            Vá em <strong className="dark:text-white text-[var(--ds-text-primary)]">"API Setup"</strong> no menu lateral
           </p>
         </div>
 
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">4</span>
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">4</span>
           <p className="text-zinc-300">
-            Clique em <strong className="text-white">"Add phone number"</strong>
+            Clique em <strong className="dark:text-white text-[var(--ds-text-primary)]">"Add phone number"</strong>
           </p>
         </div>
 
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">5</span>
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">5</span>
           <p className="text-zinc-300">
             Siga o processo de verificação do seu número<br />
-            <span className="text-zinc-500">(você receberá SMS ou ligação com código)</span>
+            <span className="text-[var(--ds-text-muted)]">(você receberá SMS ou ligação com código)</span>
           </p>
         </div>
       </div>

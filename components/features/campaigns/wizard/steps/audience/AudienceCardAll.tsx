@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Users, ShieldAlert } from 'lucide-react';
@@ -29,7 +29,7 @@ export function AudienceCardAll({
       }`}
     >
       {isSelected && !isOverLimit && (
-        <div className="absolute top-3 right-3 text-white dark:text-black">
+        <div className="absolute top-3 right-3 dark:text-white text-[var(--ds-text-primary)] dark:text-black">
           <CheckCircleFilled size={20} />
         </div>
       )}
@@ -53,7 +53,7 @@ export function AudienceCardAll({
         <h3 className="font-bold text-sm">Todos</h3>
         <p
           className={`text-xs mt-1 ${
-            isOverLimit ? 'text-red-400' : isSelected ? 'text-white/70 dark:text-gray-600' : 'text-[var(--ds-text-muted)]'
+            isOverLimit ? 'text-red-400' : isSelected ? 'dark:text-white text-[var(--ds-text-primary)]/70 dark:text-gray-600' : 'text-[var(--ds-text-muted)]'
           }`}
         >
           {eligibleContactsCount} contatos • exclui opt-out e supressões

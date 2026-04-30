@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Check, ExternalLink, Calendar } from 'lucide-react';
@@ -68,7 +68,7 @@ export function WizardSidebar({
             >
               <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium ${
                 status === 'completed' && !isActive
-                  ? 'bg-[var(--ds-status-success)] text-white'
+                  ? 'bg-[var(--ds-status-success)] dark:text-white text-[var(--ds-text-primary)]'
                   : isActive
                     ? 'bg-[var(--ds-status-success)]/30 text-[var(--ds-status-success-text)] border border-[var(--ds-status-success)]/50'
                     : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)]'

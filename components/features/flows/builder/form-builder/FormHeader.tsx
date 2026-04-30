@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { Wand2 } from 'lucide-react'
@@ -16,7 +16,7 @@ export function FormHeader({ showHeaderActions, onOpenAI, onOpenTemplate }: Form
       <Button
         type="button"
         variant="outline"
-        className="border-white/10 bg-zinc-950/40 hover:bg-white/5"
+        className="border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)]"
         onClick={onOpenAI}
       >
         <Wand2 className="h-4 w-4" />
@@ -25,7 +25,7 @@ export function FormHeader({ showHeaderActions, onOpenAI, onOpenTemplate }: Form
       <Button
         type="button"
         variant="outline"
-        className="border-white/10 bg-zinc-950/40 hover:bg-white/5"
+        className="border-[var(--ds-border-default)] bg-[var(--ds-bg-surface)] hover:bg-[var(--ds-bg-hover)]"
         onClick={onOpenTemplate}
       >
         Importar modelo

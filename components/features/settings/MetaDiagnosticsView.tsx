@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import * as React from 'react'
 import {
@@ -132,7 +132,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
         <PageActions>
           <PrefetchLink
             href="/settings"
-            className="px-4 py-2 rounded-xl bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium flex items-center gap-2"
+            className="px-4 py-2 rounded-xl bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium flex items-center gap-2"
           >
             <ArrowLeft size={16} />
             Voltar
@@ -141,7 +141,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
           <button
             onClick={() => copyToClipboard(reportText)}
             disabled={!reportText}
-            className="px-4 py-2 rounded-xl bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium flex items-center gap-2 disabled:opacity-50"
+            className="px-4 py-2 rounded-xl bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium flex items-center gap-2 disabled:opacity-50"
             title={reportText ? 'Copiar relatorio resumido (redigido)' : 'Relatorio indisponivel'}
           >
             <Copy size={16} />
@@ -150,7 +150,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
 
           <button
             onClick={props.onRefresh}
-            className="px-4 py-2 rounded-xl bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium flex items-center gap-2"
+            className="px-4 py-2 rounded-xl bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium flex items-center gap-2"
             title="Atualizar"
           >
             <RefreshCw size={16} className={props.isFetching ? 'animate-spin' : ''} />
@@ -162,20 +162,20 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
       {/* Top Line Summary */}
       <Container variant="glass" padding="md" className="mb-6">
         <div className="text-xs text-gray-500">Resposta direta</div>
-        <div className="mt-2 text-sm text-white font-medium">O que importa primeiro</div>
+        <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">O que importa primeiro</div>
         <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-3">
           {([
             { category: 'Envio', label: topSend.label, status: topSend.status, detail: topSend.detail },
             { category: 'Token', label: topToken.label, status: topToken.status, detail: topToken.detail },
             { category: 'Webhook', label: topWebhook.label, status: topWebhook.status, detail: topWebhook.detail },
           ] as const).map((row) => (
-            <div key={row.category} className="bg-zinc-900/40 border border-white/10 rounded-xl p-4">
+            <div key={row.category} className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
               <div className="flex items-center justify-between gap-3">
                 <div className="text-xs text-gray-500">{row.category}</div>
                 <StatusBadge status={row.status} />
               </div>
-              <div className="mt-2 text-sm text-white font-semibold">{row.label}</div>
-              <div className="mt-1 text-sm text-gray-300">{row.detail}</div>
+              <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-semibold">{row.label}</div>
+              <div className="mt-1 text-sm text-[var(--ds-text-secondary)]">{row.detail}</div>
             </div>
           ))}
         </div>
@@ -186,7 +186,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
         <summary className="cursor-pointer list-none flex items-center justify-between gap-3">
           <div>
             <div className="text-xs text-gray-500">Mais detalhes</div>
-            <div className="mt-1 text-sm text-white">Selos, suporte e validacoes</div>
+            <div className="mt-1 text-sm dark:text-white text-[var(--ds-text-primary)]">Selos, suporte e validacoes</div>
           </div>
           <ChevronDown size={16} className="text-gray-400" />
         </summary>
@@ -197,15 +197,15 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
 
           <Container variant="glass" padding="md">
             <div className="text-xs text-gray-500">Atalho</div>
-            <div className="mt-2 text-sm text-white font-medium">Support Packet</div>
-            <div className="mt-2 text-sm text-gray-300">
+            <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">Support Packet</div>
+            <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">
               1 clique pra copiar um pacote pronto (inclui <span className="font-mono">fbtrace_id</span> quando existir).
             </div>
             <div className="mt-3 flex flex-wrap gap-2">
               <button
                 onClick={() => copyToClipboard(supportPacketText)}
                 disabled={!supportPacketText}
-                className="px-3 py-2 rounded-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
+                className="px-3 py-2 rounded-lg bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
                 title={supportPacketText ? 'Copiar packet completo' : 'Indisponivel'}
               >
                 <LifeBuoy size={14} /> {isCopied ? 'Copiado!' : 'Copiar packet'}
@@ -213,7 +213,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
               <button
                 onClick={() => copyToClipboard(reportText)}
                 disabled={!reportText}
-                className="px-3 py-2 rounded-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
+                className="px-3 py-2 rounded-lg bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
                 title={reportText ? 'Copiar resumo' : 'Indisponivel'}
               >
                 <Copy size={14} /> Resumo
@@ -250,7 +250,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
         <summary className="cursor-pointer list-none flex items-center justify-between gap-3">
           <div>
             <div className="text-xs text-gray-500">Ferramentas avancadas</div>
-            <div className="mt-1 text-sm text-white">Simuladores e debug para suporte/aula</div>
+            <div className="mt-1 text-sm dark:text-white text-[var(--ds-text-primary)]">Simuladores e debug para suporte/aula</div>
           </div>
           <ChevronDown size={16} className="text-gray-400" />
         </summary>
@@ -265,12 +265,12 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
           <div className="flex items-start gap-3">
             <AlertTriangle className="mt-0.5 text-amber-300" size={18} />
             <div className="min-w-0">
-              <div className="text-white font-semibold">Como interpretar: erro 100 (subcode 33)</div>
-              <div className="text-sm text-gray-200/90 mt-1">
+              <div className="dark:text-white text-[var(--ds-text-primary)] font-semibold">Como interpretar: erro 100 (subcode 33)</div>
+              <div className="text-sm text-[var(--ds-text-secondary)]/90 mt-1">
                 Esse erro quase sempre significa: <b>ID incorreto</b> OU <b>token sem acesso ao ativo</b> (WABA/PHONE_NUMBER).
                 Normalmente e permissao/atribuicao — nao e "bloqueio de conta".
               </div>
-              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-gray-200">
+              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-[var(--ds-text-secondary)]">
                 <li>Confirme se o <b>phone_number_id</b> e o <b>waba_id</b> foram copiados do WhatsApp Manager correto.</li>
                 <li>Gere um token do <b>System User</b> e atribua os ativos (WABA + Phone Number) no Business Manager.</li>
                 <li>Garanta os escopos <span className="font-mono">whatsapp_business_messaging</span> e <span className="font-mono">whatsapp_business_management</span>.</li>
@@ -289,11 +289,11 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
           <div className="flex items-start gap-3">
             <XCircle className="mt-0.5 text-red-300" size={18} />
             <div className="min-w-0">
-              <div className="text-white font-semibold">Como interpretar: erro 190 (token invalido)</div>
-              <div className="text-sm text-gray-200/90 mt-1">
+              <div className="dark:text-white text-[var(--ds-text-primary)] font-semibold">Como interpretar: erro 190 (token invalido)</div>
+              <div className="text-sm text-[var(--ds-text-secondary)]/90 mt-1">
                 Esse erro indica token expirado/invalidado, token copiado errado ou token sem permissao (as vezes aparece como "Session has expired").
               </div>
-              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-gray-200">
+              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-[var(--ds-text-secondary)]">
                 <li>Gere um novo token (recomendado: <b>System User</b> no Business Manager).</li>
                 <li>Atribua os ativos (WABA + Phone Number) ao System User antes de gerar o token.</li>
                 <li>Garanta os escopos <span className="font-mono">whatsapp_business_messaging</span> e <span className="font-mono">whatsapp_business_management</span>.</li>
@@ -312,11 +312,11 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
           <div className="flex items-start gap-3">
             <AlertTriangle className="mt-0.5 text-amber-300" size={18} />
             <div className="min-w-0">
-              <div className="text-white font-semibold">Como interpretar: erro 131042 (pagamento/conta)</div>
-              <div className="text-sm text-gray-200/90 mt-1">
+              <div className="dark:text-white text-[var(--ds-text-primary)] font-semibold">Como interpretar: erro 131042 (pagamento/conta)</div>
+              <div className="text-sm text-[var(--ds-text-secondary)]/90 mt-1">
                 Esse codigo costuma aparecer quando ha problema de pagamento ou restricao de conta no Business Manager. E Meta-side.
               </div>
-              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-gray-200">
+              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-[var(--ds-text-secondary)]">
                 <li>Abra o <b>Business Manager</b> e verifique alertas de cobranca/pagamento.</li>
                 <li>Confirme se o WABA esta verificado e sem pendencias de revisao.</li>
                 <li>Apos corrigir, rode o diagnostico e faca um envio de teste.</li>
@@ -331,11 +331,11 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
           <div className="flex items-start gap-3">
             <AlertTriangle className="mt-0.5 text-amber-300" size={18} />
             <div className="min-w-0">
-              <div className="text-white font-semibold">Como interpretar: erro 131056 (rate limit por par)</div>
-              <div className="text-sm text-gray-200/90 mt-1">
+              <div className="dark:text-white text-[var(--ds-text-primary)] font-semibold">Como interpretar: erro 131056 (rate limit por par)</div>
+              <div className="text-sm text-[var(--ds-text-secondary)]/90 mt-1">
                 A Meta limita envio para o mesmo usuario (pair rate limit). Isso nao e "bloqueio", e limite temporario.
               </div>
-              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-gray-200">
+              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-[var(--ds-text-secondary)]">
                 <li>Evite mandar multiplas mensagens em sequencia para o mesmo numero em poucos segundos.</li>
                 <li>Se for fluxo/campanha, aplique delay/backoff e re-tente com espacamento.</li>
                 <li>Rode novamente depois de alguns minutos.</li>
@@ -358,7 +358,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
             </div>
             <div className="text-right">
               <div className="text-xs text-gray-500">Falhas / Atencoes</div>
-              <div className="mt-2 text-sm text-white font-medium">
+              <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">
                 <span className="text-red-200">{props.counts.fail}</span>
                 <span className="text-gray-500"> / </span>
                 <span className="text-amber-200">{props.counts.warn}</span>
@@ -367,21 +367,21 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
           </div>
 
           <div className="mt-4 grid grid-cols-4 gap-2 text-xs">
-            <div className="bg-zinc-900/40 border border-white/10 rounded-lg p-2">
+            <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg p-2">
               <div className="text-gray-500">OK</div>
-              <div className="mt-1 text-white font-medium">{props.counts.pass}</div>
+              <div className="mt-1 dark:text-white text-[var(--ds-text-primary)] font-medium">{props.counts.pass}</div>
             </div>
-            <div className="bg-zinc-900/40 border border-white/10 rounded-lg p-2">
+            <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-lg p-2">
               <div className="text-gray-500">Info</div>
-              <div className="mt-1 text-white font-medium">{props.counts.info}</div>
+              <div className="mt-1 dark:text-white text-[var(--ds-text-primary)] font-medium">{props.counts.info}</div>
             </div>
-            <div className="bg-zinc-900/40 border border-amber-500/20 rounded-lg p-2">
+            <div className="bg-[var(--ds-bg-surface)] border border-amber-500/20 rounded-lg p-2">
               <div className="text-amber-200">Atencao</div>
-              <div className="mt-1 text-white font-medium">{props.counts.warn}</div>
+              <div className="mt-1 dark:text-white text-[var(--ds-text-primary)] font-medium">{props.counts.warn}</div>
             </div>
-            <div className="bg-zinc-900/40 border border-red-500/20 rounded-lg p-2">
+            <div className="bg-[var(--ds-bg-surface)] border border-red-500/20 rounded-lg p-2">
               <div className="text-red-200">Falha</div>
-              <div className="mt-1 text-white font-medium">{props.counts.fail}</div>
+              <div className="mt-1 dark:text-white text-[var(--ds-text-primary)] font-medium">{props.counts.fail}</div>
             </div>
           </div>
         </Container>
@@ -390,37 +390,37 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
           <summary className="cursor-pointer list-none flex items-center justify-between gap-3">
             <div>
               <div className="text-xs text-gray-500">Painel tecnico</div>
-              <div className="mt-1 text-sm text-white">Ambiente + webhook + ids de deploy</div>
+              <div className="mt-1 text-sm dark:text-white text-[var(--ds-text-primary)]">Ambiente + webhook + ids de deploy</div>
             </div>
             <ChevronDown size={16} className="text-gray-400" />
           </summary>
 
           <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="bg-zinc-900/40 border border-white/10 rounded-xl p-4">
+            <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
               <div className="text-xs text-gray-500">Ambiente</div>
-              <div className="mt-2 text-sm text-white">
+              <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)]">
                 {(props.data?.env as { vercelEnv?: string })?.vercelEnv || '—'}
               </div>
               <div className="mt-3 text-xs text-gray-400 space-y-1">
                 <div>
                   <span className="text-gray-500">Deploy:</span>{' '}
-                  <span className="font-mono text-white/90">{((props.data?.env as { deploymentId?: string })?.deploymentId) || '—'}</span>
+                  <span className="font-mono dark:text-white text-[var(--ds-text-primary)]/90">{((props.data?.env as { deploymentId?: string })?.deploymentId) || '—'}</span>
                 </div>
                 <div>
                   <span className="text-gray-500">Commit:</span>{' '}
-                  <span className="font-mono text-white/90">{((props.data?.env as { gitCommitSha?: string })?.gitCommitSha)?.slice?.(0, 7) || '—'}</span>
+                  <span className="font-mono dark:text-white text-[var(--ds-text-primary)]/90">{((props.data?.env as { gitCommitSha?: string })?.gitCommitSha)?.slice?.(0, 7) || '—'}</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-zinc-900/40 border border-white/10 rounded-xl p-4">
+            <div className="bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
               <div className="text-xs text-gray-500">Webhook (URL esperada)</div>
-              <div className="mt-2 text-sm text-white font-mono break-all">
+              <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-mono break-all">
                 {props.data?.webhook?.expectedUrl || '—'}
               </div>
               <div className="mt-3 text-xs text-gray-400">
                 Verify token:{' '}
-                <span className="font-mono text-white/90">{props.data?.webhook?.verifyTokenPreview || '—'}</span>
+                <span className="font-mono dark:text-white text-[var(--ds-text-primary)]/90">{props.data?.webhook?.verifyTokenPreview || '—'}</span>
               </div>
             </div>
           </div>
@@ -442,18 +442,18 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
             <div className="min-w-0">
               <div className="flex items-center gap-2">
                 <StatusBadge status={lock.kind === 'current' ? 'fail' : 'warn'} />
-                <h3 className="text-sm font-semibold text-white truncate">
+                <h3 className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)] truncate">
                   {lock.kind === 'current'
                     ? `Bloqueio atual detectado (codigo ${META_BUSINESS_LOCKED_CODE})`
                     : `Sinal historico de bloqueio (codigo ${META_BUSINESS_LOCKED_CODE})`}
                 </h3>
               </div>
-              <div className="mt-2 text-sm text-gray-200">
+              <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">
                 {lock.kind === 'current'
                   ? 'O Health Status da Meta indica BLOQUEIO na cadeia de envio (APP/BUSINESS/WABA/PHONE/TEMPLATE). Enquanto isso estiver ativo, acoes e envios podem falhar — nao ha "auto-fix" via API aqui dentro.'
                   : 'Detectamos o codigo 131031 em falhas recentes (ultimos 7 dias), mas o Health Status atual nao esta bloqueado. Isso pode ter sido temporario ou relacionado a uma tentativa antiga.'}
               </div>
-              <div className="mt-3 text-sm text-gray-300 space-y-1">
+              <div className="mt-3 text-sm text-[var(--ds-text-secondary)] space-y-1">
                 <div>
                   <span className="text-gray-400">O que fazer:</span>
                 </div>
@@ -482,7 +482,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
               <button
                 onClick={() => copyToClipboard(reportText)}
                 disabled={!reportText}
-                className="px-3 py-2 rounded-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
+                className="px-3 py-2 rounded-lg bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
                 title={reportText ? 'Copiar relatorio para suporte' : 'Relatorio indisponivel'}
               >
                 <Copy size={14} />
@@ -507,8 +507,8 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
             onClick={() => props.setFilter(b.k)}
             className={`px-3 py-1.5 rounded-lg border text-xs transition-colors ${
               props.filter === b.k
-                ? 'bg-white/10 text-white border-white/20'
-                : 'bg-zinc-900/40 text-gray-300 border-white/10 hover:bg-white/5'
+                ? 'bg-white/10 dark:text-white text-[var(--ds-text-primary)] border-[var(--ds-border-strong)]'
+                : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] border-[var(--ds-border-default)] hover:bg-[var(--ds-bg-hover)]'
             }`}
           >
             {b.label}
@@ -520,8 +520,8 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
           onClick={() => setSimpleMode((v) => !v)}
           className={`ml-2 px-3 py-1.5 rounded-lg border text-xs transition-colors ${
             simpleMode
-              ? 'bg-emerald-500/10 text-emerald-200 border-emerald-500/20'
-              : 'bg-zinc-900/40 text-gray-300 border-white/10 hover:bg-white/5'
+              ? 'bg-purple-500/10 text-purple-200 border-purple-500/20'
+              : 'bg-[var(--ds-bg-surface)] text-[var(--ds-text-secondary)] border-[var(--ds-border-default)] hover:bg-[var(--ds-bg-hover)]'
           }`}
           title={simpleMode ? 'Modo simples (recomendado)' : 'Modo tecnico (para dev/suporte)'}
         >
@@ -556,9 +556,9 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
                       <StatusBadge status={c.status} />
-                      <h3 className="text-sm font-semibold text-white truncate">{friendly.title}</h3>
+                      <h3 className="text-sm font-semibold dark:text-white text-[var(--ds-text-primary)] truncate">{friendly.title}</h3>
                     </div>
-                    <div className="mt-2 text-sm text-gray-300">{friendly.message}</div>
+                    <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">{friendly.message}</div>
 
                     {simpleMode && friendly.why && (
                       <div className="mt-2 text-xs text-gray-500">Por que isso importa: {friendly.why}</div>
@@ -579,10 +579,10 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
 
                     {c.details && (
                       <details className="mt-4">
-                        <summary className="cursor-pointer text-xs text-gray-400 hover:text-white transition-colors">
+                        <summary className="cursor-pointer text-xs text-gray-400 hover:text-[var(--ds-text-primary)] transition-colors">
                           {simpleMode ? 'Detalhes (para suporte)' : 'Ver detalhes tecnicos'}
                         </summary>
-                        <pre className="mt-3 text-xs bg-zinc-950/50 border border-white/10 rounded-xl p-4 overflow-auto text-gray-200">
+                        <pre className="mt-3 text-xs bg-zinc-950/50 border border-[var(--ds-border-default)] rounded-xl p-4 overflow-auto text-[var(--ds-text-secondary)]">
                           {formatJsonMaybe(c.details)}
                         </pre>
                       </details>
@@ -599,7 +599,7 @@ export function MetaDiagnosticsView(props: MetaDiagnosticsViewProps) {
       {reportText && (
         <Container variant="glass" padding="md">
           <div className="text-xs text-gray-500">Relatorio (resumo)</div>
-          <pre className="mt-3 text-xs bg-zinc-950/50 border border-white/10 rounded-xl p-4 overflow-auto text-gray-200 whitespace-pre-wrap">
+          <pre className="mt-3 text-xs bg-zinc-950/50 border border-[var(--ds-border-default)] rounded-xl p-4 overflow-auto text-[var(--ds-text-secondary)] whitespace-pre-wrap">
             {reportText}
           </pre>
         </Container>

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import * as React from 'react'
 import { Wand2 } from 'lucide-react'
@@ -35,8 +35,8 @@ export function Simulate10033Card() {
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="text-xs text-gray-500">Simulador</div>
-          <div className="mt-2 text-sm text-white font-medium">Reproduzir erro 100/33 (sem enviar mensagem)</div>
-          <div className="mt-2 text-sm text-gray-300">
+          <div className="mt-2 text-sm dark:text-white text-[var(--ds-text-primary)] font-medium">Reproduzir erro 100/33 (sem enviar mensagem)</div>
+          <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">
             Util pra aula/suporte: dispara o erro classico de "ID/permissao" sem risco de mandar mensagem.
           </div>
         </div>
@@ -44,7 +44,7 @@ export function Simulate10033Card() {
           type="button"
           onClick={run}
           disabled={isRunning}
-          className="px-3 py-2 rounded-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
+          className="px-3 py-2 rounded-lg bg-white/5 dark:text-white text-[var(--ds-text-primary)] hover:bg-[var(--ds-bg-hover)] border border-[var(--ds-border-default)] hover:border-[var(--ds-border-strong)] transition-all text-sm font-medium inline-flex items-center gap-2 disabled:opacity-50"
           title="Executa um POST invalido em /{WABA_ID}/messages para gerar 100/33"
         >
           <Wand2 size={14} /> {isRunning ? 'Simulando...' : 'Simular agora'}
@@ -52,29 +52,29 @@ export function Simulate10033Card() {
       </div>
 
       {result && (
-        <div className="mt-4 bg-zinc-900/40 border border-white/10 rounded-xl p-4">
+        <div className="mt-4 bg-[var(--ds-bg-surface)] border border-[var(--ds-border-default)] rounded-xl p-4">
           {result.ok === false ? (
             <>
               <div className="flex items-center justify-between gap-3">
-                <div className="text-sm text-white font-semibold">Falhou</div>
+                <div className="text-sm dark:text-white text-[var(--ds-text-primary)] font-semibold">Falhou</div>
                 <StatusBadge status="fail" />
               </div>
-              <div className="mt-2 text-sm text-gray-200">{result.error}</div>
+              <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">{result.error}</div>
               {result.details && (
-                <pre className="mt-3 text-xs text-gray-300 overflow-auto whitespace-pre-wrap">{formatJsonMaybe(result.details)}</pre>
+                <pre className="mt-3 text-xs text-[var(--ds-text-secondary)] overflow-auto whitespace-pre-wrap">{formatJsonMaybe(result.details)}</pre>
               )}
             </>
           ) : (
             <>
               <div className="flex items-center justify-between gap-3">
-                <div className="text-sm text-white font-semibold">Resultado</div>
+                <div className="text-sm dark:text-white text-[var(--ds-text-primary)] font-semibold">Resultado</div>
                 <StatusBadge status="pass" />
               </div>
-              <div className="mt-2 text-sm text-gray-200">
+              <div className="mt-2 text-sm text-[var(--ds-text-secondary)]">
                 Endpoint testado: <span className="font-mono">/{'{'}WABA_ID{'}'}/messages</span> · status HTTP: <span className="font-mono">{String((result as { attempt?: { status?: number } })?.attempt?.status ?? '—')}</span>
               </div>
               {normalized?.message && (
-                <div className="mt-3 text-sm text-gray-200">
+                <div className="mt-3 text-sm text-[var(--ds-text-secondary)]">
                   <div><span className="text-gray-400">Mensagem:</span> {String(normalized.message)}</div>
                   <div className="mt-1 flex flex-wrap gap-2">
                     <Pill tone="neutral">code: {String(normalized.code ?? '—')}</Pill>
@@ -84,8 +84,8 @@ export function Simulate10033Card() {
                 </div>
               )}
               <details className="mt-4">
-                <summary className="cursor-pointer text-sm text-gray-200 underline">Ver resposta bruta da Meta</summary>
-                <pre className="mt-3 text-xs text-gray-300 overflow-auto whitespace-pre-wrap">{formatJsonMaybe((result as { result?: unknown })?.result || null)}</pre>
+                <summary className="cursor-pointer text-sm text-[var(--ds-text-secondary)] underline">Ver resposta bruta da Meta</summary>
+                <pre className="mt-3 text-xs text-[var(--ds-text-secondary)] overflow-auto whitespace-pre-wrap">{formatJsonMaybe((result as { result?: unknown })?.result || null)}</pre>
               </details>
             </>
           )}

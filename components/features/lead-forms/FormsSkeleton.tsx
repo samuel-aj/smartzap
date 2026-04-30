@@ -1,4 +1,4 @@
-import { Page, PageDescription, PageHeader, PageTitle, PageActions } from '@/components/ui/page'
+﻿import { Page, PageDescription, PageHeader, PageTitle, PageActions } from '@/components/ui/page'
 import { Container } from '@/components/ui/container'
 
 /**
@@ -22,40 +22,40 @@ export function FormsSkeleton() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-white/5">
+              <tr className="border-b border-[var(--ds-border-subtle)]">
                 <th className="px-6 py-4 text-left">
-                  <div className="h-4 w-20 bg-zinc-800 rounded animate-pulse" />
+                  <div className="h-4 w-20 bg-[var(--ds-bg-surface)] rounded animate-pulse" />
                 </th>
                 <th className="px-6 py-4 text-left">
-                  <div className="h-4 w-16 bg-zinc-800 rounded animate-pulse" />
+                  <div className="h-4 w-16 bg-[var(--ds-bg-surface)] rounded animate-pulse" />
                 </th>
                 <th className="px-6 py-4 text-left">
-                  <div className="h-4 w-24 bg-zinc-800 rounded animate-pulse" />
+                  <div className="h-4 w-24 bg-[var(--ds-bg-surface)] rounded animate-pulse" />
                 </th>
                 <th className="px-6 py-4 text-right">
-                  <div className="h-4 w-16 bg-zinc-800 rounded animate-pulse ml-auto" />
+                  <div className="h-4 w-16 bg-[var(--ds-bg-surface)] rounded animate-pulse ml-auto" />
                 </th>
               </tr>
             </thead>
             <tbody>
               {[...Array(5)].map((_, i) => (
-                <tr key={i} className="border-b border-white/5">
+                <tr key={i} className="border-b border-[var(--ds-border-subtle)]">
                   <td className="px-6 py-4">
                     <div className="space-y-2">
-                      <div className="h-4 w-40 bg-zinc-800/60 rounded animate-pulse" />
-                      <div className="h-3 w-24 bg-zinc-800/40 rounded animate-pulse" />
+                      <div className="h-4 w-40 bg-[var(--ds-bg-surface)] rounded animate-pulse" />
+                      <div className="h-3 w-24 bg-[var(--ds-bg-surface)] rounded animate-pulse" />
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <div className="h-6 w-16 bg-zinc-800/50 rounded-full animate-pulse" />
+                    <div className="h-6 w-16 bg-[var(--ds-bg-surface)] rounded-full animate-pulse" />
                   </td>
                   <td className="px-6 py-4">
-                    <div className="h-4 w-48 bg-zinc-800/40 rounded animate-pulse" />
+                    <div className="h-4 w-48 bg-[var(--ds-bg-surface)] rounded animate-pulse" />
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex justify-end gap-2">
-                      <div className="h-8 w-8 bg-zinc-800/50 rounded animate-pulse" />
-                      <div className="h-8 w-8 bg-zinc-800/50 rounded animate-pulse" />
+                      <div className="h-8 w-8 bg-[var(--ds-bg-surface)] rounded animate-pulse" />
+                      <div className="h-8 w-8 bg-[var(--ds-bg-surface)] rounded animate-pulse" />
                     </div>
                   </td>
                 </tr>

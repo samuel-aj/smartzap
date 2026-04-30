@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import {
@@ -123,45 +123,45 @@ export function CreatePermanentTokenStep({
         {/* Instruções */}
         <div className="space-y-3">
           <h4 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-            <Shield className="w-4 h-4 text-emerald-500" />
+            <Shield className="w-4 h-4 text-purple-500" />
             No Meta Business:
           </h4>
 
-          <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-            <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
+          <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+            <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
             <p className="text-zinc-300">
-              Acesse <strong className="text-white">Configurações do negócio</strong> → <strong className="text-white">Usuários do sistema</strong>
+              Acesse <strong className="dark:text-white text-[var(--ds-text-primary)]">Configurações do negócio</strong> → <strong className="dark:text-white text-[var(--ds-text-primary)]">Usuários do sistema</strong>
             </p>
           </div>
 
-          <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-            <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">2</span>
+          <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+            <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">2</span>
             <div className="text-zinc-300">
-              <p>Clique em <strong className="text-white">"Adicionar"</strong></p>
-              <p className="text-zinc-500 text-sm">Nome: "SmartZap API" • Função: Admin</p>
+              <p>Clique em <strong className="dark:text-white text-[var(--ds-text-primary)]">"Adicionar"</strong></p>
+              <p className="text-[var(--ds-text-muted)] text-sm">Nome: "SmartZap API" • Função: Admin</p>
             </div>
           </div>
 
-          <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-            <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
+          <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+            <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
             <p className="text-zinc-300">
-              Selecione o usuário e clique em <strong className="text-white">"Atribuir ativos"</strong>
+              Selecione o usuário e clique em <strong className="dark:text-white text-[var(--ds-text-primary)]">"Atribuir ativos"</strong>
             </p>
           </div>
 
-          <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-            <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">4</span>
+          <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+            <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">4</span>
             <div className="text-zinc-300">
-              <p>Atribua seu <strong className="text-white">App</strong></p>
-              <p className="text-zinc-500 text-sm">Ative "Gerenciar aplicativo" em Controle total</p>
+              <p>Atribua seu <strong className="dark:text-white text-[var(--ds-text-primary)]">App</strong></p>
+              <p className="text-[var(--ds-text-muted)] text-sm">Ative "Gerenciar aplicativo" em Controle total</p>
             </div>
           </div>
 
-          <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-            <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">5</span>
+          <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+            <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">5</span>
             <div className="text-zinc-300">
-              <p>Atribua sua <strong className="text-white">Conta WhatsApp Business</strong></p>
-              <p className="text-zinc-500 text-sm">Ative "Gerenciar conta do WhatsApp Business"</p>
+              <p>Atribua sua <strong className="dark:text-white text-[var(--ds-text-primary)]">Conta WhatsApp Business</strong></p>
+              <p className="text-[var(--ds-text-muted)] text-sm">Ative "Gerenciar conta do WhatsApp Business"</p>
             </div>
           </div>
         </div>
@@ -178,12 +178,12 @@ export function CreatePermanentTokenStep({
         </a>
 
         {/* Confirmação */}
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)]">
           <Checkbox
             id="confirm-user"
             checked={userCreated}
             onCheckedChange={(checked) => setUserCreated(checked === true)}
-            className="mt-0.5 border-emerald-500 data-[state=checked]:bg-emerald-500"
+            className="mt-0.5 border-purple-500 data-[state=checked]:bg-purple-500"
           />
           <label
             htmlFor="confirm-user"
@@ -211,7 +211,7 @@ export function CreatePermanentTokenStep({
         </div>
 
         {onSkip && (
-          <p className="text-xs text-zinc-500 text-center">
+          <p className="text-xs text-[var(--ds-text-muted)] text-center">
             Você pode criar o token permanente depois em Configurações
           </p>
         )}
@@ -237,36 +237,36 @@ export function CreatePermanentTokenStep({
           Ainda na página do usuário do sistema:
         </h4>
 
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
           <p className="text-zinc-300">
-            Clique em <strong className="text-white">"Gerar token"</strong>
+            Clique em <strong className="dark:text-white text-[var(--ds-text-primary)]">"Gerar token"</strong>
           </p>
         </div>
 
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">2</span>
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">2</span>
           <p className="text-zinc-300">
-            Selecione seu <strong className="text-white">App</strong> no dropdown
+            Selecione seu <strong className="dark:text-white text-[var(--ds-text-primary)]">App</strong> no dropdown
           </p>
         </div>
 
-        <div className="flex items-start gap-3 p-3 rounded-lg bg-zinc-800/50">
-          <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
+        <div className="flex items-start gap-3 p-3 rounded-lg bg-[var(--ds-bg-surface)]">
+          <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
           <p className="text-zinc-300">
-            Adicione as <strong className="text-white">permissões</strong> abaixo:
+            Adicione as <strong className="dark:text-white text-[var(--ds-text-primary)]">permissões</strong> abaixo:
           </p>
         </div>
       </div>
 
       {/* Permissões */}
-      <div className="p-4 rounded-xl bg-zinc-800/50 border border-zinc-700 space-y-2">
-        <p className="text-xs text-zinc-400 uppercase tracking-wide mb-3">Permissões necessárias:</p>
+      <div className="p-4 rounded-xl bg-[var(--ds-bg-surface)] border border-[var(--ds-border-strong)] space-y-2">
+        <p className="text-xs text-[var(--ds-text-muted)] uppercase tracking-wide mb-3">Permissões necessárias:</p>
         {permissions.map((perm) => (
-          <div key={perm.name} className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/50">
+          <div key={perm.name} className="flex items-center justify-between p-2 rounded-lg bg-[var(--ds-bg-elevated)]">
             <div>
-              <code className="text-sm text-emerald-400 font-mono">{perm.name}</code>
-              <p className="text-xs text-zinc-500">{perm.description}</p>
+              <code className="text-sm text-purple-400 font-mono">{perm.name}</code>
+              <p className="text-xs text-[var(--ds-text-muted)]">{perm.description}</p>
             </div>
             <Button
               variant="ghost"
@@ -275,7 +275,7 @@ export function CreatePermanentTokenStep({
               className="flex-shrink-0"
             >
               {copiedPermission === perm.name ? (
-                <Check className="w-4 h-4 text-emerald-500" />
+                <Check className="w-4 h-4 text-purple-500" />
               ) : (
                 <Copy className="w-4 h-4" />
               )}
@@ -285,9 +285,9 @@ export function CreatePermanentTokenStep({
       </div>
 
       {/* Input do token */}
-      <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/5 space-y-3">
+      <div className="p-4 rounded-xl border border-purple-500/30 bg-purple-500/5 space-y-3">
         <Label className="text-zinc-300 flex items-center gap-2">
-          <Key className="w-4 h-4 text-emerald-500" />
+          <Key className="w-4 h-4 text-purple-500" />
           Cole seu Token Permanente
         </Label>
         <Input
@@ -297,7 +297,7 @@ export function CreatePermanentTokenStep({
           onChange={(e) => setPermanentToken(e.target.value)}
           className="font-mono"
         />
-        <p className="text-xs text-zinc-500">
+        <p className="text-xs text-[var(--ds-text-muted)]">
           O token começa com "EAA" e tem centenas de caracteres
         </p>
       </div>
