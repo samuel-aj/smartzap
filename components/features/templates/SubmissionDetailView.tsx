@@ -249,7 +249,7 @@ interface StatCardProps {
     /** Total value for percentage calculation */
     total: number
     /** Color theme for the card */
-    color: 'emerald' | 'yellow' | 'red' | 'zinc'
+    color: 'emerald' | 'yellow' | 'red' | 'zinc' | 'purple'
     /** Icon component to display */
     icon: React.ComponentType<{ className?: string }>
 }
@@ -262,6 +262,7 @@ function StatCard({ label, count, total, color, icon: Icon }: StatCardProps) {
         yellow: 'text-amber-300 bg-amber-500/10 border-amber-500/20',
         red: 'text-amber-200 bg-amber-500/10 border-amber-500/20',
         zinc: 'text-gray-400 bg-zinc-500/10 border-[var(--ds-border-default)]',
+        purple: 'text-purple-300 bg-purple-500/10 border-purple-500/20',
     };
 
     return (
