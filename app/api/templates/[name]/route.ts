@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getWhatsAppCredentials } from '@/lib/whatsapp-credentials'
 import { fetchWithTimeout, safeJson } from '@/lib/server-http'
 import { ensureHeaderMediaPreviewUrl } from '@/lib/whatsapp/template-media-preview'
+import { templateDb } from '@/lib/supabase-db'
 
 // GET /api/templates/[name] - Buscar template específico
 export async function GET(
@@ -87,6 +88,43 @@ export async function GET(
       { error: error instanceof Error ? error.message : 'Erro interno' },
       { status: 500 }
     )
+  }
+}
+
+// PATCH /api/templates/[name] - Atualizar metadados locais (alias de exibição)
+// Não toca em nada na Meta; só persiste o display_name no banco local.
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: Promise<{ name: string }> }
+) {
+  try {
+    const { name: rawName } = await params
+    const name = decodeURIComponent(rawName)
+    const body = await request.json().catch(() => ({}))
+    const { displayName, language = 'pt_BR' } = body as {
+      displayName?: string | null
+      language?: string
+    }
+
+    const trimmed =
+      typeof displayName === 'string' ? displayName.trim() : null
+    if (trimmed && trimmed.length > 80) {
+      return NextResponse.json(
+        { error: 'Nome de exibição deve ter no máximo 80 caracteres.' },
+        { status: 400 }
+      )
+    }
+
+    await templateDb.setDisplayName(name, language, trimmed && trimmed.length > 0 ? trimmed : null)
+
+    return NextResponse.json({ success: true, displayName: trimmed || null })
+  } catch (error) {
+    console.error('Patch Template Error:', error)
+    const message =
+      error instanceof Error
+        ? error.message
+        : (error as any)?.message || 'Erro interno'
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }
 

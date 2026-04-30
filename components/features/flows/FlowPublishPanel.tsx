@@ -336,11 +336,11 @@ export function FlowPublishPanel({
                       </td>
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="p-2 bg-[var(--ds-bg-surface)] rounded-lg text-gray-400 group-hover:text-purple-200 transition-colors">
+                          <div className="p-2 bg-[var(--ds-bg-surface)] rounded-lg text-gray-400 group-hover:text-[var(--ds-text-brand)] transition-colors">
                             <FileText size={16} />
                           </div>
                           <span
-                            className="font-medium dark:text-white text-[var(--ds-text-primary)] group-hover:text-purple-200 transition-colors truncate max-w-50"
+                            className="font-medium dark:text-white text-[var(--ds-text-primary)] group-hover:text-[var(--ds-text-brand)] transition-colors truncate max-w-50"
                             title={flow.name}
                           >
                             {flow.name}

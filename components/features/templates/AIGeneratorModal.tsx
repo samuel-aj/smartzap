@@ -157,7 +157,7 @@ export const AIGeneratorModal = ({
                 </h3>
                 <button
                   onClick={onSelectAll}
-                  className="text-sm text-purple-200 hover:text-purple-100"
+                  className="text-sm text-[var(--ds-text-brand)] hover:text-[var(--ds-brand-primary)]"
                 >
                   {selectedTemplates.size === generatedTemplates.length
                     ? 'Desmarcar todos'

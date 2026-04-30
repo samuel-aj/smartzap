@@ -208,6 +208,25 @@ export const templateService = {
     return api.get(`/api/templates/${encodeURIComponent(name)}${query}`);
   },
 
+  // Atualizar alias de exibição local (não enviado à Meta)
+  setDisplayName: async (
+    name: string,
+    displayName: string | null,
+    language: string = 'pt_BR',
+  ): Promise<{ success: boolean; displayName: string | null }> => {
+    const response = await fetch(`/api/templates/${encodeURIComponent(name)}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ displayName, language }),
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(data?.error || 'Falha ao atualizar nome de exibição');
+    }
+    return data;
+  },
+
   // Deletar template da Meta
   delete: async (name: string): Promise<{ success: boolean; message: string }> => {
     const response = await fetch(`/api/templates/${encodeURIComponent(name)}`, {

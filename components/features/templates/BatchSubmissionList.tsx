@@ -99,7 +99,7 @@ export function BatchSubmissionList({
                                         <td className="px-6 py-4 max-w-[300px]">
                                             <div className="flex items-center gap-3">
                                                 <div className="min-w-0">
-                                                    <h3 className="font-medium dark:text-white text-[var(--ds-text-primary)] group-hover:text-purple-200 transition-colors truncate max-w-[280px]" title={submission.name}>
+                                                    <h3 className="font-medium dark:text-white text-[var(--ds-text-primary)] group-hover:text-[var(--ds-text-brand)] transition-colors truncate max-w-[280px]" title={submission.name}>
                                                         {submission.name}
                                                     </h3>
                                                     <span className="text-xs text-[var(--ds-text-muted)]">

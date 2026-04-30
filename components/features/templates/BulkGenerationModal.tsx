@@ -382,7 +382,7 @@ export const BulkGenerationModal: React.FC<BulkGenerationModalProps> = ({
                                 </button>
                                 <button
                                     onClick={onSelectAll}
-                                    className="px-4 py-2 text-[var(--ds-text-muted)] hover:text-purple-300 text-sm font-medium transition-colors"
+                                    className="px-4 py-2 text-[var(--ds-text-muted)] hover:text-[var(--ds-text-brand)] text-sm font-medium transition-colors"
                                 >
                                     {selectedTemplates.size === generatedTemplates.length ? 'Desmarcar Todos' : 'Selecionar Todos'}
                                 </button>

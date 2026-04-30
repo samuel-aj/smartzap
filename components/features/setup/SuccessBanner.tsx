@@ -25,10 +25,10 @@ export function SuccessBanner({ onSendTest, dismissible = true }: SuccessBannerP
             <CheckCircle2 className="w-5 h-5 text-purple-400" />
           </div>
           <div>
-            <h3 className="font-semibold text-purple-200">
+            <h3 className="font-semibold dark:text-purple-200 text-purple-800">
               WhatsApp conectado com sucesso!
             </h3>
-            <p className="text-sm text-purple-200/70 mt-0.5">
+            <p className="text-sm dark:text-purple-200/70 text-purple-700 mt-0.5">
               Que tal enviar sua primeira mensagem de teste?
             </p>
           </div>
@@ -39,7 +39,7 @@ export function SuccessBanner({ onSendTest, dismissible = true }: SuccessBannerP
             <Button
               variant="ghost"
               size="sm"
-              className="text-purple-200/70 hover:text-purple-200 hover:bg-purple-500/10"
+              className="dark:text-purple-200/70 dark:hover:text-purple-200 text-purple-700/70 hover:text-purple-800 hover:bg-purple-500/10"
               onClick={() => setIsDismissed(true)}
             >
               Depois
@@ -59,7 +59,7 @@ export function SuccessBanner({ onSendTest, dismissible = true }: SuccessBannerP
       {dismissible && (
         <button
           onClick={() => setIsDismissed(true)}
-          className="absolute top-3 right-3 p-1 text-purple-200/50 hover:text-purple-200 transition-colors hidden sm:block"
+          className="absolute top-3 right-3 p-1 dark:text-purple-200/50 dark:hover:text-purple-200 text-purple-700/50 hover:text-purple-800 transition-colors hidden sm:block"
           aria-label="Fechar"
         >
           <X className="w-4 h-4" />

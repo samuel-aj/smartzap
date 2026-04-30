@@ -119,7 +119,7 @@ export function FlowEndpointPanel({ devBaseUrl }: FlowEndpointPanelProps) {
               <span className="text-xs text-gray-400">URL do Endpoint</span>
               <button
                 onClick={() => resolvedEndpointUrl && copyToClipboard(resolvedEndpointUrl, 'url')}
-                className="text-xs text-purple-300 hover:text-purple-200 flex items-center gap-1"
+                className="text-xs text-[var(--ds-text-brand)] hover:text-[var(--ds-brand-primary-hover)] flex items-center gap-1"
               >
                 {copied === 'url' ? <Check size={12} /> : <Copy size={12} />}
                 {copied === 'url' ? 'Copiado' : 'Copiar'}
@@ -135,7 +135,7 @@ export function FlowEndpointPanel({ devBaseUrl }: FlowEndpointPanelProps) {
               </p>
             ) : null}
             {devEndpointUrl ? (
-              <p className="mt-2 text-[11px] text-purple-300">
+              <p className="mt-2 text-[11px] text-[var(--ds-text-brand)]">
                 URL dev (túnel) ativa nesta tela.
               </p>
             ) : null}
